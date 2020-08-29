@@ -17,34 +17,35 @@ struct Sidebar: View {
     struct Item: View {
         @Binding public var select: Test?
         @Binding public var over:Test?
-        let feature: Test
+        
+        let test: Test
         
         var body: some View {
             ZStack(alignment: .leading) {
                 RoundedRectangle(cornerRadius: 8)
-                    .fill(backgroundColor(feature: feature))
-                Text("\(feature.rawValue)")
-                    .foregroundColor(feature == select ? Color.white : Color.secondary)
+                    .fill(backgroundColor(test: test))
+                Text("\(test.rawValue)")
+                    .foregroundColor(test == select ? Color.white : Color.secondary)
                     .padding(.horizontal, 10)
             }
             .contentShape(Rectangle())
             .onTapGesture {
-                select = feature
+                select = test
             }
             .onHover {
                 (pHover:Bool) in
                 if pHover {
-                    over = feature
+                    over = test
                 }
             }
         }
 
-        func backgroundColor(feature pFeature:Test) -> Color {
+        func backgroundColor(test pTest:Test) -> Color {
             var lRet = Color.clear
             
-            if select == pFeature {
+            if select == pTest {
                 lRet = Color.gray.opacity(0.50)
-            } else if let lOver = over, lOver == pFeature {
+            } else if let lOver = over, lOver == pTest {
                 lRet = Color.gray.opacity(0.25)
             }
             
@@ -60,7 +61,7 @@ struct Sidebar: View {
                     ForEach(swiftUI, id: \.self) {
                         feature in
 
-                        Item(select: $select, over: $over, feature: feature)
+                        Item(select: $select, over: $over, test: feature)
                     }
                 }
 
@@ -68,7 +69,7 @@ struct Sidebar: View {
                     ForEach(components, id: \.self) {
                         feature in
                         
-                        Item(select: $select, over: $over, feature: feature)
+                        Item(select: $select, over: $over, test: feature)
                     }
                 }
             }

@@ -11,8 +11,8 @@ struct TestSlider: View {
     @State private var beer: Double = 1
     
     var body: some View {
-        TestBody(feature: .slider) {
-            TestItem("Select number of beers") {
+        TestBody(test: .slider) {
+            TestCase("Select number of beers") {
                 Slider(value: $beer, in: 0...10, step: 1.0) {
                     Text("How much beer are you going to drink?")
                 }

@@ -15,8 +15,8 @@ struct TestText: View {
     }()
     
     var body: some View {
-        TestBody(feature: .text) {
-            TestItem("Basics modifiers") {
+        TestBody(test: .text) {
+            TestCase("Basics modifiers") {
                 Text("Bold")
                     .bold()
                 
@@ -33,7 +33,7 @@ struct TestText: View {
                 }
             }
             
-            TestItem("Predefined fonts") {
+            TestCase("Predefined fonts") {
                 Group {
                     Text("LargeTitle")
                         .font(.largeTitle)
@@ -86,7 +86,7 @@ struct TestText: View {
                 }
             }
             
-            TestItem("Concat texts") {
+            TestCase("Concat texts") {
                 Text("Bold").bold() + Text(", ") + Text("Italic").italic() + Text(", ") + Text("Underline").underline()
 
                 TestResult {
@@ -94,7 +94,7 @@ struct TestText: View {
                 }
             }
             
-            TestItem("Multiline text alignment") {
+            TestCase("Multiline text alignment") {
                 Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n Vestibulum nec neque vel nisi scelerisque efficitur.\n Ut rhoncus convallis purus non volutpat.\n Ut dictum mauris id odio dignissim tincidunt.\n Mauris nec pulvinar neque.\n Ut eu volutpat ligula, ut suscipit nibh.\n Sed ipsum odio, semper ac velit vel, tempor pharetra massa.\n Curabitur metus diam, scelerisque in nunc et, aliquam fermentum lectus.\n Aliquam faucibus ex eget sagittis tincidunt.\n Maecenas viverra fermentum tortor eget ornare.\n Nam ornare, lacus nec auctor euismod, magna lacus efficitur ipsum, nec tristique turpis nunc nec risus.\n Sed dapibus pharetra vehicula.\n Proin accumsan convallis nunc sit amet bibendum.\n")
                     .multilineTextAlignment(.leading)
 
@@ -111,7 +111,7 @@ struct TestText: View {
                 }
             }
             
-            TestItem("Text with string interpolation") {
+            TestCase("Text with string interpolation") {
                 Text("Now it's: \(Date(), formatter: Self.dateFormatter)")
 
                 TestResult {

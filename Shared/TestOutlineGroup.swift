@@ -15,8 +15,8 @@ struct Item: Identifiable {
 
 struct TestOutlineGroup: View {
     var body: some View {
-        TestBody(feature: .disclosureGroup) {
-            TestItem("OutlineGroup with VStack and 3 levels") {
+        TestBody(test: .disclosureGroup) {
+            TestCase("OutlineGroup with VStack and 3 levels") {
                 VStack {
                     ForEach(items()) {
                         item in
@@ -36,7 +36,7 @@ struct TestOutlineGroup: View {
                 }
             }
 
-            TestItem("OutlineGroup with List and 3 levels") {
+            TestCase("OutlineGroup with List and 3 levels") {
                 List {
                     ForEach(items()) {
                         item in

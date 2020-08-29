@@ -11,8 +11,8 @@ struct TestTextField: View {
     @State var name: String = "John Doe"
     
     var body: some View {
-        TestBody(feature: .textField) {
-            TestItem("TextField .textFieldStyle(DefaultTextFieldStyle()") {
+        TestBody(test: .textField) {
+            TestCase("TextField .textFieldStyle(DefaultTextFieldStyle()") {
                 HStack {
                     Text("Name:")
                     TextField("Name's placeholder", text: $name)
@@ -45,7 +45,7 @@ struct TestTextField: View {
                     Check(valid:  true, test: ".multilineTextAlignment(.trailing)")
                 }
             }
-            TestItem("TextField .textFieldStyle(PlainTextFieldStyle())") {
+            TestCase("TextField .textFieldStyle(PlainTextFieldStyle())") {
                 HStack {
                     Text("Name:")
                     TextField("Name's placeholder", text: $name)
@@ -57,7 +57,7 @@ struct TestTextField: View {
                     Check(valid:  true, test: ".textFieldStyle(PlainTextFieldStyle())")
                 }
             }
-            TestItem("TextField .textFieldStyle(RoundedBorderTextFieldStyle())") {
+            TestCase("TextField .textFieldStyle(RoundedBorderTextFieldStyle())") {
                 HStack {
                     Text("Name:")
                     TextField("Name's placeholder", text: $name)
@@ -69,7 +69,7 @@ struct TestTextField: View {
                     Check(valid:  true, test: ".textFieldStyle(RoundedBorderTextFieldStyle())")
                 }
             }
-            TestItem("TextField .textFieldStyle(SquareBorderTextFieldStyle())") {
+            TestCase("TextField .textFieldStyle(SquareBorderTextFieldStyle())") {
                 #if os(macOS)
                 HStack {
                     Text("Name:")

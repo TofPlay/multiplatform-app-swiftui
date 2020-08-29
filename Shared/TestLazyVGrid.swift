@@ -24,8 +24,8 @@ struct TestLazyVGrid: View {
     ]
     
     var body: some View {
-        TestBody(feature: .lazyVGrid) {
-            TestItem("Fixed, 1 columns") {
+        TestBody(test: .lazyVGrid) {
+            TestCase("Fixed, 1 columns") {
                 LazyVGrid(columns: columns1) {
                     ForEach(items, id: \.self) {
                         item in
@@ -46,7 +46,7 @@ struct TestLazyVGrid: View {
                     Check(valid:  true, test: "LazyVGrid + 1 GridItem(.fixed())")
                 }
             }
-            TestItem("Fixed, 3 columns")  {
+            TestCase("Fixed, 3 columns")  {
                 LazyVGrid(columns: columns2) {
                     ForEach(items, id: \.self) {
                         item in
@@ -67,7 +67,7 @@ struct TestLazyVGrid: View {
                     Check(valid:  true, test: "LazyVGrid + 3 GridItem(.fixed())")
                 }
             }
-            TestItem("Flexible, 3 columns")  {
+            TestCase("Flexible, 3 columns")  {
                 LazyVGrid(columns: columns3) {
                     ForEach(items, id: \.self) {
                         item in

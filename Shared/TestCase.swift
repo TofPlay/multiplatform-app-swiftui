@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TestItem<Content:View>: View {
+struct TestCase<Content:View>: View {
     let title: String
     let alignment: HorizontalAlignment
     let content:Content
@@ -37,7 +37,7 @@ struct TestItem<Content:View>: View {
     
 struct TestItem_Previews: PreviewProvider {
     static var previews: some View {
-        TestItem("Item") {
+        TestCase("Item") {
             
         }
     }

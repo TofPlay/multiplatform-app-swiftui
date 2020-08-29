@@ -15,8 +15,8 @@ struct TestProgressView: View {
     @State private var step:CGFloat = 10
     
     var body: some View {
-        TestBody(feature: .progressView) {
-            TestItem("Simple spinner") {
+        TestBody(test: .progressView) {
+            TestCase("Simple spinner") {
                 ProgressView()
 
                 TestResult {
@@ -24,7 +24,7 @@ struct TestProgressView: View {
                 }
             }
             
-            TestItem("ProgressView with a text") {
+            TestCase("ProgressView with a text") {
                 ProgressView("This a text")
 
                 TestResult {
@@ -32,7 +32,7 @@ struct TestProgressView: View {
                 }
             }
             
-            TestItem("ProgressView .progressViewStyle(LinearProgressViewStyle())") {
+            TestCase("ProgressView .progressViewStyle(LinearProgressViewStyle())") {
                 ProgressView(value: 0.65)
                     .frame(width: 300)
                     .progressViewStyle(LinearProgressViewStyle())
@@ -42,7 +42,7 @@ struct TestProgressView: View {
                 }
             }
             
-            TestItem("ProgressView .progressViewStyle(CircularProgressViewStyle())") {
+            TestCase("ProgressView .progressViewStyle(CircularProgressViewStyle())") {
                 ProgressView(value: 0.65)
                     .frame(width: 300)
                     .progressViewStyle(CircularProgressViewStyle())
@@ -56,7 +56,7 @@ struct TestProgressView: View {
                 }
             }
             
-            TestItem("ProgressView with a timer") {
+            TestCase("ProgressView with a timer") {
                 ProgressView("ProgressView \(value, specifier: "%.0f") to \(total, specifier: "%.0f"), current: \(current, specifier: "%.0f")", value: current, total: total)
                     .frame(width: 300)
                 Button("Start") {

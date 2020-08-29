@@ -11,8 +11,8 @@ struct TestColorPicker: View {
     @State private var color: Color = Color.blue
     
     var body: some View {
-        TestBody(feature: .colorPicker) {
-            TestItem("Select a color") {
+        TestBody(test: .colorPicker) {
+            TestCase("Select a color") {
                 ColorPicker("",selection: $color)
                     .frame(width: 150, height: 50)
                 

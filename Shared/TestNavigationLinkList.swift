@@ -78,7 +78,7 @@ struct TestNavigationLinkList: View {
     @State private var child3: Bool = false
     
     var body: some View {
-        TestItem("NavigationLink with list") {
+        TestCase("NavigationLink with list") {
             List {
                 NavigationLink(
                     destination: ChildView(),

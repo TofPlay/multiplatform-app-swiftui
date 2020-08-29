@@ -15,8 +15,8 @@ struct TestTextEditor: View {
     """
     
     var body: some View {
-        TestBody(feature: .textEditor) {
-            TestItem("Editor") {
+        TestBody(test: .textEditor) {
+            TestCase("Editor") {
                 TextEditor(text: $editor)
                     .frame(height: 200)
                     .border(Color.black, width: 1)

@@ -34,7 +34,7 @@ struct TestForm: View {
     ]
     
     var body: some View {
-        TestBody(feature: .form, scroll: false) {
+        TestBody(test: .form, scroll: false) {
             Form {
                 Section(header: Text("Personal")) {
                     TextField("Your name", text: $name)

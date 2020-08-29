@@ -29,8 +29,8 @@ struct TestMap: View {
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 48.855372, longitude: 2.313163), latitudinalMeters: 4000, longitudinalMeters: 4000)
     
     var body: some View {
-        TestBody(feature: .map, scroll: false) {
-            TestItem("Display map of Paris with pins for Eiffel Tower (green) and Louvre Museum (blue)") {
+        TestBody(test: .map, scroll: false) {
+            TestCase("Display map of Paris with pins for Eiffel Tower (green) and Louvre Museum (blue)") {
                 Map(coordinateRegion: $region, annotationItems: places) {
                     (pPlace: Place) in
                     MapPin(coordinate: pPlace.coordinate, tint: pPlace.color)

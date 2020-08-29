@@ -59,8 +59,8 @@ struct TestTransitionView: View {
     let rootTransition = AnyTransition.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing))
     
     var body: some View {
-        TestBody(feature: .transitionView) {
-            TestItem("Transition between child and parent") {
+        TestBody(test: .transitionView) {
+            TestCase("Transition between child and parent") {
                 ZStack {
                     if displayChild {
                         ChildView(show: $displayChild)

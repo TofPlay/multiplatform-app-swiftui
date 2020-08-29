@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TestLink: View {
     var body: some View {
-        TestBody(feature: .link) {
-            TestItem("Link (open browser)") {
+        TestBody(test: .link) {
+            TestCase("Link (open browser)") {
                 Link("Open apple website", destination: URL(string: "https://www.apple.com")!)
 
                 TestResult {

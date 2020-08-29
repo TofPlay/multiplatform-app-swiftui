@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct TestBody<Content:View>: View {
-    let feature:Test
+    let test:Test
     let scroll: Bool
     let content:Content
     
-    init(feature pFeature:Test, scroll pScroll:Bool = true, @ViewBuilder content pContent: ()->Content) {
-        self.feature = pFeature
+    init(test pTest:Test, scroll pScroll:Bool = true, @ViewBuilder content pContent: ()->Content) {
+        self.test = pTest
         self.scroll = pScroll
         self.content = pContent()
     }
     
     var body: some View {
         Group {
-            Text("\(feature.rawValue)")
+            Text("\(test.rawValue)")
                 .font(.title)
                 .padding()
             if scroll == true {
@@ -41,7 +41,7 @@ struct TestBody<Content:View>: View {
 
 struct TestHeader_Previews: PreviewProvider {
     static var previews: some View {
-        TestBody(feature: .progressView, content: {EmptyView()})
+        TestBody(test: .progressView, content: {EmptyView()})
     }
 }
 

@@ -289,7 +289,7 @@ extension Color : Identifiable {
     }
     
     // Missing properties: We can create Color from mutliple sources but we don't have basic properties like the RBG color hex string.
-    // This property is a trick that is not 100% reliable. Do not use it in production.
+    // This property is a trick that is not 100% reliable. Don't use in production.
     public var rgb: String {
         var lRet = "\(self)"
         let lRGB: [String] = lRet.components(separatedBy: " ").suffix(4)
@@ -356,8 +356,8 @@ struct TestColor: View {
     ])
     
     var body: some View {
-        TestBody(feature: .color) {
-            TestItem("Predefined colors") {
+        TestBody(test: .color) {
+            TestCase("Predefined colors") {
                 LazyVGrid(columns: columns, alignment: .leading) {
                     ForEach(predefined) {
                         (pColor) in
@@ -382,7 +382,7 @@ struct TestColor: View {
             }
             
             Group {
-                TestItem("System Labels") {
+                TestCase("System Labels") {
                     LazyVGrid(columns: columns, alignment: .leading) {
                         ForEach(Color.System.labels, id: \.self) {
                             (pColor) in
@@ -402,7 +402,7 @@ struct TestColor: View {
                     }
                 }
                 
-                TestItem("System PlaceHolders") {
+                TestCase("System PlaceHolders") {
                     LazyVGrid(columns: columns, alignment: .leading) {
                         ForEach(Color.System.placeHolders, id: \.self) {
                             (pColor) in
@@ -422,7 +422,7 @@ struct TestColor: View {
                     }
                 }
                 
-                TestItem("System Backgrounds") {
+                TestCase("System Backgrounds") {
                     LazyVGrid(columns: columns, alignment: .leading) {
                         ForEach(Color.System.backgrounds, id: \.self) {
                             (pColor) in
@@ -442,7 +442,7 @@ struct TestColor: View {
                     }
                 }
                 
-                TestItem("System Colors") {
+                TestCase("System Colors") {
                     LazyVGrid(columns: columns, alignment: .leading) {
                         ForEach(Color.System.colors, id: \.self) {
                             (pColor) in
@@ -461,7 +461,7 @@ struct TestColor: View {
                     }
                 }
                 
-                TestItem("System Colors lighter") {
+                TestCase("System Colors lighter") {
                     LazyVGrid(columns: columns, alignment: .leading) {
                         ForEach(Color.System.colors, id: \.self) {
                             (pColor) in
@@ -481,7 +481,7 @@ struct TestColor: View {
                     }
                 }
                 
-                TestItem("System Colors dacker") {
+                TestCase("System Colors dacker") {
                     LazyVGrid(columns: columns, alignment: .leading) {
                         ForEach(Color.System.colors, id: \.self) {
                             (pColor) in
@@ -501,7 +501,7 @@ struct TestColor: View {
                     }
                 }
                 
-                TestItem("System Grays") {
+                TestCase("System Grays") {
                     LazyVGrid(columns: columns, alignment: .leading) {
                         ForEach(Color.System.grays, id: \.self) {
                             (pColor) in
@@ -523,7 +523,7 @@ struct TestColor: View {
             }
             
             Group {
-                TestItem("Linear Gradient (simple)") {
+                TestCase("Linear Gradient (simple)") {
                     HStack {
                         VStack {
                             Rectangle()
@@ -540,7 +540,7 @@ struct TestColor: View {
                     }
                 }
                 
-                TestItem("Linear Gradient (with 'Gradient.Stop')") {
+                TestCase("Linear Gradient (with 'Gradient.Stop')") {
                     HStack {
                         VStack {
                             Rectangle()
@@ -559,7 +559,7 @@ struct TestColor: View {
             }
             
             Group {
-                TestItem("Radial Gradient") {
+                TestCase("Radial Gradient") {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             VStack {
@@ -598,7 +598,7 @@ struct TestColor: View {
             }
             
             Group {
-                TestItem("Angular Gradient") {
+                TestCase("Angular Gradient") {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             VStack {

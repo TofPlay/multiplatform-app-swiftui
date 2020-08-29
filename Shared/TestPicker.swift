@@ -19,8 +19,8 @@ struct TestPicker: View {
     @State private var selectedFlavor = Flavor.chocolate
     
     var body: some View {
-        TestBody(feature: .picker) {
-            TestItem("Picker .pickerStyle(DefaultPickerStyle())") {
+        TestBody(test: .picker) {
+            TestCase("Picker .pickerStyle(DefaultPickerStyle())") {
                 Picker("Flavor", selection: $selectedFlavor) {
                     ForEach(Flavor.allCases) {
                         flavor in
@@ -34,7 +34,7 @@ struct TestPicker: View {
                     Check(valid:  true, test: ".pickerStyle(DefaultPickerStyle())")
                 }
             }
-            TestItem("Picker .pickerStyle(InlinePickerStyle())") {
+            TestCase("Picker .pickerStyle(InlinePickerStyle())") {
                 Picker("Flavor", selection: $selectedFlavor) {
                     ForEach(Flavor.allCases) {
                         flavor in
@@ -48,7 +48,7 @@ struct TestPicker: View {
                     Check(valid:  true, test: ".pickerStyle(InlinePickerStyle())")
                 }
             }
-            TestItem("Picker .pickerStyle(MenuPickerStyle())") {
+            TestCase("Picker .pickerStyle(MenuPickerStyle())") {
                 Picker("Flavor", selection: $selectedFlavor) {
                     ForEach(Flavor.allCases) {
                         flavor in
@@ -62,7 +62,7 @@ struct TestPicker: View {
                     Check(valid:  true, test: ".pickerStyle(MenuPickerStyle())")
                 }
             }
-            TestItem("Picker .pickerStyle(PopUpButtonPickerStyle())") {
+            TestCase("Picker .pickerStyle(PopUpButtonPickerStyle())") {
                 #if os(macOS)
                 Picker("Flavor", selection: $selectedFlavor) {
                     ForEach(Flavor.allCases) {
@@ -81,7 +81,7 @@ struct TestPicker: View {
                     .foregroundColor(.orange)
                 #endif
             }
-            TestItem("Picker .pickerStyle(RadioGroupPickerStyle())") {
+            TestCase("Picker .pickerStyle(RadioGroupPickerStyle())") {
                 #if os(macOS)
                 Picker("Flavor", selection: $selectedFlavor) {
                     ForEach(Flavor.allCases) {
@@ -100,7 +100,7 @@ struct TestPicker: View {
                     .foregroundColor(.orange)
                 #endif
             }
-            TestItem("Picker .pickerStyle(SegmentedPickerStyle())") {
+            TestCase("Picker .pickerStyle(SegmentedPickerStyle())") {
                 Picker("Flavor", selection: $selectedFlavor) {
                     ForEach(Flavor.allCases) {
                         flavor in
@@ -114,7 +114,7 @@ struct TestPicker: View {
                     Check(valid:  true, test: ".pickerStyle(SegmentedPickerStyle())")
                 }
             }
-            TestItem("Picker .pickerStyle(WheelPickerStyle())") {
+            TestCase("Picker .pickerStyle(WheelPickerStyle())") {
                 #if os(iOS)
                 Picker("Flavor", selection: $selectedFlavor) {
                     ForEach(Flavor.allCases) {

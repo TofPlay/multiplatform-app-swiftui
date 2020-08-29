@@ -12,8 +12,8 @@ struct TestDisclosureGroup: View {
     @State private var isShow2 = false
     
     var body: some View {
-        TestBody(feature: .disclosureGroup) {
-            TestItem("DisclosureGroup with VStack, 2 items and 4 contents") {
+        TestBody(test: .disclosureGroup) {
+            TestCase("DisclosureGroup with VStack, 2 items and 4 contents") {
                 VStack {
                     DisclosureGroup("Item1", isExpanded: $isShow1) {
                         Text("Content 1")
@@ -39,7 +39,7 @@ struct TestDisclosureGroup: View {
                 }
             }
 
-            TestItem("DisclosureGroup with List, 2 items and 4 contents") {
+            TestCase("DisclosureGroup with List, 2 items and 4 contents") {
                 List {
                     DisclosureGroup("Item1", isExpanded: $isShow1) {
                         Text("Content 1")

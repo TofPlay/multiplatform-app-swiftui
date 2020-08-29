@@ -76,7 +76,7 @@ struct TestNavigationLinkButton: View {
     @State private var child: Bool = false
     
     var body: some View {
-        TestItem("NavigationLink with button") {
+        TestCase("NavigationLink with button") {
             VStack {
                 Button {
                     child = true

@@ -60,7 +60,7 @@ struct TestNavigationStack: View {
     
     struct MyHome: View {
         var body: some View {
-            TestItem("Transition between child and parent") {
+            TestCase("Transition between child and parent") {
                 VStack {
                     PushView(destination: ChildView()) {
                         Text("Push to ChildView")

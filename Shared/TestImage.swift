@@ -9,9 +9,9 @@ import SwiftUI
 
 struct TestImage: View {
     var body: some View {
-        TestBody(feature: .image) {
+        TestBody(test: .image) {
             Group {
-                TestItem("Image .frame(width: 300, height: 150)") {
+                TestCase("Image .frame(width: 300, height: 150)") {
                     Image("sample")
                         .resizable()
                         .frame(width: 300, height: 150)
@@ -21,7 +21,7 @@ struct TestImage: View {
                         Check(valid:  true, test: ".frame(width: 300, height: 150)")
                     }
                 }
-                TestItem("Image .blur(radius: 5)") {
+                TestCase("Image .blur(radius: 5)") {
                     Image("sample")
                         .resizable()
                         .frame(width: 300, height: 150)
@@ -31,7 +31,7 @@ struct TestImage: View {
                         Check(valid:  true, test: ".blur(radius: 5)")
                     }
                 }
-                TestItem("Image .opacity(0.3)") {
+                TestCase("Image .opacity(0.3)") {
                     Image("sample")
                         .resizable()
                         .frame(width: 300, height: 150)
@@ -41,7 +41,7 @@ struct TestImage: View {
                         Check(valid:  true, test: ".opacity(0.3)")
                     }
                 }
-                TestItem("Image .brightness(0.60)") {
+                TestCase("Image .brightness(0.60)") {
                     Image("sample")
                         .resizable()
                         .frame(width: 300, height: 150)
@@ -51,7 +51,7 @@ struct TestImage: View {
                         Check(valid:  true, test: ".brightness(0.60)")
                     }
                 }
-                TestItem("Image .saturation(3.0)") {
+                TestCase("Image .saturation(3.0)") {
                     Image("sample")
                         .resizable()
                         .frame(width: 300, height: 150)
@@ -61,7 +61,7 @@ struct TestImage: View {
                         Check(valid:  true, test: ".saturation(3.0)")
                     }
                 }
-                TestItem("Image .grayscale(0.50)") {
+                TestCase("Image .grayscale(0.50)") {
                     Image("sample")
                         .resizable()
                         .frame(width: 300, height: 150)
@@ -71,7 +71,7 @@ struct TestImage: View {
                         Check(valid:  true, test: ".grayscale(0.50)")
                     }
                 }
-                TestItem("Image .hueRotation(Angle(degrees: 90))") {
+                TestCase("Image .hueRotation(Angle(degrees: 90))") {
                     Image("sample")
                         .resizable()
                         .frame(width: 300, height: 150)
@@ -81,7 +81,7 @@ struct TestImage: View {
                         Check(valid:  true, test: ".hueRotation(Angle(degrees: 90))")
                     }
                 }
-                TestItem("Image .luminanceToAlpha()") {
+                TestCase("Image .luminanceToAlpha()") {
                     Image("sample")
                         .resizable()
                         .frame(width: 300, height: 150)
@@ -91,7 +91,7 @@ struct TestImage: View {
                         Check(valid:  true, test: ".luminanceToAlpha()")
                     }
                 }
-                TestItem("Image .shadow(color: .black, radius: 5, x: 3.0, y: 3.0)") {
+                TestCase("Image .shadow(color: .black, radius: 5, x: 3.0, y: 3.0)") {
                     Image("sample")
                         .resizable()
                         .frame(width: 300, height: 150)
@@ -101,7 +101,7 @@ struct TestImage: View {
                         Check(valid:  true, test: ".shadow(color: .black, radius: 5, x: 3.0, y: 3.0)")
                     }
                 }
-                TestItem("Image .colorMultiply(.red)") {
+                TestCase("Image .colorMultiply(.red)") {
                     Image("sample")
                         .resizable()
                         .frame(width: 300, height: 150)
@@ -113,7 +113,7 @@ struct TestImage: View {
                 }
             }
             Group {
-                TestItem("Image .aspectRatio(contentMode: .fit)") {
+                TestCase("Image .aspectRatio(contentMode: .fit)") {
                     Image("sample")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -126,7 +126,7 @@ struct TestImage: View {
                         Check(valid:  true, test: ".clipped()")
                     }
                 }
-                TestItem("Image .aspectRatio(contentMode: .fill)") {
+                TestCase("Image .aspectRatio(contentMode: .fill)") {
                     Image("sample")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -139,7 +139,7 @@ struct TestImage: View {
                         Check(valid:  true, test: ".clipped()")
                     }
                 }
-                TestItem("Image .clipShape(Circle())") {
+                TestCase("Image .clipShape(Circle())") {
                     Image("sample")
                         .resizable()
                         .clipShape(Circle())

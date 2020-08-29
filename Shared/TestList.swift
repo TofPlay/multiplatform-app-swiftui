@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TestList: View {
     var body: some View {
-        TestBody(feature: .list) {
-            TestItem("List .listStyle(DefaultListStyle())") {
+        TestBody(test: .list) {
+            TestCase("List .listStyle(DefaultListStyle())") {
                 VStack {
                     List {
                         Section(header: Text("Section 1")) {
@@ -42,13 +42,13 @@ struct TestList: View {
             }
             
             #if !os(watchOS)
-            TestItem("List .listStyle(EllipticalListStyle())") {
+            TestCase("List .listStyle(EllipticalListStyle())") {
                 Text("Only supported on watchOS")
                     .foregroundColor(.orange)
             }
             #endif
             
-            TestItem("List .listStyle(PlainListStyle())") {
+            TestCase("List .listStyle(PlainListStyle())") {
                 VStack {
                     List {
                         Section(header: Text("Section 1")) {
@@ -80,12 +80,12 @@ struct TestList: View {
             }
             
             #if os(macOS)
-            TestItem("List .listStyle(GroupedListStyle())") {
+            TestCase("List .listStyle(GroupedListStyle())") {
                 Text("Only supported on iOS")
                     .foregroundColor(.orange)
             }
             #else
-            TestItem("List .listStyle(GroupedListStyle())") {
+            TestCase("List .listStyle(GroupedListStyle())") {
                 VStack(alignment: .leading) {
                     List {
                         Section(header: Text("Section 1")) {
@@ -118,13 +118,13 @@ struct TestList: View {
             #endif
             
             #if !os(watchOS)
-            TestItem("List .listStyle(CarouselListStyle())") {
+            TestCase("List .listStyle(CarouselListStyle())") {
                 Text("Only supported on watchOS")
                     .foregroundColor(.orange)
             }
             #endif
             
-            TestItem("List .listStyle(SidebarListStyle())") {
+            TestCase("List .listStyle(SidebarListStyle())") {
                 VStack(alignment: .leading) {
                     List {
                         Section(header: Text("Section 1")) {
@@ -160,7 +160,7 @@ struct TestList: View {
                 }
             }
             
-            TestItem("List .listStyle(InsetListStyle())") {
+            TestCase("List .listStyle(InsetListStyle())") {
                 VStack(alignment: .leading) {
                     List {
                         Section(header: Text("Section 1")) {
@@ -192,12 +192,12 @@ struct TestList: View {
             }
             
             #if os(macOS)
-            TestItem("List .listStyle(GroupedListStyle())") {
+            TestCase("List .listStyle(GroupedListStyle())") {
                 Text("Only supported on iOS")
                     .foregroundColor(.orange)
             }
             #else
-            TestItem("List .listStyle(InsetGroupedListStyle())") {
+            TestCase("List .listStyle(InsetGroupedListStyle())") {
                 VStack(alignment: .leading) {
                     List {
                         Section(header: Text("Section 1")) {

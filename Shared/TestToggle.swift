@@ -11,8 +11,8 @@ struct TestToggle: View {
     @State private var isOn = false
     
     var body: some View {
-        TestBody(feature: .toggle) {
-            TestItem("Click on the toggle") {
+        TestBody(test: .toggle) {
+            TestCase("Click on the toggle") {
                 Toggle(isOn: $isOn) {
                     Text("toggle's text")
                 }

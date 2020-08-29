@@ -27,8 +27,8 @@ struct TestButton: View {
     @State private var select: Select?
     
     var body: some View {
-        TestBody(feature: .button) {
-            TestItem("Button .buttonStyle(DefaultButtonStyle())") {
+        TestBody(test: .button) {
+            TestCase("Button .buttonStyle(DefaultButtonStyle())") {
                 Button("Press me") {
                     select = Select(id:.default)
                 }
@@ -43,7 +43,7 @@ struct TestButton: View {
                     #endif
                 }
             }
-            TestItem("Button .buttonStyle(BorderedButtonStyle())") {
+            TestCase("Button .buttonStyle(BorderedButtonStyle())") {
                 #if os(macOS)
                 Button("Press me") {
                     select = Select(id:.bordered)
@@ -59,7 +59,7 @@ struct TestButton: View {
                     .foregroundColor(.orange)
                 #endif
             }
-            TestItem("Button .buttonStyle(BorderlessButtonStyle())") {
+            TestCase("Button .buttonStyle(BorderlessButtonStyle())") {
                 Button("Press me") {
                     select = Select(id:.borderedLess)
                 }
@@ -74,7 +74,7 @@ struct TestButton: View {
                     #endif
                 }
             }
-            TestItem("Button .buttonStyle(CardButtonStyle())") {
+            TestCase("Button .buttonStyle(CardButtonStyle())") {
                 #if os(tvOS)
                 Button("Press me") {
                     select = Alert(id:.card)
@@ -89,7 +89,7 @@ struct TestButton: View {
                     .foregroundColor(.orange)
                 #endif
             }
-            TestItem("Button .buttonStyle(LinkButtonStyle())") {
+            TestCase("Button .buttonStyle(LinkButtonStyle())") {
                 #if os(macOS)
                 Button("Press me") {
                     select = Select(id:.link)
@@ -109,7 +109,7 @@ struct TestButton: View {
                     .foregroundColor(.orange)
                 #endif
             }
-            TestItem("Button .buttonStyle(PlainButtonStyle())") {
+            TestCase("Button .buttonStyle(PlainButtonStyle())") {
                 Button("Press me") {
                     select = Select(id:.plain)
                 }
@@ -124,7 +124,7 @@ struct TestButton: View {
                     #endif
                 }
             }
-            TestItem("Button custom label") {
+            TestCase("Button custom label") {
                 Button {
                     select = Select(id:.customLabel)
                 } label: {

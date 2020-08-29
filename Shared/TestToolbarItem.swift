@@ -20,8 +20,8 @@ struct TestToolbarItem: View {
     #endif
     
     var body: some View {
-        TestBody(feature: .toolbarItem) {
-            TestItem("Leading and trailing toolbars", alignment: .leading) {
+        TestBody(test: .toolbarItem) {
+            TestCase("Leading and trailing toolbars", alignment: .leading) {
                 Button {
                     actToolbar = "leadingToolbar"
                 } label: {

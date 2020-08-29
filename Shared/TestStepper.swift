@@ -12,8 +12,8 @@ struct TestStepper: View {
     @State private var beerStr: String = "1"
     
     var body: some View {
-        TestBody(feature: .stepper) {
-            TestItem("Select number of beers") {
+        TestBody(test: .stepper) {
+            TestCase("Select number of beers") {
                 Text("How much beer are you going to drink?")
                 HStack {
                     Stepper(value: $beer, in: 0...10, step: 1) {

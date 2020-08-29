@@ -11,8 +11,8 @@ struct TestSecureField: View {
     @State var password: String = "my super secure password!"
     
     var body: some View {
-        TestBody(feature: .secureField) {
-            TestItem("TextField .textFieldStyle(DefaultTextFieldStyle())") {
+        TestBody(test: .secureField) {
+            TestCase("TextField .textFieldStyle(DefaultTextFieldStyle())") {
                 HStack {
                     Text("Password:")
                     SecureField("Enter your password", text: $password)
@@ -23,7 +23,7 @@ struct TestSecureField: View {
                     Check(valid:  true, test: ".textFieldStyle(DefaultTextFieldStyle())")
                 }
             }
-            TestItem("TextField .textFieldStyle(PlainTextFieldStyle())") {
+            TestCase("TextField .textFieldStyle(PlainTextFieldStyle())") {
                 HStack {
                     Text("Password:")
                     SecureField("Enter your password", text: $password)
@@ -34,7 +34,7 @@ struct TestSecureField: View {
                     Check(valid:  true, test: ".textFieldStyle(PlainTextFieldStyle())")
                 }
             }
-            TestItem("TextField .textFieldStyle(RoundedBorderTextFieldStyle())") {
+            TestCase("TextField .textFieldStyle(RoundedBorderTextFieldStyle())") {
                 HStack {
                     Text("Password:")
                     SecureField("Enter your password", text: $password)
@@ -45,7 +45,7 @@ struct TestSecureField: View {
                     Check(valid:  true, test: ".textFieldStyle(RoundedBorderTextFieldStyle())")
                 }
             }
-            TestItem("TextField .textFieldStyle(SquareBorderTextFieldStyle())") {
+            TestCase("TextField .textFieldStyle(SquareBorderTextFieldStyle())") {
                 #if os(macOS)
                 HStack {
                     Text("Password:")

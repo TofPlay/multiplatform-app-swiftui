@@ -16,8 +16,8 @@ struct TestLabel: View {
     ]
 
     var body: some View {
-        TestBody(feature: .label) {
-            TestItem("Label with systemImage") {
+        TestBody(test: .label) {
+            TestCase("Label with systemImage") {
                 LazyVGrid(columns: columns, alignment: .leading) {
                     ForEach(sfsymbols.map({[$0,$0 + ".fill"]}).flatMap({$0}), id: \.self) {
                         (pSymbol) in

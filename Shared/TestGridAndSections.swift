@@ -33,8 +33,8 @@ struct TestGridAndSections: View {
     }
     
     var body: some View {
-        TestBody(feature: .gridAndSections) {
-            TestItem("Flexible and Section, 6 columns") {
+        TestBody(test: .gridAndSections) {
+            TestCase("Flexible and Section, 6 columns") {
                 LazyVGrid(columns: columns, spacing: 10, pinnedViews: [.sectionHeaders]) {
                     ForEach(0..<4) {
                         section in
