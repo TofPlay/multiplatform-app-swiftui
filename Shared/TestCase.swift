@@ -1,5 +1,5 @@
 //
-//  TestItem.swift
+//  TestCase.swift
 //  MultiplatformAppSwiftUI
 //
 //  Created by Christophe Braud on 29/08/2020.
