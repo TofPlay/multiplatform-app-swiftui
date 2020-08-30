@@ -48,8 +48,11 @@ struct TestResult<Content:View>: View {
             .padding()
             Spacer()
         }
-        .border(Color.gray)
         .background(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 8.0))
+        .padding(1.0)
+        .background(Color.gray)
+        .clipShape(RoundedRectangle(cornerRadius: 8.0))
         .padding()
     }
 }

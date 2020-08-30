@@ -35,6 +35,7 @@ public enum Test: String {
     case transitionView = "TransitionView"
     case navigationLinkButton = "NavigationLink (button)"
     case navigationLinkList = "NavigationLink (list)"
+    case presentingViews = "Presenting Views"
     case navigationStack = "NavigationStack"
 }
 
@@ -67,7 +68,8 @@ struct MultiplatformAppSwiftUI: App {
         .gridAndSections,
         .transitionView,
         .navigationLinkButton,
-        .navigationLinkList
+        .navigationLinkList,
+        .presentingViews
     ]
     @State private var components:[Test] = [.navigationStack]
     @State private var select:Test? = nil

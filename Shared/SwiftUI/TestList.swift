@@ -81,7 +81,7 @@ struct TestList: View {
             
             #if os(macOS)
             TestCase("List .listStyle(GroupedListStyle())") {
-                Text("Only supported on iOS")
+                Text("Only supported on iOS/iPadOS")
                     .foregroundColor(.orange)
             }
             #else
@@ -193,7 +193,7 @@ struct TestList: View {
             
             #if os(macOS)
             TestCase("List .listStyle(GroupedListStyle())") {
-                Text("Only supported on iOS")
+                Text("Only supported on iOS/iPadOS")
                     .foregroundColor(.orange)
             }
             #else

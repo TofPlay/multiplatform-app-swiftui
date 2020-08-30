@@ -129,7 +129,7 @@ struct TestPicker: View {
                     Check(valid:  true, test: ".pickerStyle(WheelPickerStyle())")
                 }
                 #else
-                Text("Only supported on iOS")
+                Text("Only supported on iOS/iPadOS")
                     .foregroundColor(.orange)
                 #endif
             }

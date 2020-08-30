@@ -69,6 +69,8 @@
 		847E58BB24E3FA1F00DCBE95 /* TestStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E58B924E3FA1F00DCBE95 /* TestStepper.swift */; };
 		847E58BD24E3FA2D00DCBE95 /* TestForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E58BC24E3FA2D00DCBE95 /* TestForm.swift */; };
 		847E58BE24E3FA2D00DCBE95 /* TestForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E58BC24E3FA2D00DCBE95 /* TestForm.swift */; };
+		848481FF24FB834600E44176 /* TestPresentingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848481FE24FB834600E44176 /* TestPresentingViews.swift */; };
+		8484820024FB834600E44176 /* TestPresentingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848481FE24FB834600E44176 /* TestPresentingViews.swift */; };
 		848B4BCC24EFED94006AB197 /* TestColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B4BCB24EFED94006AB197 /* TestColor.swift */; };
 		848B4BCD24EFED94006AB197 /* TestColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848B4BCB24EFED94006AB197 /* TestColor.swift */; };
 		849CE39824E5CD0800496800 /* TestNavigationLinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CE39724E5CD0800496800 /* TestNavigationLinkList.swift */; };
@@ -119,6 +121,7 @@
 		847E58B624E3F9EF00DCBE95 /* TestSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSlider.swift; sourceTree = "<group>"; };
 		847E58B924E3FA1F00DCBE95 /* TestStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStepper.swift; sourceTree = "<group>"; };
 		847E58BC24E3FA2D00DCBE95 /* TestForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestForm.swift; sourceTree = "<group>"; };
+		848481FE24FB834600E44176 /* TestPresentingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPresentingViews.swift; sourceTree = "<group>"; };
 		848B4BCB24EFED94006AB197 /* TestColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestColor.swift; sourceTree = "<group>"; };
 		849CE39724E5CD0800496800 /* TestNavigationLinkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavigationLinkList.swift; sourceTree = "<group>"; };
 		84A4493A24B50403000A9ACD /* TestDisclosureGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDisclosureGroup.swift; sourceTree = "<group>"; };
@@ -164,38 +167,9 @@
 				843358B024A8C11200679970 /* MultiplatformAppSwiftUI.swift */,
 				843358D124A8C21000679970 /* Sidebar.swift */,
 				84112CB624AE4D9F006F349B /* DetailView.swift */,
-				845D3A6A24B221C700DD9B87 /* TestBody.swift */,
-				840747BF24F955BF00604F64 /* TestCase.swift */,
-				840747B924F9535000604F64 /* TestResult.swift */,
-				840747BC24F954F200604F64 /* Check.swift */,
-				848B4BCB24EFED94006AB197 /* TestColor.swift */,
-				847E589824E3F8E800DCBE95 /* TestText.swift */,
-				847E589B24E3F92100DCBE95 /* TestLabel.swift */,
-				847E589E24E3F94900DCBE95 /* TestTextField.swift */,
-				847E58A124E3F95C00DCBE95 /* TestSecureField.swift */,
-				84CB018D24ACB2A40002AB53 /* TestTextEditor.swift */,
-				847E58A424E3F97400DCBE95 /* TestImage.swift */,
-				847E58A724E3F98600DCBE95 /* TestButton.swift */,
-				846FF4F724F26B4C00EEFE85 /* TestList.swift */,
-				847E58AA24E3F99900DCBE95 /* TestLink.swift */,
-				847E58AD24E3F9AF00DCBE95 /* TestToolbarItem.swift */,
-				847E58B024E3F9BF00DCBE95 /* TestToggle.swift */,
-				847E58B324E3F9D100DCBE95 /* TestPicker.swift */,
-				84112CBC24AE6409006F349B /* TestDatePicker.swift */,
-				84112CBF24AE680F006F349B /* TestColorPicker.swift */,
-				847E58B624E3F9EF00DCBE95 /* TestSlider.swift */,
-				847E58B924E3FA1F00DCBE95 /* TestStepper.swift */,
-				847E58BC24E3FA2D00DCBE95 /* TestForm.swift */,
-				84112CB924AE5C97006F349B /* TestProgressView.swift */,
-				843297B124B3B1850081563D /* TestMap.swift */,
-				84A4493A24B50403000A9ACD /* TestDisclosureGroup.swift */,
-				84E4ABD224B51F11003C92F5 /* TestOutlineGroup.swift */,
-				8450EBD824B5851300931479 /* TestLazyVGrid.swift */,
-				8450EBDB24B5EA7E00931479 /* TestGridAndSections.swift */,
-				8419199824B7A6D50001CB0C /* TestTransitionView.swift */,
-				84D0D63E24DEDA0300A87802 /* TestNavigationLinkButton.swift */,
-				849CE39724E5CD0800496800 /* TestNavigationLinkList.swift */,
-				8479846F24DEF9CD006E115D /* TestNavigationStack.swift */,
+				848481FD24FB832700E44176 /* TestCase */,
+				848481FB24FB830200E44176 /* SwiftUI */,
+				848481FC24FB831000E44176 /* Components */,
 				843358B224A8C11300679970 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -232,6 +206,60 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		848481FB24FB830200E44176 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				848B4BCB24EFED94006AB197 /* TestColor.swift */,
+				847E589824E3F8E800DCBE95 /* TestText.swift */,
+				847E589B24E3F92100DCBE95 /* TestLabel.swift */,
+				847E589E24E3F94900DCBE95 /* TestTextField.swift */,
+				847E58A124E3F95C00DCBE95 /* TestSecureField.swift */,
+				84CB018D24ACB2A40002AB53 /* TestTextEditor.swift */,
+				847E58A424E3F97400DCBE95 /* TestImage.swift */,
+				847E58A724E3F98600DCBE95 /* TestButton.swift */,
+				846FF4F724F26B4C00EEFE85 /* TestList.swift */,
+				847E58AA24E3F99900DCBE95 /* TestLink.swift */,
+				847E58AD24E3F9AF00DCBE95 /* TestToolbarItem.swift */,
+				847E58B024E3F9BF00DCBE95 /* TestToggle.swift */,
+				847E58B324E3F9D100DCBE95 /* TestPicker.swift */,
+				84112CBC24AE6409006F349B /* TestDatePicker.swift */,
+				84112CBF24AE680F006F349B /* TestColorPicker.swift */,
+				847E58B624E3F9EF00DCBE95 /* TestSlider.swift */,
+				847E58B924E3FA1F00DCBE95 /* TestStepper.swift */,
+				847E58BC24E3FA2D00DCBE95 /* TestForm.swift */,
+				84112CB924AE5C97006F349B /* TestProgressView.swift */,
+				843297B124B3B1850081563D /* TestMap.swift */,
+				84A4493A24B50403000A9ACD /* TestDisclosureGroup.swift */,
+				84E4ABD224B51F11003C92F5 /* TestOutlineGroup.swift */,
+				8450EBD824B5851300931479 /* TestLazyVGrid.swift */,
+				8450EBDB24B5EA7E00931479 /* TestGridAndSections.swift */,
+				8419199824B7A6D50001CB0C /* TestTransitionView.swift */,
+				84D0D63E24DEDA0300A87802 /* TestNavigationLinkButton.swift */,
+				849CE39724E5CD0800496800 /* TestNavigationLinkList.swift */,
+				848481FE24FB834600E44176 /* TestPresentingViews.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		848481FC24FB831000E44176 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8479846F24DEF9CD006E115D /* TestNavigationStack.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		848481FD24FB832700E44176 /* TestCase */ = {
+			isa = PBXGroup;
+			children = (
+				845D3A6A24B221C700DD9B87 /* TestBody.swift */,
+				840747BF24F955BF00604F64 /* TestCase.swift */,
+				840747B924F9535000604F64 /* TestResult.swift */,
+				840747BC24F954F200604F64 /* Check.swift */,
+			);
+			path = TestCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +383,7 @@
 				84112CBA24AE5C97006F349B /* TestProgressView.swift in Sources */,
 				84A4493B24B50403000A9ACD /* TestDisclosureGroup.swift in Sources */,
 				845D3A6B24B221C700DD9B87 /* TestBody.swift in Sources */,
+				848481FF24FB834600E44176 /* TestPresentingViews.swift in Sources */,
 				847E58B724E3F9EF00DCBE95 /* TestSlider.swift in Sources */,
 				840747BA24F9535000604F64 /* TestResult.swift in Sources */,
 				84112CC024AE680F006F349B /* TestColorPicker.swift in Sources */,
@@ -397,6 +426,7 @@
 				84112CBB24AE5C97006F349B /* TestProgressView.swift in Sources */,
 				84A4493C24B50403000A9ACD /* TestDisclosureGroup.swift in Sources */,
 				845D3A6C24B221C700DD9B87 /* TestBody.swift in Sources */,
+				8484820024FB834600E44176 /* TestPresentingViews.swift in Sources */,
 				847E58B824E3F9EF00DCBE95 /* TestSlider.swift in Sources */,
 				840747BB24F9535000604F64 /* TestResult.swift in Sources */,
 				84112CC124AE680F006F349B /* TestColorPicker.swift in Sources */,

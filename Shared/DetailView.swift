@@ -68,6 +68,8 @@ struct DetailView: View {
                     TestNavigationLinkButton()
                 case .navigationLinkList:
                     TestNavigationLinkList()
+                case .presentingViews:
+                    TestPresentingViews()
                 case .navigationStack:
                     TestNavigationStack()
                 }
