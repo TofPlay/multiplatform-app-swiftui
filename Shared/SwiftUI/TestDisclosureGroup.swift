@@ -33,9 +33,9 @@ struct TestDisclosureGroup: View {
                 .border(Color.red)
 
                 TestResult {
-                    Check(valid:  false, test: "Display Items")
-                    Check(valid:  false, test: "Display subItems")
-                    Check(valid:  true, test: ".background(Color.systemGray6)")
+                    Check(iOS: false, macOS: false, test: "Display Items")
+                    Check(iOS: false, macOS: false, test: "Display subItems")
+                    Check(iOS: true, macOS: true, test: ".background(Color.systemGray6)")
                 }
             }
 
@@ -59,9 +59,9 @@ struct TestDisclosureGroup: View {
                 .border(Color.red)
 
                 TestResult {
-                    Check(valid:  true, test: "Display Items")
-                    Check(valid:  true, test: "Display subItems")
-                    Check(valid:  false, test: ".background(Color.systemGray6)")
+                    Check(iOS: true, macOS: true, test: "Display Items")
+                    Check(iOS: true, macOS: true, test: "Display subItems")
+                    Check(iOS: false, macOS: false, test: ".background(Color.systemGray6)")
                 }
             }
         }

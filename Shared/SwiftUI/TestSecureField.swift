@@ -20,7 +20,7 @@ struct TestSecureField: View {
                         .textFieldStyle(DefaultTextFieldStyle())
                 }
                 TestResult {
-                    Check(valid:  true, test: ".textFieldStyle(DefaultTextFieldStyle())")
+                    Check(iOS: true, macOS: true, test: ".textFieldStyle(DefaultTextFieldStyle())")
                 }
             }
             TestCase("TextField .textFieldStyle(PlainTextFieldStyle())") {
@@ -31,7 +31,7 @@ struct TestSecureField: View {
                         .textFieldStyle(PlainTextFieldStyle())
                 }
                 TestResult {
-                    Check(valid:  true, test: ".textFieldStyle(PlainTextFieldStyle())")
+                    Check(iOS: true, macOS: true, test: ".textFieldStyle(PlainTextFieldStyle())")
                 }
             }
             TestCase("TextField .textFieldStyle(RoundedBorderTextFieldStyle())") {
@@ -42,7 +42,7 @@ struct TestSecureField: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 TestResult {
-                    Check(valid:  true, test: ".textFieldStyle(RoundedBorderTextFieldStyle())")
+                    Check(iOS: true, macOS: true, test: ".textFieldStyle(RoundedBorderTextFieldStyle())")
                 }
             }
             TestCase("TextField .textFieldStyle(SquareBorderTextFieldStyle())") {
@@ -53,13 +53,14 @@ struct TestSecureField: View {
                         .frame(width: 150)
                         .textFieldStyle(SquareBorderTextFieldStyle())
                 }
-                TestResult {
-                    Check(valid:  true, test: ".textFieldStyle(SquareBorderTextFieldStyle())")
-                }
                 #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
                 #endif
+                
+                TestResult {
+                    Check(macOS: true, test: ".textFieldStyle(SquareBorderTextFieldStyle())")
+                }
             }
             Text("You enter: \(password)")
         }

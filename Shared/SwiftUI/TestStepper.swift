@@ -100,12 +100,12 @@ struct TestStepper: View {
                 }
                 
                 TestResult {
-                    Check(valid:  false, test: "Spacer() doesn't work")
-                    Check(valid:  false, test: "TextField .onChange is not called each time a character is entered with NumberFormatter")
-                    Check(valid:  true, test: "TextField .multilineTextAlignment(.leading)")
-                    Check(valid:  true, test: "TextField .multilineTextAlignment(.center)")
-                    Check(valid:  true, test: "TextField .multilineTextAlignment(.trailing)")
-                    Check(valid:  true, test: "TextField .onChange is called each time a character is entered if it's a String")
+                    Check(iOS: false, macOS: false, test: "Spacer() doesn't work")
+                    Check(iOS: false, macOS: false, test: "TextField .onChange is not called each time a character is entered with NumberFormatter")
+                    Check(iOS: true, macOS: true, test: "TextField .multilineTextAlignment(.leading)")
+                    Check(iOS: true, macOS: true, test: "TextField .multilineTextAlignment(.center)")
+                    Check(iOS: true, macOS: true, test: "TextField .multilineTextAlignment(.trailing)")
+                    Check(iOS: true, macOS: true, test: "TextField .onChange is called each time a character is entered if it's a String")
                 }
             }
         }

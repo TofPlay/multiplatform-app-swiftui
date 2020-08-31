@@ -38,8 +38,8 @@ struct TestMap: View {
                 .padding()
 
                 TestResult {
-                    Check(valid:  true, test: "Display map")
-                    Check(valid:  true, test: "Display pin")
+                    Check(iOS: true, macOS: true, test: "Display map")
+                    Check(iOS: true, macOS: true, test: "Display pin")
                 }
             }
         }

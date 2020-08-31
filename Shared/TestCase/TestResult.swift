@@ -28,7 +28,7 @@ struct TestResult<Content:View>: View {
                         Text("- macOS Big Sur Beta 5")
                         Text("- Xcode 12 Beta 6")
                     }
-                    .grayscale(0.75)
+                    .foregroundColor(.gray)
                     .padding(.leading, 20)
                     
                 }
@@ -38,7 +38,6 @@ struct TestResult<Content:View>: View {
                     Text("Tests:")
                     
                     content
-                        .grayscale(0.50)
                         .padding(.leading, 20)
                 }
                 .padding(.leading, 20)
@@ -60,8 +59,14 @@ struct TestResult<Content:View>: View {
 struct TestResult_Previews: PreviewProvider {
     static var previews: some View {
         TestResult {
-            Check(valid: true, test: "Feature 1")
-            Check(valid: false, test: "Feature 2")
+            Check(iOS: true, macOS: true, test: "Feature 1")
+            Check(iOS: false, macOS: false, test: "Feature 2")
+            Check(iOS: true, macOS: false, test: "Feature 1")
+            Check(iOS: false, macOS: true, test: "Feature 1")
+            Check(iOS: true, test: "Feature 1")
+            Check(macOS: true, test: "Feature 1")
+            Check(iOS: false, test: "Feature 1")
+            Check(macOS: false, test: "Feature 1")
         }
     }
 }

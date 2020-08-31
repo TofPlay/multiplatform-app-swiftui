@@ -97,7 +97,7 @@ struct TestPresentingViews: View {
                 }
 
                 TestResult {
-                    Check(valid:  true, test: "Display Alert")
+                    Check(iOS: true, macOS: true, test: "Display Alert")
                 }
             }
             
@@ -118,17 +118,15 @@ struct TestPresentingViews: View {
                 }
 
                 TestResult {
-                    Check(valid:  true, test: "Display Alert")
+                    Check(iOS: true, macOS: true, test: "Display Alert")
                 }
             }
 
-            #if os(macOS)
             TestCase("ActionSheet with .isPresented") {
+                #if os(macOS)
                 Text("Only supported on iOS/iPadOS")
                     .foregroundColor(.orange)
-            }
-            #else
-            TestCase("ActionSheet with .isPresented") {
+                #else
                 Button {
                     showActionSheet = true
                 } label: {
@@ -163,24 +161,22 @@ struct TestPresentingViews: View {
                     (pAlert:AlertView) -> Alert in
                     Alert(title: Text(pAlert.title), message: Text(pAlert.message), dismissButton: .default(Text("OK")))
                 }
+                #endif
 
                 TestResult {
-                    Check(valid:  true, test: "Display ActionSheet")
-                    Check(valid:  true, test: "Display \"Option1\"")
-                    Check(valid:  true, test: "Display \"Option2\"")
-                    Check(valid:  true, test: "Display \"Delete\"")
-                    Check(valid:  false, test: "Display \"Cancel\"")
+                    Check(iOS: true, test: "Display ActionSheet")
+                    Check(iOS: true, test: "Display \"Option1\"")
+                    Check(iOS: true, test: "Display \"Option2\"")
+                    Check(iOS: true, test: "Display \"Delete\"")
+                    Check(iOS: false, test: "Display \"Cancel\"")
                 }
             }
-            #endif
             
-            #if os(macOS)
             TestCase("ActionSheet with binding item") {
+                #if os(macOS)
                 Text("Only supported on iOS/iPadOS")
                     .foregroundColor(.orange)
-            }
-            #else
-            TestCase("ActionSheet with binding item") {
+                #else
                 Button {
                     bindingActionSheet = BindingActionSheet()
                 } label: {
@@ -217,24 +213,22 @@ struct TestPresentingViews: View {
                     Alert(title: Text(pAlert.title), message: Text(pAlert.message), dismissButton: .default(Text("OK")))
                         
                 }
+                #endif
 
                 TestResult {
-                    Check(valid:  true, test: "Display ActionSheet")
-                    Check(valid:  true, test: "Display \"Option1\"")
-                    Check(valid:  true, test: "Display \"Option2\"")
-                    Check(valid:  true, test: "Display \"Delete\"")
-                    Check(valid:  false, test: "Display \"Cancel\"")
+                    Check(iOS: true, test: "Display ActionSheet")
+                    Check(iOS: true, test: "Display \"Option1\"")
+                    Check(iOS: true, test: "Display \"Option2\"")
+                    Check(iOS: true, test: "Display \"Delete\"")
+                    Check(iOS: false, test: "Display \"Cancel\"")
                 }
             }
-            #endif
             
-            #if os(macOS)
             TestCase("FullScreenCover with .isPresented") {
+                #if os(macOS)
                 Text("Only supported on iOS/iPadOS")
                     .foregroundColor(.orange)
-            }
-            #else
-            TestCase("FullScreenCover with .isPresented") {
+                #else
                 Button {
                     showFullScreenCover = true
                 } label: {
@@ -248,20 +242,18 @@ struct TestPresentingViews: View {
                 .fullScreenCover(isPresented: $showFullScreenCover) {
                     DisplaySheet("Sheet for FullScreenCover")
                 }
+                #endif
 
                 TestResult {
-                    Check(valid:  true, test: "Display SheetForFullScreen")
+                    Check(iOS: true, test: "Display SheetForFullScreen")
                 }
             }
-            #endif
 
-            #if os(macOS)
             TestCase("FullScreenCover with binding item") {
+                #if os(macOS)
                 Text("Only supported on iOS/iPadOS")
                     .foregroundColor(.orange)
-            }
-            #else
-            TestCase("FullScreenCover with binding item") {
+                #else
                 Button {
                     bindingFullScreenCover = BindingFullScreenCover()
                 } label: {
@@ -276,12 +268,12 @@ struct TestPresentingViews: View {
                     (pBindingFullScreenCover) in
                     DisplaySheet("Sheet for FullScreenCover")
                 }
+                #endif
 
                 TestResult {
-                    Check(valid:  true, test: "Display SheetForFullScreen")
+                    Check(iOS: true, test: "Display SheetForFullScreen")
                 }
             }
-            #endif
 
             TestCase("Sheet with .isPresented") {
                 Button {
@@ -299,12 +291,8 @@ struct TestPresentingViews: View {
                 }
 
                 TestResult {
-                    Check(valid:  true, test: "Present a Sheet")
-                    #if os(iOS)
-                    Check(valid:  false, test: "Adjuste frame size to the content")
-                    #else
-                    Check(valid:  true, test: "Adjuste frame size to the content")
-                    #endif
+                    Check(iOS: true, macOS: true, test: "Present a Sheet")
+                    Check(iOS: false, macOS: true, test: "Adjuste frame size to the content")
                 }
             }
 
@@ -326,12 +314,8 @@ struct TestPresentingViews: View {
                 }
 
                 TestResult {
-                    Check(valid:  true, test: "Present a Sheet")
-                    #if os(iOS)
-                    Check(valid:  false, test: "Sheet.frame(width: 200, height: 500)")
-                    #else
-                    Check(valid:  true, test: "Sheet.frame(width: 200, height: 500)")
-                    #endif
+                    Check(iOS: true, macOS: true, test: "Present a Sheet")
+                    Check(iOS: false, macOS: true, test: "Sheet.frame(width: 200, height: 500)")
                 }
             }
         }

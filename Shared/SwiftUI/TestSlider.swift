@@ -21,7 +21,7 @@ struct TestSlider: View {
                 Text("Number of beer(s): \(beer, specifier: "%.0f")")
 
                 TestResult {
-                    Check(valid: true, test: "Slider")
+                    Check(iOS: true, macOS: true, test: "Slider")
                 }
             }
         }

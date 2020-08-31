@@ -37,16 +37,16 @@ struct TestDatePicker: View {
                 .border(Color.red)
                 
                 TestResult {
-                    Check(valid:  true, test: ".datePickerStyle(DefaultDatePickerStyle())")
-                    Check(valid:  false, test: "VStack(alignment: .leading)")
-                    Check(valid:  false, test: "VStack(alignment: .center)")
-                    Check(valid:  false, test: "VStack(alignment: .trailing)")
-                    Check(valid:  false, test: ".multilineTextAlignment(.leading)")
-                    Check(valid:  false, test: ".multilineTextAlignment(.center)")
-                    Check(valid:  false, test: ".multilineTextAlignment(.trailing)")
-                    Check(valid:  false, test: ".frame(.leading)")
-                    Check(valid:  false, test: ".frame(.center)")
-                    Check(valid:  false, test: ".frame(.trailing)")
+                    Check(iOS: true, macOS: true, test: ".datePickerStyle(DefaultDatePickerStyle())")
+                    Check(iOS: false, macOS: false, test: "VStack(alignment: .leading)")
+                    Check(iOS: false, macOS: false, test: "VStack(alignment: .center)")
+                    Check(iOS: false, macOS: false, test: "VStack(alignment: .trailing)")
+                    Check(iOS: false, macOS: false, test: ".multilineTextAlignment(.leading)")
+                    Check(iOS: false, macOS: false, test: ".multilineTextAlignment(.center)")
+                    Check(iOS: false, macOS: false, test: ".multilineTextAlignment(.trailing)")
+                    Check(iOS: false, macOS: false, test: ".frame(.leading)")
+                    Check(iOS: false, macOS: false, test: ".frame(.center)")
+                    Check(iOS: false, macOS: false, test: ".frame(.trailing)")
                 }
             }
             
@@ -63,12 +63,11 @@ struct TestDatePicker: View {
                 .border(Color.red)
 
                 TestResult {
-                    Check(valid:  true, test: ".datePickerStyle(DefaultDatePickerStyle())")
-                    Check(valid:  false, test: "HStack + Spacer")
+                    Check(iOS: true, macOS: true, test: ".datePickerStyle(DefaultDatePickerStyle())")
+                    Check(iOS: false, macOS: false, test: "HStack + Spacer")
                 }
             }
             
-            #if os(macOS)
             TestCase("DatePicker .datePickerStyle(CompactDatePickerStyle())", alignment: .leading) {
                 VStack {
                     DatePicker("", selection: .constant(Date()))
@@ -78,55 +77,27 @@ struct TestDatePicker: View {
                 .border(Color.red)
 
                 TestResult {
-                    Check(valid:  true, test: ".datePickerStyle(CompactDatePickerStyle())")
+                    Check(iOS: true, macOS: true, test: ".datePickerStyle(CompactDatePickerStyle())")
                 }
             }
-            #else
-            TestCase("DatePicker .datePickerStyle(CompactDatePickerStyle())", alignment: .leading) {
-                VStack {
-                    DatePicker("", selection: .constant(Date()))
-                        .datePickerStyle(CompactDatePickerStyle())
-                }
-                .frame(width: 300)
-                .border(Color.red)
-
-                TestResult {
-                    Check(valid:  true, test: ".datePickerStyle(CompactDatePickerStyle())")
-                }
-            }
-            #endif
             
-            #if os(macOS)
             TestCase("DatePicker .datePickerStyle(FieldDatePickerStyle())", alignment: .leading) {
+                #if os(macOS)
                 VStack {
                     DatePicker("", selection: .constant(Date()))
                         .datePickerStyle(FieldDatePickerStyle())
                 }
                 .frame(width: 300)
                 .border(Color.red)
-
-                TestResult {
-                    Check(valid:  true, test: ".datePickerStyle(FieldDatePickerStyle())")
-                }
-            }
-            #else
-            TestCase("DatePicker .datePickerStyle(FieldDatePickerStyle())", alignment: .leading) {
+                #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
-            }
-            #endif
-            
-            #if os(iOS)
-            TestCase("DatePicker .datePickerStyle(GraphicalDatePickerStyle())", alignment: .leading) {
-                DatePicker("", selection: .constant(Date()))
-                    .datePickerStyle(GraphicalDatePickerStyle())
-
+                #endif
                 TestResult {
-                    Check(valid:  true, test: ".datePickerStyle(GraphicalDatePickerStyle())")
-                    Check(valid:  false, test: "DatePicker display is not done well at the top and at the bottom")
+                    Check(macOS: true, test: ".datePickerStyle(FieldDatePickerStyle())")
                 }
             }
-            #else
+            
             TestCase("DatePicker .datePickerStyle(GraphicalDatePickerStyle())", alignment: .leading) {
                 Group {
                     Text("Leading")
@@ -178,38 +149,36 @@ struct TestDatePicker: View {
                 }
                 
                 TestResult {
-                    Check(valid:  true, test: ".datePickerStyle(GraphicalDatePickerStyle())")
-                    Check(valid:  true, test: "VStack(alignment: .leading)")
-                    Check(valid:  false, test: "VStack(alignment: .center)")
-                    Check(valid:  false, test: "VStack(alignment: .trailing)")
-                    Check(valid:  true, test: ".frame(.leading)")
-                    Check(valid:  false, test: ".frame(.center)")
-                    Check(valid:  false, test: ".frame(.trailing)")
-                    Check(valid:  false, test: "Spacer() left")
-                    Check(valid:  true, test: "Spacer() right")
+                    Check(iOS: false, macOS: true, test: "Well design top and bottom")
+                    Check(iOS: true, macOS: true, test: ".datePickerStyle(GraphicalDatePickerStyle())")
+                    Check(iOS: false, macOS: true, test: "VStack(alignment: .leading)")
+                    Check(iOS: false, macOS: false, test: "VStack(alignment: .center)")
+                    Check(iOS: false, macOS: false, test: "VStack(alignment: .trailing)")
+                    Check(iOS: false, macOS: true, test: ".frame(.leading)")
+                    Check(iOS: false, macOS: false, test: ".frame(.center)")
+                    Check(iOS: false, macOS: false, test: ".frame(.trailing)")
+                    Check(iOS: false, macOS: false, test: "Spacer() left")
+                    Check(iOS: false, macOS: true, test: "Spacer() right")
                 }
             }
-            #endif
             
-            #if os(macOS)
             TestCase("DatePicker .datePickerStyle(StepperFieldDatePickerStyle())", alignment: .leading) {
+                #if os(macOS)
                 DatePicker("", selection: .constant(Date()))
                     .datePickerStyle(StepperFieldDatePickerStyle())
                     .frame(width: 150)
-                
-                TestResult {
-                    Check(valid:  true, test: ".datePickerStyle(StepperFieldDatePickerStyle())")
-                }
-            }
-            #else
-            TestCase("DatePicker .datePickerStyle(StepperFieldDatePickerStyle())", alignment: .leading) {
+                #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
+                #endif
+
+                TestResult {
+                    Check(macOS: true, test: ".datePickerStyle(StepperFieldDatePickerStyle())")
+                }
             }
-            #endif
-            
-            #if os(iOS)
+
             TestCase("DatePicker .datePickerStyle(WheelDatePickerStyle())", alignment: .leading) {
+                #if os(iOS)
                 Group {
                     Text("Leading")
                     VStack(alignment: .leading) {
@@ -258,20 +227,23 @@ struct TestDatePicker: View {
                     .frame(width: 500)
                     .border(Color.red)
                 }
-                
+                #else
+                Text("Only supported on iOS/iPadOS")
+                    .foregroundColor(.orange)
+                #endif
+
                 TestResult {
-                    Check(valid:  true, test: ".datePickerStyle(WheelDatePickerStyle())")
-                    Check(valid:  false, test: "VStack(alignment: .leading)")
-                    Check(valid:  false, test: "VStack(alignment: .center)")
-                    Check(valid:  false, test: "VStack(alignment: .trailing)")
-                    Check(valid:  false, test: ".frame(.leading)")
-                    Check(valid:  false, test: ".frame(.center)")
-                    Check(valid:  false, test: ".frame(.trailing)")
-                    Check(valid:  false, test: "Spacer() left")
-                    Check(valid:  false, test: "Spacer() right")
+                    Check(iOS: true, test: ".datePickerStyle(WheelDatePickerStyle())")
+                    Check(iOS: false, test: "VStack(alignment: .leading)")
+                    Check(iOS: false, test: "VStack(alignment: .center)")
+                    Check(iOS: false, test: "VStack(alignment: .trailing)")
+                    Check(iOS: false, test: ".frame(.leading)")
+                    Check(iOS: false, test: ".frame(.center)")
+                    Check(iOS: false, test: ".frame(.trailing)")
+                    Check(iOS: false, test: "Spacer() left")
+                    Check(iOS: false, test: "Spacer() right")
                 }
             }
-            #endif
         }
     }
 }

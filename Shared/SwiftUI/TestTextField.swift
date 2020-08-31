@@ -39,10 +39,10 @@ struct TestTextField: View {
                 }
 
                 TestResult {
-                    Check(valid:  true, test: ".textFieldStyle(DefaultTextFieldStyle())")
-                    Check(valid:  true, test: ".multilineTextAlignment(.leading)")
-                    Check(valid:  true, test: ".multilineTextAlignment(.center)")
-                    Check(valid:  true, test: ".multilineTextAlignment(.trailing)")
+                    Check(iOS: true, macOS: true, test: ".textFieldStyle(DefaultTextFieldStyle())")
+                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.leading)")
+                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.center)")
+                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.trailing)")
                 }
             }
             TestCase("TextField .textFieldStyle(PlainTextFieldStyle())") {
@@ -54,7 +54,7 @@ struct TestTextField: View {
                     Image(systemName: "arrowtriangle.backward")
                 }
                 TestResult {
-                    Check(valid:  true, test: ".textFieldStyle(PlainTextFieldStyle())")
+                    Check(iOS: true, macOS: true, test: ".textFieldStyle(PlainTextFieldStyle())")
                 }
             }
             TestCase("TextField .textFieldStyle(RoundedBorderTextFieldStyle())") {
@@ -66,7 +66,7 @@ struct TestTextField: View {
                     Image(systemName: "arrowtriangle.backward")
                 }
                 TestResult {
-                    Check(valid:  true, test: ".textFieldStyle(RoundedBorderTextFieldStyle())")
+                    Check(iOS: true, macOS: true, test: ".textFieldStyle(RoundedBorderTextFieldStyle())")
                 }
             }
             TestCase("TextField .textFieldStyle(SquareBorderTextFieldStyle())") {
@@ -78,13 +78,14 @@ struct TestTextField: View {
                         .textFieldStyle(SquareBorderTextFieldStyle())
                     Image(systemName: "arrowtriangle.backward")
                 }
-                TestResult {
-                    Check(valid:  true, test: ".textFieldStyle(SquareBorderTextFieldStyle())")
-                }
                 #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
                 #endif
+
+                TestResult {
+                    Check(macOS: true, test: ".textFieldStyle(SquareBorderTextFieldStyle())")
+                }
             }
             Text("You enter: \(name)")
         }

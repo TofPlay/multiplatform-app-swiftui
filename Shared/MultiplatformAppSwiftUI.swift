@@ -28,6 +28,7 @@ public enum Test: String {
     case form = "Form"
     case progressView = "ProgressView"
     case map = "Map"
+    case videoPlayer = "VideoPlayer"
     case disclosureGroup = "DisclosureGroup"
     case outlineGroup = "OutlineGroup"
     case lazyVGrid = "LazyVGrid"
@@ -62,6 +63,7 @@ struct MultiplatformAppSwiftUI: App {
         .form,
         .progressView,
         .map,
+        .videoPlayer,
         .disclosureGroup,
         .outlineGroup,
         .lazyVGrid,

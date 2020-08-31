@@ -54,6 +54,8 @@ struct DetailView: View {
                     TestProgressView()
                 case .map:
                     TestMap()
+                case .videoPlayer:
+                    TestVideoPlayer()
                 case .disclosureGroup:
                     TestDisclosureGroup()
                 case .outlineGroup:

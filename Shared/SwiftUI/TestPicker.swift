@@ -31,7 +31,7 @@ struct TestPicker: View {
                 .pickerStyle(DefaultPickerStyle())
 
                 TestResult {
-                    Check(valid:  true, test: ".pickerStyle(DefaultPickerStyle())")
+                    Check(iOS: true, macOS: true, test: ".pickerStyle(DefaultPickerStyle())")
                 }
             }
             TestCase("Picker .pickerStyle(InlinePickerStyle())") {
@@ -45,7 +45,7 @@ struct TestPicker: View {
                 .pickerStyle(InlinePickerStyle())
 
                 TestResult {
-                    Check(valid:  true, test: ".pickerStyle(InlinePickerStyle())")
+                    Check(iOS: true, macOS: true, test: ".pickerStyle(InlinePickerStyle())")
                 }
             }
             TestCase("Picker .pickerStyle(MenuPickerStyle())") {
@@ -59,7 +59,7 @@ struct TestPicker: View {
                 .pickerStyle(MenuPickerStyle())
 
                 TestResult {
-                    Check(valid:  true, test: ".pickerStyle(MenuPickerStyle())")
+                    Check(iOS: true, macOS: true, test: ".pickerStyle(MenuPickerStyle())")
                 }
             }
             TestCase("Picker .pickerStyle(PopUpButtonPickerStyle())") {
@@ -73,13 +73,14 @@ struct TestPicker: View {
                 }
                 .pickerStyle(PopUpButtonPickerStyle())
 
-                TestResult {
-                    Check(valid:  true, test: ".pickerStyle(PopUpButtonPickerStyle())")
-                }
                 #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
                 #endif
+
+                TestResult {
+                    Check(macOS: true, test: ".pickerStyle(PopUpButtonPickerStyle())")
+                }
             }
             TestCase("Picker .pickerStyle(RadioGroupPickerStyle())") {
                 #if os(macOS)
@@ -92,13 +93,14 @@ struct TestPicker: View {
                 }
                 .pickerStyle(RadioGroupPickerStyle())
 
-                TestResult {
-                    Check(valid:  true, test: ".pickerStyle(RadioGroupPickerStyle())")
-                }
                 #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
                 #endif
+
+                TestResult {
+                    Check(macOS: true, test: ".pickerStyle(RadioGroupPickerStyle())")
+                }
             }
             TestCase("Picker .pickerStyle(SegmentedPickerStyle())") {
                 Picker("Flavor", selection: $selectedFlavor) {
@@ -111,9 +113,10 @@ struct TestPicker: View {
                 .pickerStyle(SegmentedPickerStyle())
 
                 TestResult {
-                    Check(valid:  true, test: ".pickerStyle(SegmentedPickerStyle())")
+                    Check(iOS: true, macOS: true, test: ".pickerStyle(SegmentedPickerStyle())")
                 }
             }
+            
             TestCase("Picker .pickerStyle(WheelPickerStyle())") {
                 #if os(iOS)
                 Picker("Flavor", selection: $selectedFlavor) {
@@ -125,13 +128,14 @@ struct TestPicker: View {
                 }
                 .pickerStyle(WheelPickerStyle())
 
-                TestResult {
-                    Check(valid:  true, test: ".pickerStyle(WheelPickerStyle())")
-                }
                 #else
                 Text("Only supported on iOS/iPadOS")
                     .foregroundColor(.orange)
                 #endif
+
+                TestResult {
+                    Check(iOS: true, test: ".pickerStyle(WheelPickerStyle())")
+                }
             }
             Text("Selected flavor: \(selectedFlavor.rawValue)")            }
     }

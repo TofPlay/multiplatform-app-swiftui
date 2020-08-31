@@ -35,12 +35,8 @@ struct TestButton: View {
                 .buttonStyle(DefaultButtonStyle())
 
                 TestResult {
-                    Check(valid:  true, test: ".buttonStyle(DefaultButtonStyle())")
-                    #if os(macOS)
-                    Check(valid:  false, test: "Alert display one time")
-                    #else
-                    Check(valid:  true, test: "Alert display one time")
-                    #endif
+                    Check(iOS: true, macOS: true, test: ".buttonStyle(DefaultButtonStyle())")
+                    Check(iOS: true, macOS: false, test: "Alert display one time")
                 }
             }
             TestCase("Button .buttonStyle(BorderedButtonStyle())") {
@@ -50,14 +46,15 @@ struct TestButton: View {
                 }
                 .buttonStyle(BorderedButtonStyle())
 
-                TestResult {
-                    Check(valid:  true, test: ".buttonStyle(BorderedButtonStyle())")
-                    Check(valid:  false, test: "Alert display one time")
-                }
                 #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
                 #endif
+
+                TestResult {
+                    Check(macOS: true, test: ".buttonStyle(BorderedButtonStyle())")
+                    Check(macOS: false, test: "Alert display one time")
+                }
             }
             TestCase("Button .buttonStyle(BorderlessButtonStyle())") {
                 Button("Press me") {
@@ -66,12 +63,8 @@ struct TestButton: View {
                 .buttonStyle(BorderlessButtonStyle())
 
                 TestResult {
-                    Check(valid:  true, test: ".buttonStyle(BorderlessButtonStyle())")
-                    #if os(macOS)
-                    Check(valid:  false, test: "Alert display one time")
-                    #else
-                    Check(valid:  true, test: "Alert display one time")
-                    #endif
+                    Check(iOS: true, macOS: true, test: ".buttonStyle(BorderlessButtonStyle())")
+                    Check(iOS: true, macOS: false, test: "Alert display one time")
                 }
             }
             TestCase("Button .buttonStyle(CardButtonStyle())") {
@@ -81,9 +74,9 @@ struct TestButton: View {
                 }
                 .buttonStyle(CardButtonStyle())
 
-                TestItem("Checks", divider: false) {
-                    Check(valid:  true, test: ".buttonStyle(CardButtonStyle())")
-                }
+                //TestItem("Checks", divider: false) {
+                //    Check(tvOS: true, test: ".buttonStyle(CardButtonStyle())")
+                //}
                 #else
                 Text("Only supported on tvOS")
                     .foregroundColor(.orange)
@@ -95,19 +88,13 @@ struct TestButton: View {
                     select = Select(id:.link)
                 }
                 .buttonStyle(LinkButtonStyle())
-
-                TestResult {
-                    Check(valid:  true, test: ".buttonStyle(LinkButtonStyle())")
-                    #if os(macOS)
-                    Check(valid:  false, test: "Alert display one time")
-                    #else
-                    Check(valid:  true, test: "Alert display one time")
-                    #endif
-                }
                 #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
                 #endif
+                TestResult {
+                    Check(macOS: true, test: ".buttonStyle(LinkButtonStyle())")
+                }
             }
             TestCase("Button .buttonStyle(PlainButtonStyle())") {
                 Button("Press me") {
@@ -116,12 +103,8 @@ struct TestButton: View {
                 .buttonStyle(PlainButtonStyle())
 
                 TestResult {
-                    Check(valid:  true, test: ".buttonStyle(PlainButtonStyle())")
-                    #if os(macOS)
-                    Check(valid:  false, test: "Alert display one time")
-                    #else
-                    Check(valid:  true, test: "Alert display one time")
-                    #endif
+                    Check(iOS: true, macOS: true, test: ".buttonStyle(PlainButtonStyle())")
+                    Check(iOS: true, macOS: false, test: "Alert display one time")
                 }
             }
             TestCase("Button custom label") {
@@ -137,12 +120,8 @@ struct TestButton: View {
                 .buttonStyle(PlainButtonStyle())
 
                 TestResult {
-                    Check(valid:  true, test: "Custom label")
-                    #if os(macOS)
-                    Check(valid:  false, test: "Alert display one time")
-                    #else
-                    Check(valid:  true, test: "Alert display one time")
-                    #endif
+                    Check(iOS: true, macOS: true, test: "Custom label")
+                    Check(iOS: true, macOS: false, test: "Alert display one time")
                 }
             }
         }

@@ -14,7 +14,7 @@ struct TestLink: View {
                 Link("Open apple website", destination: URL(string: "https://www.apple.com")!)
 
                 TestResult {
-                    Check(valid:  true, test: "Link")
+                    Check(iOS: true, macOS: true, test: "Link")
                 }
             }
         }

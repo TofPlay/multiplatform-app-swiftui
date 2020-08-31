@@ -101,11 +101,7 @@ struct TestNavigationLinkButton: View {
             .navigationTitle("MainView")
             
             TestResult {
-                #if os(macOS)
-                Check(valid:  false, test: "NavigationLink with button")
-                #else
-                Check(valid:  true, test: "NavigationLink with button")
-                #endif
+                Check(iOS: true, macOS: false, test: "NavigationLink with button")
             }
             Spacer()
         }

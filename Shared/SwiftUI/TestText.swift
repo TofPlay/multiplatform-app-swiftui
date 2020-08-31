@@ -27,9 +27,9 @@ struct TestText: View {
                     .underline()
 
                 TestResult {
-                    Check(valid:  true, test: ".bold()")
-                    Check(valid:  true, test: ".italic()")
-                    Check(valid:  true, test: ".underline()")
+                    Check(iOS: true, macOS: true, test: ".bold()")
+                    Check(iOS: true, macOS: true, test: ".italic()")
+                    Check(iOS: true, macOS: true, test: ".underline()")
                 }
             }
             
@@ -73,16 +73,16 @@ struct TestText: View {
                 }
 
                 TestResult {
-                    Check(valid:  true, test: ".font(.largeTitle)")
-                    Check(valid:  true, test: ".font(.title)")
-                    Check(valid:  true, test: ".font(.title3)")
-                    Check(valid:  true, test: ".font(.headline)")
-                    Check(valid:  true, test: ".font(.subheadline)")
-                    Check(valid:  true, test: ".font(.body)")
-                    Check(valid:  true, test: ".font(.callout)")
-                    Check(valid:  true, test: ".font(.caption)")
-                    Check(valid:  true, test: ".font(.caption2)")
-                    Check(valid:  true, test: ".font(.footnote)")
+                    Check(iOS: true, macOS: true, test: ".font(.largeTitle)")
+                    Check(iOS: true, macOS: true, test: ".font(.title)")
+                    Check(iOS: true, macOS: true, test: ".font(.title3)")
+                    Check(iOS: true, macOS: true, test: ".font(.headline)")
+                    Check(iOS: true, macOS: true, test: ".font(.subheadline)")
+                    Check(iOS: true, macOS: true, test: ".font(.body)")
+                    Check(iOS: true, macOS: true, test: ".font(.callout)")
+                    Check(iOS: true, macOS: true, test: ".font(.caption)")
+                    Check(iOS: true, macOS: true, test: ".font(.caption2)")
+                    Check(iOS: true, macOS: true, test: ".font(.footnote)")
                 }
             }
             
@@ -90,7 +90,7 @@ struct TestText: View {
                 Text("Bold").bold() + Text(", ") + Text("Italic").italic() + Text(", ") + Text("Underline").underline()
 
                 TestResult {
-                    Check(valid:  true, test: "Text(\"\").bold() + Text(\"\").italic() + Text(\"\").underline()")
+                    Check(iOS: true, macOS: true, test: "Text(\"\").bold() + Text(\"\").italic() + Text(\"\").underline()")
                 }
             }
             
@@ -105,9 +105,9 @@ struct TestText: View {
                     .multilineTextAlignment(.trailing)
 
                 TestResult {
-                    Check(valid:  true, test: ".multilineTextAlignment(.leading)")
-                    Check(valid:  true, test: ".multilineTextAlignment(.center)")
-                    Check(valid:  true, test: ".multilineTextAlignment(.trailing)")
+                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.leading)")
+                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.center)")
+                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.trailing)")
                 }
             }
             
@@ -115,7 +115,7 @@ struct TestText: View {
                 Text("Now it's: \(Date(), formatter: Self.dateFormatter)")
 
                 TestResult {
-                    Check(valid:  true, test: "String interpolation")
+                    Check(iOS: true, macOS: true, test: "String interpolation")
                 }
             }
         }

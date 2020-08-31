@@ -22,7 +22,7 @@ struct TestTextEditor: View {
                     .border(Color.black, width: 1)
                 
                 TestResult {
-                    Check(valid:  true, test: "TextEditor")
+                    Check(iOS: true, macOS: true, test: "TextEditor")
                 }
             }
         }

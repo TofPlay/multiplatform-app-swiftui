@@ -37,8 +37,11 @@ struct TestCase<Content:View>: View {
     
 struct TestItem_Previews: PreviewProvider {
     static var previews: some View {
-        TestCase("Item") {
-            
+        TestCase("Test Case") {
+            TestResult {
+                Check(iOS: true, macOS: true, test: "Feature 1")
+                Check(iOS: false, macOS: false, test: "Feature 2")
+            }
         }
     }
 }
