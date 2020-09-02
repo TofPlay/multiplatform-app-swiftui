@@ -89,6 +89,8 @@ struct DetailView: View {
                     TestPresentingViews()
                 case .splitView:
                     TestSplitView()
+                case .webView:
+                    TestWebView()
                 case .navigationStack:
                     TestNavigationStack()
                 }

@@ -38,6 +38,7 @@ public enum Test: String {
     case navigationLinkList = "NavigationLink (list)"
     case presentingViews = "Presenting Views"
     case splitView = "SplitView"
+    case webView = "WebView"
     case navigationStack = "NavigationStack"
 }
 
@@ -73,7 +74,8 @@ struct MultiplatformAppSwiftUI: App {
         .navigationLinkButton,
         .navigationLinkList,
         .presentingViews,
-        .splitView
+        .splitView,
+        .webView
     ]
     @State private var components:[Test] = [.navigationStack]
     @State private var select:Test? = nil
