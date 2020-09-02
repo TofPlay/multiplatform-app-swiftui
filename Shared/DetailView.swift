@@ -10,6 +10,21 @@ import SwiftUI
 struct DetailView: View {
     @Binding public var select: Test?
 
+    struct DefaultView: View {
+        var body: some View {
+            VStack(alignment: .leading) {
+                HStack {
+                    Label("Select a test", systemImage: "arrow.left")
+                        .font(.title)
+                        .foregroundColor(.gray)
+                        .padding()
+                    Spacer()
+                }
+                Spacer()
+            }
+        }
+    }
+    
     var body: some View {
         VStack {
             if let lSelect = select {
@@ -72,11 +87,13 @@ struct DetailView: View {
                     TestNavigationLinkList()
                 case .presentingViews:
                     TestPresentingViews()
+                case .splitView:
+                    TestSplitView()
                 case .navigationStack:
                     TestNavigationStack()
                 }
             } else {
-                Text("Select a test")
+                DefaultView()
             }
         }
     }

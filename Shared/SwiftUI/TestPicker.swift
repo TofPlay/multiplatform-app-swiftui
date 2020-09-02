@@ -29,9 +29,14 @@ struct TestPicker: View {
                     }
                 }
                 .pickerStyle(DefaultPickerStyle())
+                .frame(width: 500)
+                .border(Color.red)
 
+                Text("Selected flavor: \(selectedFlavor.rawValue)")
+                
                 TestResult {
                     Check(iOS: true, macOS: true, test: ".pickerStyle(DefaultPickerStyle())")
+                    Check(iOS: true, macOS: true, test: ".frame(width: 500)")
                 }
             }
             TestCase("Picker .pickerStyle(InlinePickerStyle())") {
@@ -43,9 +48,38 @@ struct TestPicker: View {
                     }
                 }
                 .pickerStyle(InlinePickerStyle())
+                .frame(width: 500, alignment: .leading)
+                .border(Color.red)
 
+                Picker("Flavor", selection: $selectedFlavor) {
+                    ForEach(Flavor.allCases) {
+                        flavor in
+                        Text(flavor.rawValue.capitalized)
+                            .tag(flavor)
+                    }
+                }
+                .pickerStyle(InlinePickerStyle())
+                .frame(width: 500, alignment: .center)
+                .border(Color.red)
+
+                Picker("Flavor", selection: $selectedFlavor) {
+                    ForEach(Flavor.allCases) {
+                        flavor in
+                        Text(flavor.rawValue.capitalized)
+                            .tag(flavor)
+                    }
+                }
+                .pickerStyle(InlinePickerStyle())
+                .frame(width: 500, alignment: .trailing)
+                .border(Color.red)
+
+                Text("Selected flavor: \(selectedFlavor.rawValue)")
+                
                 TestResult {
                     Check(iOS: true, macOS: true, test: ".pickerStyle(InlinePickerStyle())")
+                    Check(iOS: false, macOS: true, test: ".frame(width: 500,alignment: .leading)")
+                    Check(iOS: true, macOS: true, test: ".frame(width: 500,alignment: .center)")
+                    Check(iOS: false, macOS: true, test: ".frame(width: 500,alignment: .trailing)")
                 }
             }
             TestCase("Picker .pickerStyle(MenuPickerStyle())") {
@@ -57,11 +91,41 @@ struct TestPicker: View {
                     }
                 }
                 .pickerStyle(MenuPickerStyle())
+                .frame(width: 500,alignment: .leading)
+                .border(Color.red)
 
+                Picker("Flavor", selection: $selectedFlavor) {
+                    ForEach(Flavor.allCases) {
+                        flavor in
+                        Text(flavor.rawValue.capitalized)
+                            .tag(flavor)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .frame(width: 500,alignment: .center)
+                .border(Color.red)
+
+                Picker("Flavor", selection: $selectedFlavor) {
+                    ForEach(Flavor.allCases) {
+                        flavor in
+                        Text(flavor.rawValue.capitalized)
+                            .tag(flavor)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .frame(width: 500,alignment: .trailing)
+                .border(Color.red)
+                
+                Text("Selected flavor: \(selectedFlavor.rawValue)")
+                
                 TestResult {
                     Check(iOS: true, macOS: true, test: ".pickerStyle(MenuPickerStyle())")
+                    Check(iOS: true, macOS: true, test: ".frame(width: 500,alignment: .leading)")
+                    Check(iOS: true, macOS: false, test: ".frame(width: 500,alignment: .center)")
+                    Check(iOS: true, macOS: false, test: ".frame(width: 500,alignment: .trailing)")
                 }
             }
+            
             TestCase("Picker .pickerStyle(PopUpButtonPickerStyle())") {
                 #if os(macOS)
                 Picker("Flavor", selection: $selectedFlavor) {
@@ -72,14 +136,19 @@ struct TestPicker: View {
                     }
                 }
                 .pickerStyle(PopUpButtonPickerStyle())
+                .frame(width: 500)
+                .border(Color.red)
 
                 #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
                 #endif
 
+                Text("Selected flavor: \(selectedFlavor.rawValue)")
+                
                 TestResult {
                     Check(macOS: true, test: ".pickerStyle(PopUpButtonPickerStyle())")
+                    Check(macOS: true, test: ".frame(width: 500)")
                 }
             }
             TestCase("Picker .pickerStyle(RadioGroupPickerStyle())") {
@@ -92,14 +161,43 @@ struct TestPicker: View {
                     }
                 }
                 .pickerStyle(RadioGroupPickerStyle())
+                .frame(width: 500, alignment: .leading)
+                .border(Color.red)
+
+                Picker("Flavor", selection: $selectedFlavor) {
+                    ForEach(Flavor.allCases) {
+                        flavor in
+                        Text(flavor.rawValue.capitalized)
+                            .tag(flavor)
+                    }
+                }
+                .pickerStyle(RadioGroupPickerStyle())
+                .frame(width: 500, alignment: .center)
+                .border(Color.red)
+
+                Picker("Flavor", selection: $selectedFlavor) {
+                    ForEach(Flavor.allCases) {
+                        flavor in
+                        Text(flavor.rawValue.capitalized)
+                            .tag(flavor)
+                    }
+                }
+                .pickerStyle(RadioGroupPickerStyle())
+                .frame(width: 500, alignment: .trailing)
+                .border(Color.red)
 
                 #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
                 #endif
 
+                Text("Selected flavor: \(selectedFlavor.rawValue)")
+                
                 TestResult {
                     Check(macOS: true, test: ".pickerStyle(RadioGroupPickerStyle())")
+                    Check(macOS: true, test: ".frame(width: 500,alignment: .leading)")
+                    Check(macOS: true, test: ".frame(width: 500,alignment: .center)")
+                    Check(macOS: true, test: ".frame(width: 500,alignment: .trailing)")
                 }
             }
             TestCase("Picker .pickerStyle(SegmentedPickerStyle())") {
@@ -111,9 +209,14 @@ struct TestPicker: View {
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
+                .frame(width: 500)
+                .border(Color.red)
 
+                Text("Selected flavor: \(selectedFlavor.rawValue)")
+                
                 TestResult {
                     Check(iOS: true, macOS: true, test: ".pickerStyle(SegmentedPickerStyle())")
+                    Check(iOS: true, macOS: true, test: ".frame(width: 500)")
                 }
             }
             
@@ -127,17 +230,23 @@ struct TestPicker: View {
                     }
                 }
                 .pickerStyle(WheelPickerStyle())
+                .frame(width: 500)
+                .border(Color.red)
 
                 #else
                 Text("Only supported on iOS/iPadOS")
                     .foregroundColor(.orange)
                 #endif
 
+                Text("Selected flavor: \(selectedFlavor.rawValue)")
+                
                 TestResult {
                     Check(iOS: true, test: ".pickerStyle(WheelPickerStyle())")
+                    Check(iOS: true, test: ".frame(width: 500)")
                 }
             }
-            Text("Selected flavor: \(selectedFlavor.rawValue)")            }
+
+        }
     }
 }
 

@@ -37,6 +37,7 @@ public enum Test: String {
     case navigationLinkButton = "NavigationLink (button)"
     case navigationLinkList = "NavigationLink (list)"
     case presentingViews = "Presenting Views"
+    case splitView = "SplitView"
     case navigationStack = "NavigationStack"
 }
 
@@ -71,7 +72,8 @@ struct MultiplatformAppSwiftUI: App {
         .transitionView,
         .navigationLinkButton,
         .navigationLinkList,
-        .presentingViews
+        .presentingViews,
+        .splitView
     ]
     @State private var components:[Test] = [.navigationStack]
     @State private var select:Test? = nil
@@ -93,10 +95,16 @@ struct MultiplatformAppSwiftUI: App {
                         #endif
                     }
 
+                #if os(iOS)
+                DetailView(select: $select)
+                    .navigationTitle("Multiplatform App SwiftUI")
+                    .navigationBarTitleDisplayMode(.inline)
+                #else
                 DetailView(select: $select)
                     .frame(minWidth: 900, maxWidth: .infinity, minHeight: 200, maxHeight: .infinity)
+                #endif
             }
-            .navigationTitle("Multiplatform SwiftUI")
+            .navigationTitle("Multiplatform App SwiftUI")
         }
     }
 
