@@ -8,6 +8,6 @@ In practice, the size of the screens can be very different between, for example,
 The only case where we can hope to have the same code is between an iPadOS application and macOS application.<br>
 Now the question is: Do the components of SwiftUI work the same on both platforms?<br>
 This is what I have tried to determine with this **test project** (without specific architecture or elaborate design). In this test project we have a Sidebar with a list the SwiftUI components and for each of them I made a screen that uses them in different configurations. I even started a section for third party components. At the end of each test there is a "Test Result" section which reminds us the environment and which lists the points which have been tested, indicating whether they have passed or not.<br>
-This project was done with **Xcode 12 Beta 6** on **macOS Big Sur Beta 5**. So to run this project you must be on macOS Big Sur Beta 5 with Xcode 12 Beta 6.<br>
+This project was done with **Xcode 12 Beta 6** on **macOS Big Sur Beta 6**. So to run this project you must be on macOS Big Sur Beta 6 with Xcode 12 Beta 6.<br>
 These are beta versions the test results will probably be different with the final version.
 
