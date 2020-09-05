@@ -81,6 +81,8 @@
 		8497A0E824FFFBDF00639799 /* TestWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497A0E624FFFBDF00639799 /* TestWebView.swift */; };
 		849CE39824E5CD0800496800 /* TestNavigationLinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CE39724E5CD0800496800 /* TestNavigationLinkList.swift */; };
 		849CE39924E5CD0800496800 /* TestNavigationLinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CE39724E5CD0800496800 /* TestNavigationLinkList.swift */; };
+		84A2467C2501586D00D813DB /* TestShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2467B2501586D00D813DB /* TestShape.swift */; };
+		84A2467D2501586D00D813DB /* TestShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2467B2501586D00D813DB /* TestShape.swift */; };
 		84A4493B24B50403000A9ACD /* TestDisclosureGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4493A24B50403000A9ACD /* TestDisclosureGroup.swift */; };
 		84A4493C24B50403000A9ACD /* TestDisclosureGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4493A24B50403000A9ACD /* TestDisclosureGroup.swift */; };
 		84CB018E24ACB2A40002AB53 /* TestTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB018D24ACB2A40002AB53 /* TestTextEditor.swift */; };
@@ -89,6 +91,8 @@
 		84D0D64024DEDA0300A87802 /* TestNavigationLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0D63E24DEDA0300A87802 /* TestNavigationLinkButton.swift */; };
 		84E4ABD324B51F11003C92F5 /* TestOutlineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4ABD224B51F11003C92F5 /* TestOutlineGroup.swift */; };
 		84E4ABD424B51F11003C92F5 /* TestOutlineGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4ABD224B51F11003C92F5 /* TestOutlineGroup.swift */; };
+		84E75B48250330B40039314E /* TestCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E75B47250330B40039314E /* TestCode.swift */; };
+		84E75B49250330B40039314E /* TestCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E75B47250330B40039314E /* TestCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,10 +137,12 @@
 		848B4BCB24EFED94006AB197 /* TestColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestColor.swift; sourceTree = "<group>"; };
 		8497A0E624FFFBDF00639799 /* TestWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWebView.swift; sourceTree = "<group>"; };
 		849CE39724E5CD0800496800 /* TestNavigationLinkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavigationLinkList.swift; sourceTree = "<group>"; };
+		84A2467B2501586D00D813DB /* TestShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestShape.swift; sourceTree = "<group>"; };
 		84A4493A24B50403000A9ACD /* TestDisclosureGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDisclosureGroup.swift; sourceTree = "<group>"; };
 		84CB018D24ACB2A40002AB53 /* TestTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextEditor.swift; sourceTree = "<group>"; };
 		84D0D63E24DEDA0300A87802 /* TestNavigationLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavigationLinkButton.swift; sourceTree = "<group>"; };
 		84E4ABD224B51F11003C92F5 /* TestOutlineGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOutlineGroup.swift; sourceTree = "<group>"; };
+		84E75B47250330B40039314E /* TestCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,31 +232,32 @@
 				847E589E24E3F94900DCBE95 /* TestTextField.swift */,
 				847E58A124E3F95C00DCBE95 /* TestSecureField.swift */,
 				84CB018D24ACB2A40002AB53 /* TestTextEditor.swift */,
-				847E58A424E3F97400DCBE95 /* TestImage.swift */,
 				847E58A724E3F98600DCBE95 /* TestButton.swift */,
-				846FF4F724F26B4C00EEFE85 /* TestList.swift */,
-				847E58AA24E3F99900DCBE95 /* TestLink.swift */,
-				847E58AD24E3F9AF00DCBE95 /* TestToolbarItem.swift */,
 				847E58B024E3F9BF00DCBE95 /* TestToggle.swift */,
+				847E58B624E3F9EF00DCBE95 /* TestSlider.swift */,
+				847E58B924E3FA1F00DCBE95 /* TestStepper.swift */,
+				84112CB924AE5C97006F349B /* TestProgressView.swift */,
+				84A2467B2501586D00D813DB /* TestShape.swift */,
+				847E58A424E3F97400DCBE95 /* TestImage.swift */,
+				847B106024FD5AB700B2E5C7 /* TestVideoPlayer.swift */,
+				847956D624FED514008BA92F /* TestSplitView.swift */,
+				8497A0E624FFFBDF00639799 /* TestWebView.swift */,
+				847E58AA24E3F99900DCBE95 /* TestLink.swift */,
+				846FF4F724F26B4C00EEFE85 /* TestList.swift */,
+				84A4493A24B50403000A9ACD /* TestDisclosureGroup.swift */,
+				84E4ABD224B51F11003C92F5 /* TestOutlineGroup.swift */,
 				847E58B324E3F9D100DCBE95 /* TestPicker.swift */,
 				84112CBC24AE6409006F349B /* TestDatePicker.swift */,
 				84112CBF24AE680F006F349B /* TestColorPicker.swift */,
-				847E58B624E3F9EF00DCBE95 /* TestSlider.swift */,
-				847E58B924E3FA1F00DCBE95 /* TestStepper.swift */,
 				847E58BC24E3FA2D00DCBE95 /* TestForm.swift */,
-				84112CB924AE5C97006F349B /* TestProgressView.swift */,
 				843297B124B3B1850081563D /* TestMap.swift */,
-				847B106024FD5AB700B2E5C7 /* TestVideoPlayer.swift */,
-				84A4493A24B50403000A9ACD /* TestDisclosureGroup.swift */,
-				84E4ABD224B51F11003C92F5 /* TestOutlineGroup.swift */,
 				8450EBD824B5851300931479 /* TestLazyVGrid.swift */,
 				8450EBDB24B5EA7E00931479 /* TestGridAndSections.swift */,
-				8419199824B7A6D50001CB0C /* TestTransitionView.swift */,
+				847E58AD24E3F9AF00DCBE95 /* TestToolbarItem.swift */,
 				84D0D63E24DEDA0300A87802 /* TestNavigationLinkButton.swift */,
 				849CE39724E5CD0800496800 /* TestNavigationLinkList.swift */,
 				848481FE24FB834600E44176 /* TestPresentingViews.swift */,
-				847956D624FED514008BA92F /* TestSplitView.swift */,
-				8497A0E624FFFBDF00639799 /* TestWebView.swift */,
+				8419199824B7A6D50001CB0C /* TestTransitionView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -268,6 +275,7 @@
 			children = (
 				845D3A6A24B221C700DD9B87 /* TestBody.swift */,
 				840747BF24F955BF00604F64 /* TestCase.swift */,
+				84E75B47250330B40039314E /* TestCode.swift */,
 				840747B924F9535000604F64 /* TestResult.swift */,
 				840747BC24F954F200604F64 /* Check.swift */,
 			);
@@ -383,6 +391,7 @@
 				840747C024F955BF00604F64 /* TestCase.swift in Sources */,
 				8419199924B7A6D50001CB0C /* TestTransitionView.swift in Sources */,
 				843297B224B3B1850081563D /* TestMap.swift in Sources */,
+				84A2467C2501586D00D813DB /* TestShape.swift in Sources */,
 				84E4ABD324B51F11003C92F5 /* TestOutlineGroup.swift in Sources */,
 				848B4BCC24EFED94006AB197 /* TestColor.swift in Sources */,
 				847E58A824E3F98600DCBE95 /* TestButton.swift in Sources */,
@@ -414,6 +423,7 @@
 				847E58BA24E3FA1F00DCBE95 /* TestStepper.swift in Sources */,
 				843358C324A8C11300679970 /* MultiplatformAppSwiftUI.swift in Sources */,
 				849CE39824E5CD0800496800 /* TestNavigationLinkList.swift in Sources */,
+				84E75B48250330B40039314E /* TestCode.swift in Sources */,
 				84D0D63F24DEDA0300A87802 /* TestNavigationLinkButton.swift in Sources */,
 				847E58A524E3F97400DCBE95 /* TestImage.swift in Sources */,
 				8497A0E724FFFBDF00639799 /* TestWebView.swift in Sources */,
@@ -429,6 +439,7 @@
 				840747C124F955BF00604F64 /* TestCase.swift in Sources */,
 				8419199A24B7A6D50001CB0C /* TestTransitionView.swift in Sources */,
 				843297B324B3B1850081563D /* TestMap.swift in Sources */,
+				84A2467D2501586D00D813DB /* TestShape.swift in Sources */,
 				84E4ABD424B51F11003C92F5 /* TestOutlineGroup.swift in Sources */,
 				848B4BCD24EFED94006AB197 /* TestColor.swift in Sources */,
 				847E58A924E3F98600DCBE95 /* TestButton.swift in Sources */,
@@ -460,6 +471,7 @@
 				847E58BB24E3FA1F00DCBE95 /* TestStepper.swift in Sources */,
 				843358C424A8C11300679970 /* MultiplatformAppSwiftUI.swift in Sources */,
 				849CE39924E5CD0800496800 /* TestNavigationLinkList.swift in Sources */,
+				84E75B49250330B40039314E /* TestCode.swift in Sources */,
 				84D0D64024DEDA0300A87802 /* TestNavigationLinkButton.swift in Sources */,
 				847E58A624E3F97400DCBE95 /* TestImage.swift in Sources */,
 				8497A0E824FFFBDF00639799 /* TestWebView.swift in Sources */,
