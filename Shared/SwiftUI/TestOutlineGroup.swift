@@ -17,6 +17,7 @@ struct TestOutlineGroup: View {
     var body: some View {
         TestBody(test: .disclosureGroup) {
             TestCase("OutlineGroup with VStack and 3 levels") {
+                #if os(iOS)
                 VStack {
                     ForEach(items()) {
                         item in
@@ -28,15 +29,20 @@ struct TestOutlineGroup: View {
                 }
                 .frame(width: 300, height: 500)
                 .border(Color.red)
+                #else
+                Label("Crash on macOS", systemImage: "exclamationmark.triangle.fill")
+                    .foregroundColor(.red)
+                #endif
 
                 TestResult {
                     Check(iOS: false, macOS: false, test: "Display Items")
                     Check(iOS: false, macOS: false, test: "Display subItems")
-                    Check(iOS: true, macOS: true, test: ".background(Color.systemGray6)")
+                    Check(iOS: true, macOS: false, test: ".background(Color.systemGray6)")
                 }
             }
 
             TestCase("OutlineGroup with List and 3 levels") {
+                #if os(iOS)
                 List {
                     ForEach(items()) {
                         item in
@@ -49,10 +55,14 @@ struct TestOutlineGroup: View {
                 .listStyle(PlainListStyle())
                 .frame(width: 300, height: 500)
                 .border(Color.red)
+                #else
+                Label("Crash on macOS", systemImage: "exclamationmark.triangle.fill")
+                    .foregroundColor(.red)
+                #endif
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Display Items")
-                    Check(iOS: true, macOS: true, test: "Display subItems")
+                    Check(iOS: true, macOS: false, test: "Display Items")
+                    Check(iOS: true, macOS: false, test: "Display subItems")
                     Check(iOS: false, macOS: false, test: ".background(Color.systemGray6)")
                 }
             }

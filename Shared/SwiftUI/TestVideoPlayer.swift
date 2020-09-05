@@ -2,7 +2,7 @@
 //  TestVideo.swift
 //  MultiplatformAppSwiftUI
 //
-//  Created by admin on 31/08/2020.
+//  Created by Christophe Braud on 31/08/2020.
 //
 
 import SwiftUI
@@ -15,6 +15,7 @@ struct TestVideoPlayer: View {
     var body: some View {
         TestBody(test: .videoPlayer) {
             TestCase("VideoPlayer") {
+                #if os(iOS)
                 VideoPlayer(player: player)
                     .frame(width: 640, height: 360)
                     .onAppear {
@@ -25,6 +26,10 @@ struct TestVideoPlayer: View {
                         player.seek(to: .zero)
                         player.play()
                     }
+                #else
+                Label("Crash on macOS", systemImage: "exclamationmark.triangle.fill")
+                    .foregroundColor(.red)
+                #endif
                 TestResult {
                     Check(iOS: true, macOS: false, test: "VideoPlayer .play()")
                 }

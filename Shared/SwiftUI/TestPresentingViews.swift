@@ -271,7 +271,7 @@ struct TestPresentingViews: View {
                 #endif
 
                 TestResult {
-                    Check(iOS: true, test: "Display SheetForFullScreen")
+                    Check(iOS: true, test: "Display Sheet ForFullScreen")
                 }
             }
 

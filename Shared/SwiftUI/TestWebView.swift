@@ -2,7 +2,7 @@
 //  TestWebView.swift
 //  MultiplatformAppSwiftUI
 //
-//  Created by admin on 02/09/2020.
+//  Created by Christophe Braud on 02/09/2020.
 //
 
 import SwiftUI
