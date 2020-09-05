@@ -8,37 +8,41 @@
 import SwiftUI
 
 public enum Test: String {
+    // SwiftUI
     case color = "Color"
     case text = "Text"
     case label = "Label"
     case textField = "TextField"
     case secureField = "SecureField"
     case textEditor = "TextEditor"
-    case image = "Image"
     case button = "Button"
-    case list = "List"
-    case link = "Link"
-    case toolbarItem = "ToolbarItem"
     case toggle = "Toggle"
+    case slider = "Slider"
+    case stepper = "Stepper"
+    case progressView = "ProgressView"
+    case shape = "Shape"
+    case image = "Image"
+    case videoPlayer = "VideoPlayer"
+    case splitView = "SplitView"
+    case webView = "WebView"
+    case link = "Link"
+    case list = "List"
+    case disclosureGroup = "DisclosureGroup"
+    case outlineGroup = "OutlineGroup"
     case picker = "Picker"
     case datePicker = "DatePicker"
     case colorPicker = "ColorPicker"
-    case slider = "Slider"
-    case stepper = "Stepper"
     case form = "Form"
-    case progressView = "ProgressView"
     case map = "Map"
-    case videoPlayer = "VideoPlayer"
-    case disclosureGroup = "DisclosureGroup"
-    case outlineGroup = "OutlineGroup"
     case lazyVGrid = "LazyVGrid"
-    case gridAndSections = "Grid and Sections"
-    case transitionView = "TransitionView"
+    case lazyVGridAndSections = "LazyVGrid + Sections"
+    case toolbarItem = "ToolbarItem"
     case navigationLinkButton = "NavigationLink (button)"
     case navigationLinkList = "NavigationLink (list)"
     case presentingViews = "Presenting Views"
-    case splitView = "SplitView"
-    case webView = "WebView"
+    case transitionView = "TransitionView"
+    
+    // Components
     case navigationStack = "NavigationStack"
 }
 
@@ -51,33 +55,72 @@ struct MultiplatformAppSwiftUI: App {
         .textField,
         .secureField,
         .textEditor,
-        .image,
         .button,
-        .list,
-        .link,
-        .toolbarItem,
         .toggle,
+        .slider,
+        .stepper,
+        .progressView,
+        .shape,
+        .image,
+        .videoPlayer,
+        .splitView,
+        .webView,
+        .link,
+        .list,
+        .disclosureGroup,
+        .outlineGroup,
         .picker,
         .datePicker,
         .colorPicker,
-        .slider,
-        .stepper,
         .form,
-        .progressView,
         .map,
-        .videoPlayer,
-        .disclosureGroup,
-        .outlineGroup,
         .lazyVGrid,
-        .gridAndSections,
-        .transitionView,
+        .lazyVGridAndSections,
+        .toolbarItem,
         .navigationLinkButton,
         .navigationLinkList,
         .presentingViews,
-        .splitView,
-        .webView
+        .transitionView
     ]
+
     @State private var components:[Test] = [.navigationStack]
+
+    @State private var views:[Test:AnyView] = [
+        .color : AnyView(TestColor()),
+        .text : AnyView(TestText()),
+        .label : AnyView(TestLabel()),
+        .textField : AnyView(TestTextField()),
+        .secureField : AnyView(TestSecureField()),
+        .textEditor : AnyView(TestTextEditor()),
+        .button : AnyView(TestButton()),
+        .toggle : AnyView(TestToggle()),
+        .slider : AnyView(TestSlider()),
+        .stepper : AnyView(TestStepper()),
+        .progressView : AnyView(TestProgressView()),
+        .shape : AnyView(TestShape()),
+        .image : AnyView(TestImage()),
+        .videoPlayer : AnyView(TestVideoPlayer()),
+        .splitView : AnyView(TestSplitView()),
+        .webView : AnyView(TestWebView()),
+        .link : AnyView(TestLink()),
+        .list : AnyView(TestList()),
+        .disclosureGroup : AnyView(TestDisclosureGroup()),
+        .outlineGroup : AnyView(TestOutlineGroup()),
+        .picker : AnyView(TestPicker()),
+        .datePicker : AnyView(TestDatePicker()),
+        .colorPicker : AnyView(TestColorPicker()),
+        .form : AnyView(TestForm()),
+        .map : AnyView(TestMap()),
+        .lazyVGrid : AnyView(TestLazyVGrid()),
+        .lazyVGridAndSections : AnyView(TestGridAndSections()),
+        .toolbarItem : AnyView(TestToolbarItem()),
+        .navigationLinkButton : AnyView(TestNavigationLinkButton()),
+        .navigationLinkList : AnyView(TestNavigationLinkList()),
+        .presentingViews : AnyView(TestPresentingViews()),
+        .transitionView : AnyView(TestTransitionView()),
+        .navigationStack : AnyView(TestNavigationStack())
+    ]
+    
     @State private var select:Test? = nil
     
     var body: some Scene {
@@ -98,11 +141,11 @@ struct MultiplatformAppSwiftUI: App {
                     }
 
                 #if os(iOS)
-                DetailView(select: $select)
+                DetailView(select: $select, views: $views)
                     .navigationTitle("Multiplatform App SwiftUI")
                     .navigationBarTitleDisplayMode(.inline)
                 #else
-                DetailView(select: $select)
+                DetailView(select: $select, views: $views)
                     .frame(minWidth: 900, maxWidth: .infinity, minHeight: 200, maxHeight: .infinity)
                 #endif
             }
