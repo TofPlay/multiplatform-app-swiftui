@@ -22,10 +22,11 @@ public enum Test: String {
     case progressView = "ProgressView"
     case shape = "Shape"
     case image = "Image"
+    case link = "Link"
     case videoPlayer = "VideoPlayer"
+    case scrollView = "ScrollView"
     case splitView = "SplitView"
     case webView = "WebView"
-    case link = "Link"
     case list = "List"
     case disclosureGroup = "DisclosureGroup"
     case outlineGroup = "OutlineGroup"
@@ -62,10 +63,11 @@ struct MultiplatformAppSwiftUI: App {
         .progressView,
         .shape,
         .image,
+        .link,
         .videoPlayer,
+        .scrollView,
         .splitView,
         .webView,
-        .link,
         .list,
         .disclosureGroup,
         .outlineGroup,
@@ -100,6 +102,7 @@ struct MultiplatformAppSwiftUI: App {
         .shape : AnyView(TestShape()),
         .image : AnyView(TestImage()),
         .videoPlayer : AnyView(TestVideoPlayer()),
+        .scrollView : AnyView(TestScrollView()),
         .splitView : AnyView(TestSplitView()),
         .webView : AnyView(TestWebView()),
         .link : AnyView(TestLink()),

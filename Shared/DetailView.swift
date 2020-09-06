@@ -14,6 +14,7 @@ struct DetailView: View {
     struct DefaultView: View {
         var body: some View {
             VStack(alignment: .leading) {
+                Spacer()
                 HStack {
                     Label("Select a test", systemImage: "arrow.left")
                         .font(.title)
