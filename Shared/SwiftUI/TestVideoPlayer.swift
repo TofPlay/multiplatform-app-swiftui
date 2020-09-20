@@ -21,6 +21,9 @@ struct TestVideoPlayer: View {
                     .onAppear {
                         player.play()
                     }
+                    .onDisappear {
+                        player.pause()
+                    }
                     .onReceive(endMonitor) {
                         _ in
                         player.seek(to: .zero)
