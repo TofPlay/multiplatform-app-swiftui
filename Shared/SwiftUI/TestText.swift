@@ -14,6 +14,30 @@ struct TestText: View {
         return formatter
     }()
     
+    struct RedactedView: View {
+        
+        var body: some View {
+            VStack(alignment: .leading) {
+                Image("sample")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .clipShape(Circle())
+                HStack {
+                    Text("Lorem ipsum dolor sit amet")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.blue)
+                    
+                    Image(systemName: "cloud.sun.rain")
+                        .font(.title)
+                        .foregroundColor(.blue)
+                }
+                
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n Vestibulum nec neque vel nisi scelerisque efficitur.\n Ut rhoncus convallis purus non volutpat.\n Ut dictum mauris id odio dignissim tincidunt.").font(.body)
+            }
+        }
+    }
+    
     var body: some View {
         TestBody(test: .text) {
             TestCase("Basics modifiers") {
@@ -25,7 +49,7 @@ struct TestText: View {
                 
                 Text("Underline")
                     .underline()
-
+                
                 TestResult {
                     Check(iOS: true, macOS: true, test: ".bold()")
                     Check(iOS: true, macOS: true, test: ".italic()")
@@ -52,7 +76,7 @@ struct TestText: View {
                     
                     Text("Subheadline")
                         .font(.subheadline)
-
+                    
                 }
                 
                 Group {
@@ -71,7 +95,7 @@ struct TestText: View {
                     Text("Footnote")
                         .font(.footnote)
                 }
-
+                
                 TestResult {
                     Check(iOS: true, macOS: true, test: ".font(.largeTitle)")
                     Check(iOS: true, macOS: true, test: ".font(.title)")
@@ -88,7 +112,7 @@ struct TestText: View {
             
             TestCase("Concat texts") {
                 Text("Bold").bold() + Text(", ") + Text("Italic").italic() + Text(", ") + Text("Underline").underline()
-
+                
                 TestResult {
                     Check(iOS: true, macOS: true, test: "Text(\"\").bold() + Text(\"\").italic() + Text(\"\").underline()")
                 }
@@ -97,13 +121,13 @@ struct TestText: View {
             TestCase("Multiline text alignment") {
                 Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n Vestibulum nec neque vel nisi scelerisque efficitur.\n Ut rhoncus convallis purus non volutpat.\n Ut dictum mauris id odio dignissim tincidunt.\n Mauris nec pulvinar neque.\n Ut eu volutpat ligula, ut suscipit nibh.\n Sed ipsum odio, semper ac velit vel, tempor pharetra massa.\n Curabitur metus diam, scelerisque in nunc et, aliquam fermentum lectus.\n Aliquam faucibus ex eget sagittis tincidunt.\n Maecenas viverra fermentum tortor eget ornare.\n Nam ornare, lacus nec auctor euismod, magna lacus efficitur ipsum, nec tristique turpis nunc nec risus.\n Sed dapibus pharetra vehicula.\n Proin accumsan convallis nunc sit amet bibendum.\n")
                     .multilineTextAlignment(.leading)
-
+                
                 Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n Vestibulum nec neque vel nisi scelerisque efficitur.\n Ut rhoncus convallis purus non volutpat.\n Ut dictum mauris id odio dignissim tincidunt.\n Mauris nec pulvinar neque.\n Ut eu volutpat ligula, ut suscipit nibh.\n Sed ipsum odio, semper ac velit vel, tempor pharetra massa.\n Curabitur metus diam, scelerisque in nunc et, aliquam fermentum lectus.\n Aliquam faucibus ex eget sagittis tincidunt.\n Maecenas viverra fermentum tortor eget ornare.\n Nam ornare, lacus nec auctor euismod, magna lacus efficitur ipsum, nec tristique turpis nunc nec risus.\n Sed dapibus pharetra vehicula.\n Proin accumsan convallis nunc sit amet bibendum.\n")
                     .multilineTextAlignment(.center)
-
+                
                 Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n Vestibulum nec neque vel nisi scelerisque efficitur.\n Ut rhoncus convallis purus non volutpat.\n Ut dictum mauris id odio dignissim tincidunt.\n Mauris nec pulvinar neque.\n Ut eu volutpat ligula, ut suscipit nibh.\n Sed ipsum odio, semper ac velit vel, tempor pharetra massa.\n Curabitur metus diam, scelerisque in nunc et, aliquam fermentum lectus.\n Aliquam faucibus ex eget sagittis tincidunt.\n Maecenas viverra fermentum tortor eget ornare.\n Nam ornare, lacus nec auctor euismod, magna lacus efficitur ipsum, nec tristique turpis nunc nec risus.\n Sed dapibus pharetra vehicula.\n Proin accumsan convallis nunc sit amet bibendum.\n")
                     .multilineTextAlignment(.trailing)
-
+                
                 TestResult {
                     Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.leading)")
                     Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.center)")
@@ -113,11 +137,35 @@ struct TestText: View {
             
             TestCase("Text with string interpolation") {
                 Text("Now it's: \(Date(), formatter: Self.dateFormatter)")
-
+                
                 TestResult {
                     Check(iOS: true, macOS: true, test: "String interpolation")
                 }
             }
+            
+            TestCase("Text .redacted") {
+                
+                HStack(spacing: 20) {
+                    VStack {
+                        Text("Not redacted")
+                        RedactedView()
+                            .border(Color.red)
+                    }
+                    
+                    VStack {
+                        Text("Redacted")
+                        RedactedView()
+                            .redacted(reason: .placeholder)
+                            .border(Color.red)
+                    }
+                }
+                .padding([.leading,.trailing], 20)
+                
+                TestResult {
+                    Check(iOS: true, macOS: true, test: "Text .redacted(reason: .placeholder)")
+                }
+            }
+            
         }
     }
 }
