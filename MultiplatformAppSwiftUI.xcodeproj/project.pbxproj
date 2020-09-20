@@ -87,6 +87,8 @@
 		84A2467D2501586D00D813DB /* TestShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2467B2501586D00D813DB /* TestShape.swift */; };
 		84A4493B24B50403000A9ACD /* TestDisclosureGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4493A24B50403000A9ACD /* TestDisclosureGroup.swift */; };
 		84A4493C24B50403000A9ACD /* TestDisclosureGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4493A24B50403000A9ACD /* TestDisclosureGroup.swift */; };
+		84B5BBF6250CE72D007B24FB /* TestAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B5BBF5250CE72D007B24FB /* TestAnimations.swift */; };
+		84B5BBF7250CE72D007B24FB /* TestAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B5BBF5250CE72D007B24FB /* TestAnimations.swift */; };
 		84CB018E24ACB2A40002AB53 /* TestTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB018D24ACB2A40002AB53 /* TestTextEditor.swift */; };
 		84CB018F24ACB2A40002AB53 /* TestTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB018D24ACB2A40002AB53 /* TestTextEditor.swift */; };
 		84D0D63F24DEDA0300A87802 /* TestNavigationLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0D63E24DEDA0300A87802 /* TestNavigationLinkButton.swift */; };
@@ -142,6 +144,7 @@
 		849CE39724E5CD0800496800 /* TestNavigationLinkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavigationLinkList.swift; sourceTree = "<group>"; };
 		84A2467B2501586D00D813DB /* TestShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestShape.swift; sourceTree = "<group>"; };
 		84A4493A24B50403000A9ACD /* TestDisclosureGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDisclosureGroup.swift; sourceTree = "<group>"; };
+		84B5BBF5250CE72D007B24FB /* TestAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnimations.swift; sourceTree = "<group>"; };
 		84CB018D24ACB2A40002AB53 /* TestTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextEditor.swift; sourceTree = "<group>"; };
 		84D0D63E24DEDA0300A87802 /* TestNavigationLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavigationLinkButton.swift; sourceTree = "<group>"; };
 		84E4ABD224B51F11003C92F5 /* TestOutlineGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOutlineGroup.swift; sourceTree = "<group>"; };
@@ -244,6 +247,7 @@
 				847E58A424E3F97400DCBE95 /* TestImage.swift */,
 				847E58AA24E3F99900DCBE95 /* TestLink.swift */,
 				847B106024FD5AB700B2E5C7 /* TestVideoPlayer.swift */,
+				84B5BBF5250CE72D007B24FB /* TestAnimations.swift */,
 				847956D624FED514008BA92F /* TestSplitView.swift */,
 				8497A0E624FFFBDF00639799 /* TestWebView.swift */,
 				847CE3BB25054A2C00071246 /* TestScrollView.swift */,
@@ -433,6 +437,7 @@
 				847E58A524E3F97400DCBE95 /* TestImage.swift in Sources */,
 				8497A0E724FFFBDF00639799 /* TestWebView.swift in Sources */,
 				847E58A224E3F95C00DCBE95 /* TestSecureField.swift in Sources */,
+				84B5BBF6250CE72D007B24FB /* TestAnimations.swift in Sources */,
 				847E58BD24E3FA2D00DCBE95 /* TestForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +487,7 @@
 				847E58A624E3F97400DCBE95 /* TestImage.swift in Sources */,
 				8497A0E824FFFBDF00639799 /* TestWebView.swift in Sources */,
 				847E58A324E3F95C00DCBE95 /* TestSecureField.swift in Sources */,
+				84B5BBF7250CE72D007B24FB /* TestAnimations.swift in Sources */,
 				847E58BE24E3FA2D00DCBE95 /* TestForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,7 +663,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tofplay.MultiplatformAppSwiftUI;
 				PRODUCT_NAME = MultiplatformAppSwiftUI;
 				SDKROOT = macosx;
@@ -679,7 +685,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tofplay.MultiplatformAppSwiftUI;
 				PRODUCT_NAME = MultiplatformAppSwiftUI;
 				SDKROOT = macosx;

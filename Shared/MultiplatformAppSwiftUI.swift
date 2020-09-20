@@ -42,6 +42,7 @@ public enum Test: String {
     case navigationLinkList = "NavigationLink (list)"
     case presentingViews = "Presenting Views"
     case transitionView = "TransitionView"
+    case animations = "Animations"
     
     // Components
     case navigationStack = "NavigationStack"
@@ -65,6 +66,7 @@ struct MultiplatformAppSwiftUI: App {
         .image,
         .link,
         .videoPlayer,
+        .animations,
         .scrollView,
         .splitView,
         .webView,
@@ -82,7 +84,7 @@ struct MultiplatformAppSwiftUI: App {
         .navigationLinkButton,
         .navigationLinkList,
         .presentingViews,
-        .transitionView
+        .transitionView,
     ]
 
     @State private var components:[Test] = [.navigationStack]
@@ -102,6 +104,7 @@ struct MultiplatformAppSwiftUI: App {
         .shape : AnyView(TestShape()),
         .image : AnyView(TestImage()),
         .videoPlayer : AnyView(TestVideoPlayer()),
+        .animations: AnyView(TestAnimations()),
         .scrollView : AnyView(TestScrollView()),
         .splitView : AnyView(TestSplitView()),
         .webView : AnyView(TestWebView()),
