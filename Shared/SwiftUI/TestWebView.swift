@@ -13,7 +13,7 @@ struct TestWebView: View {
             TestCase("WebView") {
                 Text("There is not (yet) a native SwiftUI WebView component")
                     .foregroundColor(.orange)
-
+                
                 TestResult {
                     Check(iOS: false, macOS: false, test: "WebView")
                 }

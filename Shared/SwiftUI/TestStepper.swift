@@ -28,7 +28,14 @@ struct TestStepper: View {
                             //    .frame(width: 100)
                             //    .textFieldStyle(RoundedBorderTextFieldStyle())
                             //    .multilineTextAlignment(.trailing)
-                            
+                            //    .onChange(of: beer) {
+                            //        pBeer in
+                            //
+                            //        if pBeer > 10 {
+                            //            beer = 10
+                            //        }
+                            //    }
+
                             TextField("", text: $beerStr)
                                 .frame(width: 100)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -49,7 +56,7 @@ struct TestStepper: View {
                                         beerStr = "\(beer)"
                                     }
                                 }
-                            
+
                             TextField("", text: $beerStr)
                                 .frame(width: 100)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -70,7 +77,7 @@ struct TestStepper: View {
                                         beerStr = "\(beer)"
                                     }
                                 }
-                            
+
                             TextField("", text: $beerStr)
                                 .frame(width: 100)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
