@@ -10,6 +10,8 @@ import SwiftUI
 struct TestAnimations: View {
     @State private var animate: Bool = true
     @State private var twoState: Bool = false
+    
+    let duration: Double = 1.5
 
     var body: some View {
         TestBody(test: .animations) {
@@ -353,13 +355,42 @@ struct TestAnimations: View {
             }
 
             Group {
+
+                TestCase("Modifier .animation(.linear) + repeatForever + .delay") {
+                    
+                    ZStack(alignment: .center) {
+                        Circle()
+                            .foregroundColor(.red)
+                            .frame(width: twoState ? 100 : 0, height: twoState ? 100 : 0)
+                            .opacity(twoState ? 0 : 1)
+                            .animation(Animation.linear(duration: duration).repeatForever(autoreverses: false).delay(0.1))
+
+                        Circle()
+                            .foregroundColor(.red)
+                            .frame(width: twoState ? 100 : 0, height: twoState ? 100 : 0)
+                            .opacity(twoState ? 0 : 1)
+                            .animation(Animation.linear(duration: duration).repeatForever(autoreverses: false).delay(0.9))
+
+                    }
+                    
+                    .frame(width: 100, height: 100)
+                    .border(Color.red)
+                    .onAppear {
+                        twoState = true
+                    }
+
+                    TestResult {
+                        Check(iOS: true, macOS: true, test: ".opacity(twoState ? 0 : 1)")
+                        Check(iOS: true, macOS: true, test: ".animation(Animation.linear(duration: duration).repeatForever(autoreverses: false).delay(0.1))")
+                        Check(iOS: true, macOS: true, test: ".animation(Animation.linear(duration: duration).repeatForever(autoreverses: false).delay(0.9))")
+                    }
+                }
+
                 TestCase("Modifier .animation(.linear) + repeatForever + .scaleEffect") {
                     
                     ZStack(alignment: .center) {
                         Circle()
-                            .frame(width: 100, height: 100)
                             .foregroundColor(.red)
-                            .animation(.default)
                         
                         Image(systemName: "heart.fill")
                             .foregroundColor(.white)
