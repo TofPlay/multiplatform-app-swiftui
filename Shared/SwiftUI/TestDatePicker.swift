@@ -37,16 +37,16 @@ struct TestDatePicker: View {
                 .border(Color.red)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".datePickerStyle(DefaultDatePickerStyle())")
-                    Check(iOS: false, macOS: false, test: "VStack(alignment: .leading)")
-                    Check(iOS: false, macOS: false, test: "VStack(alignment: .center)")
-                    Check(iOS: false, macOS: false, test: "VStack(alignment: .trailing)")
-                    Check(iOS: false, macOS: false, test: ".multilineTextAlignment(.leading)")
-                    Check(iOS: false, macOS: false, test: ".multilineTextAlignment(.center)")
-                    Check(iOS: false, macOS: false, test: ".multilineTextAlignment(.trailing)")
-                    Check(iOS: false, macOS: false, test: ".frame(.leading)")
-                    Check(iOS: false, macOS: false, test: ".frame(.center)")
-                    Check(iOS: false, macOS: false, test: ".frame(.trailing)")
+                    Check(".datePickerStyle(DefaultDatePickerStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check("VStack(alignment: .leading)", .error(os: .iOS), .error(os: .macOS))
+                    Check("VStack(alignment: .center)", .error(os: .iOS), .error(os: .macOS))
+                    Check("VStack(alignment: .trailing)", .error(os: .iOS), .error(os: .macOS))
+                    Check(".multilineTextAlignment(.leading)", .error(os: .iOS), .error(os: .macOS))
+                    Check(".multilineTextAlignment(.center)", .error(os: .iOS), .error(os: .macOS))
+                    Check(".multilineTextAlignment(.trailing)", .error(os: .iOS), .error(os: .macOS))
+                    Check(".frame(.leading)", .error(os: .iOS), .error(os: .macOS))
+                    Check(".frame(.center)", .error(os: .iOS), .error(os: .macOS))
+                    Check(".frame(.trailing)", .error(os: .iOS), .error(os: .macOS))
                 }
             }
             
@@ -63,8 +63,8 @@ struct TestDatePicker: View {
                 .border(Color.red)
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".datePickerStyle(DefaultDatePickerStyle())")
-                    Check(iOS: false, macOS: false, test: "HStack + Spacer")
+                    Check(".datePickerStyle(DefaultDatePickerStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check("HStack + Spacer", .error(os: .iOS), .error(os: .macOS))
                 }
             }
             
@@ -77,7 +77,7 @@ struct TestDatePicker: View {
                 .border(Color.red)
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".datePickerStyle(CompactDatePickerStyle())")
+                    Check(".datePickerStyle(CompactDatePickerStyle())", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -94,7 +94,7 @@ struct TestDatePicker: View {
                     .foregroundColor(.orange)
                 #endif
                 TestResult {
-                    Check(macOS: true, test: ".datePickerStyle(FieldDatePickerStyle())")
+                    Check(".datePickerStyle(FieldDatePickerStyle())", .success(os: .macOS))
                 }
             }
             
@@ -149,16 +149,16 @@ struct TestDatePicker: View {
                 }
                 
                 TestResult {
-                    Check(iOS: false, macOS: true, test: "Well design top and bottom")
-                    Check(iOS: true, macOS: true, test: ".datePickerStyle(GraphicalDatePickerStyle())")
-                    Check(iOS: false, macOS: true, test: "VStack(alignment: .leading)")
-                    Check(iOS: false, macOS: false, test: "VStack(alignment: .center)")
-                    Check(iOS: false, macOS: false, test: "VStack(alignment: .trailing)")
-                    Check(iOS: false, macOS: true, test: ".frame(.leading)")
-                    Check(iOS: false, macOS: false, test: ".frame(.center)")
-                    Check(iOS: false, macOS: false, test: ".frame(.trailing)")
-                    Check(iOS: false, macOS: false, test: "Spacer() left")
-                    Check(iOS: false, macOS: true, test: "Spacer() right")
+                    Check("Well design top and bottom", .error(os: .iOS), .success(os: .macOS))
+                    Check(".datePickerStyle(GraphicalDatePickerStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check("VStack(alignment: .leading)", .error(os: .iOS), .success(os: .macOS))
+                    Check("VStack(alignment: .center)", .error(os: .iOS), .error(os: .macOS))
+                    Check("VStack(alignment: .trailing)", .error(os: .iOS), .error(os: .macOS))
+                    Check(".frame(.leading)", .error(os: .iOS), .success(os: .macOS))
+                    Check(".frame(.center)", .error(os: .iOS), .error(os: .macOS))
+                    Check(".frame(.trailing)", .error(os: .iOS), .error(os: .macOS))
+                    Check("Spacer() left", .error(os: .iOS), .error(os: .macOS))
+                    Check("Spacer() right", .error(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -173,7 +173,7 @@ struct TestDatePicker: View {
                 #endif
 
                 TestResult {
-                    Check(macOS: true, test: ".datePickerStyle(StepperFieldDatePickerStyle())")
+                    Check(".datePickerStyle(StepperFieldDatePickerStyle())", .success(os: .macOS))
                 }
             }
 
@@ -233,15 +233,15 @@ struct TestDatePicker: View {
                 #endif
 
                 TestResult {
-                    Check(iOS: true, test: ".datePickerStyle(WheelDatePickerStyle())")
-                    Check(iOS: false, test: "VStack(alignment: .leading)")
-                    Check(iOS: false, test: "VStack(alignment: .center)")
-                    Check(iOS: false, test: "VStack(alignment: .trailing)")
-                    Check(iOS: false, test: ".frame(.leading)")
-                    Check(iOS: false, test: ".frame(.center)")
-                    Check(iOS: false, test: ".frame(.trailing)")
-                    Check(iOS: false, test: "Spacer() left")
-                    Check(iOS: false, test: "Spacer() right")
+                    Check(".datePickerStyle(WheelDatePickerStyle())", .success(os: .iOS))
+                    Check("VStack(alignment: .leading)", .error(os: .iOS))
+                    Check("VStack(alignment: .center)", .error(os: .iOS))
+                    Check("VStack(alignment: .trailing)", .error(os: .iOS))
+                    Check(".frame(.leading)", .error(os: .iOS))
+                    Check(".frame(.center)", .error(os: .iOS))
+                    Check(".frame(.trailing)", .error(os: .iOS))
+                    Check("Spacer() left", .error(os: .iOS))
+                    Check("Spacer() right", .error(os: .iOS))
                 }
             }
         }

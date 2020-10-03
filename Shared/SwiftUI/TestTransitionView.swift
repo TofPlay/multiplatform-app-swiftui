@@ -80,7 +80,7 @@ struct TestTransitionView: View {
                 .frame(height: 500)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "ZStack .transition()")
+                    Check("ZStack .transition()", .success(os: .iOS), .success(os: .macOS))
                 }
             }
         }

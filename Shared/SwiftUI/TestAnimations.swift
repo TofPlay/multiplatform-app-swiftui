@@ -38,8 +38,8 @@ struct TestAnimations: View {
                     }
                     
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".rotationEffect(Angle(degrees: animate ? 360 : 0))")
-                        Check(iOS: true, macOS: true, test: ".animation(.easeInOut(duration: 2.0))")
+                        Check(".rotationEffect(Angle(degrees: animate ? 360 : 0))", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(.easeInOut(duration: 2.0))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 
@@ -70,8 +70,8 @@ struct TestAnimations: View {
                     }
                     
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".transition(.move(edge: .leading))")
-                        Check(iOS: true, macOS: true, test: ".animation(.easeInOut(duration: 1.0))")
+                        Check(".transition(.move(edge: .leading))", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(.easeInOut(duration: 1.0))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 
@@ -102,8 +102,8 @@ struct TestAnimations: View {
                     }
                     
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".transition(.move(edge: .trailing))")
-                        Check(iOS: true, macOS: true, test: ".animation(.easeInOut(duration: 1.0))")
+                        Check(".transition(.move(edge: .trailing))", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(.easeInOut(duration: 1.0))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 
@@ -134,8 +134,8 @@ struct TestAnimations: View {
                     }
                     
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".transition(.move(edge: .top))")
-                        Check(iOS: true, macOS: true, test: ".animation(.easeInOut(duration: 1.0))")
+                        Check(".transition(.move(edge: .top))", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(.easeInOut(duration: 1.0))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 
@@ -166,8 +166,8 @@ struct TestAnimations: View {
                     }
                     
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".transition(.move(edge: .bottom))")
-                        Check(iOS: true, macOS: true, test: ".animation(.easeInOut(duration: 1.0))")
+                        Check(".transition(.move(edge: .bottom))", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(.easeInOut(duration: 1.0))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 
@@ -196,9 +196,9 @@ struct TestAnimations: View {
                     }
                     
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))")
-                        Check(iOS: true, macOS: true, test: ".transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))")
-                        Check(iOS: true, macOS: true, test: ".animation(.easeInOut(duration: 1.0))")
+                        Check(".transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))", .success(os: .iOS), .success(os: .macOS))
+                        Check(".transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(.easeInOut(duration: 1.0))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 
@@ -227,9 +227,9 @@ struct TestAnimations: View {
                     }
                     
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .bottom)))")
-                        Check(iOS: true, macOS: true, test: ".transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .top)))")
-                        Check(iOS: true, macOS: true, test: ".animation(.easeInOut(duration: 1.0))")
+                        Check(".transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .bottom)))", .success(os: .iOS), .success(os: .macOS))
+                        Check(".transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .top)))", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(.easeInOut(duration: 1.0))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
             }
@@ -252,7 +252,7 @@ struct TestAnimations: View {
                     }
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: "Rectangle .trim(from: 0, to: twoState ? 1.0 : 0)")
+                        Check("Rectangle .trim(from: 0, to: twoState ? 1.0 : 0)", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
 
@@ -272,7 +272,7 @@ struct TestAnimations: View {
                     }
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: "RoundedRectangle .trim(from: 0, to: twoState ? 1.0 : 0)")
+                        Check("RoundedRectangle .trim(from: 0, to: twoState ? 1.0 : 0)", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
 
@@ -292,7 +292,7 @@ struct TestAnimations: View {
                     }
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: "Circle .trim(from: 0, to: twoState ? 1.0 : 0)")
+                        Check("Circle .trim(from: 0, to: twoState ? 1.0 : 0)", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
 
@@ -347,9 +347,9 @@ struct TestAnimations: View {
                     }
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: "Path .move()")
-                        Check(iOS: true, macOS: true, test: "Path .addLines()")
-                        Check(iOS: true, macOS: true, test: "Path .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))")
+                        Check("Path .move()", .success(os: .iOS), .success(os: .macOS))
+                        Check("Path .addLines()", .success(os: .iOS), .success(os: .macOS))
+                        Check("Path .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
             }
@@ -380,9 +380,9 @@ struct TestAnimations: View {
                     }
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".opacity(twoState ? 0 : 1)")
-                        Check(iOS: true, macOS: true, test: ".animation(Animation.linear(duration: duration).repeatForever(autoreverses: false).delay(0.1))")
-                        Check(iOS: true, macOS: true, test: ".animation(Animation.linear(duration: duration).repeatForever(autoreverses: false).delay(0.9))")
+                        Check(".opacity(twoState ? 0 : 1)", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(Animation.linear(duration: duration).repeatForever(autoreverses: false).delay(0.1))", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(Animation.linear(duration: duration).repeatForever(autoreverses: false).delay(0.9))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
 
@@ -405,8 +405,8 @@ struct TestAnimations: View {
                     }
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".scaleEffect(twoState ? 1.0 : 0.5)")
-                        Check(iOS: true, macOS: true, test: ".animation(Animation.linear(duration: 1).repeatForever(autoreverses: true))")
+                        Check(".scaleEffect(twoState ? 1.0 : 0.5)", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(Animation.linear(duration: 1).repeatForever(autoreverses: true))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
 
@@ -431,8 +431,8 @@ struct TestAnimations: View {
                     .border(Color.red)
                     
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".rotationEffect(Angle(degrees: twoState ? 360 : 0))")
-                        Check(iOS: true, macOS: true, test: ".animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))")
+                        Check(".rotationEffect(Angle(degrees: twoState ? 360 : 0))", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
 
@@ -462,8 +462,8 @@ struct TestAnimations: View {
                     }
                     
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".offset(x: twoState ? 110 : -110, y: 0)")
-                        Check(iOS: true, macOS: true, test: ".animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))")
+                        Check(".offset(x: twoState ? 110 : -110, y: 0)", .success(os: .iOS), .success(os: .macOS))
+                        Check(".animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
 

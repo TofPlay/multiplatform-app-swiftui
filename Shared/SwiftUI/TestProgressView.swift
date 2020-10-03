@@ -20,7 +20,7 @@ struct TestProgressView: View {
                 ProgressView()
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "ProgressView")
+                    Check("ProgressView", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -28,7 +28,7 @@ struct TestProgressView: View {
                 ProgressView("This a text")
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "ProgressView with text")
+                    Check("ProgressView with text", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -38,7 +38,7 @@ struct TestProgressView: View {
                     .progressViewStyle(LinearProgressViewStyle())
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "ProgressView .progressViewStyle(LinearProgressViewStyle())")
+                    Check("ProgressView .progressViewStyle(LinearProgressViewStyle())", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -48,7 +48,7 @@ struct TestProgressView: View {
                     .progressViewStyle(CircularProgressViewStyle())
 
                 TestResult {
-                    Check(iOS: false, macOS: true, test: "ProgressView .progressViewStyle(CircularProgressViewStyle())")
+                    Check("ProgressView .progressViewStyle(CircularProgressViewStyle())", .error(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -71,7 +71,7 @@ struct TestProgressView: View {
                 }
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "ProgressView with a timer")
+                    Check("ProgressView with a timer", .success(os: .iOS), .success(os: .macOS))
                 }
             }
         }

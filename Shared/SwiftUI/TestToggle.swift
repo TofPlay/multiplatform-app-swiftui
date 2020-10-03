@@ -26,7 +26,7 @@ struct TestToggle: View {
                 }
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Toggle")
+                    Check("Toggle", .success(os: .iOS), .success(os: .macOS))
                 }
             }
         }

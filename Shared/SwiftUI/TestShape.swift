@@ -110,11 +110,11 @@ struct TestShape: View {
                     .border(Color.red)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Circle")
-                    Check(iOS: true, macOS: true, test: "Ellipse")
-                    Check(iOS: true, macOS: true, test: "Capsule")
-                    Check(iOS: true, macOS: true, test: "Rectangle")
-                    Check(iOS: true, macOS: true, test: "RoundedRectangle")
+                    Check("Circle", .success(os: .iOS), .success(os: .macOS))
+                    Check("Ellipse", .success(os: .iOS), .success(os: .macOS))
+                    Check("Capsule", .success(os: .iOS), .success(os: .macOS))
+                    Check("Rectangle", .success(os: .iOS), .success(os: .macOS))
+                    Check("RoundedRectangle", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -223,11 +223,11 @@ struct TestShape: View {
                 }
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "ContainerRelativeShape")
-                    Check(iOS: true, macOS: true, test: "OffsetShape")
-                    Check(iOS: true, macOS: true, test: "RotatedShape")
-                    Check(iOS: true, macOS: true, test: "ScaledShape")
-                    Check(iOS: true, macOS: true, test: "TransformedShape")
+                    Check("ContainerRelativeShape", .success(os: .iOS), .success(os: .macOS))
+                    Check("OffsetShape", .success(os: .iOS), .success(os: .macOS))
+                    Check("RotatedShape", .success(os: .iOS), .success(os: .macOS))
+                    Check("ScaledShape", .success(os: .iOS), .success(os: .macOS))
+                    Check("TransformedShape", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -302,10 +302,10 @@ struct TestShape: View {
                 }
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "PathLine")
-                    Check(iOS: true, macOS: true, test: "PathElippse")
-                    Check(iOS: true, macOS: true, test: "PathRectangle")
-                    Check(iOS: true, macOS: true, test: "PathRoundedRectangle")
+                    Check("PathLine", .success(os: .iOS), .success(os: .macOS))
+                    Check("PathElippse", .success(os: .iOS), .success(os: .macOS))
+                    Check("PathRectangle", .success(os: .iOS), .success(os: .macOS))
+                    Check("PathRoundedRectangle", .success(os: .iOS), .success(os: .macOS))
                 }
             }
         }

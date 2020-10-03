@@ -23,7 +23,7 @@ struct TestTextEditor: View {
                     .border(Color.black, width: 1)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Display simple text")
+                    Check("Display simple text", .success(os: .iOS), .success(os: .macOS))
                 }
             }
         }

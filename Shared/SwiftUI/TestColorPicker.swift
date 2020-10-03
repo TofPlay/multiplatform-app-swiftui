@@ -19,7 +19,7 @@ struct TestColorPicker: View {
                 Text("Selected color: \(color.rgb)")
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "ColorPicker)")
+                    Check("ColorPicker", .success(os: .iOS), .success(os: .macOS))
                 }
             }
         }

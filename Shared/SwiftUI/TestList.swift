@@ -34,10 +34,10 @@ struct TestList: View {
                 .background(Color.systemGray6)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".listStyle(DefaultListStyle())")
-                    Check(iOS: true, macOS: true, test: ".listRowBackground(Color.blue.lighter)")
-                    Check(iOS: true, macOS: true, test: ".frame(width: 300, height: 500)")
-                    Check(iOS: true, macOS: true, test: ".border(Color.red)")
+                    Check(".listStyle(DefaultListStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check(".listRowBackground(Color.blue.lighter)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".frame(width: 300, height: 500)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".border(Color.red)", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -72,10 +72,10 @@ struct TestList: View {
                 .background(Color.systemGray6)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".listStyle(PlainListStyle())")
-                    Check(iOS: true, macOS: true, test: ".listRowBackground(Color.blue.lighter)")
-                    Check(iOS: true, macOS: true, test: ".frame(width: 300, height: 500)")
-                    Check(iOS: true, macOS: true, test: ".border(Color.red)")
+                    Check(".listStyle(PlainListStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check(".listRowBackground(Color.blue.lighter)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".frame(width: 300, height: 500)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".border(Color.red)", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -108,10 +108,10 @@ struct TestList: View {
                 #endif
 
                 TestResult {
-                    Check(iOS: true, test: ".listStyle(GroupedListStyle())")
-                    Check(iOS: true, test: ".listRowBackground(Color.blue.lighter)")
-                    Check(iOS: true, test: ".frame(width: 300, height: 500)")
-                    Check(iOS: true, test: ".border(Color.red)")
+                    Check(".listStyle(GroupedListStyle())", .success(os: .iOS))
+                    Check(".listRowBackground(Color.blue.lighter)", .success(os: .iOS))
+                    Check(".frame(width: 300, height: 500)", .success(os: .iOS))
+                    Check(".border(Color.red)", .success(os: .iOS))
                 }
             }
             
@@ -147,10 +147,10 @@ struct TestList: View {
                 .background(Color.systemGray6)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".listStyle(SidebarListStyle())")
-                    Check(iOS: true, macOS: false, test: ".listRowBackground(Color.blue.lighter) totaly random on macOS")
-                    Check(iOS: true, macOS: true, test: ".frame(width: 300, height: 500)")
-                    Check(iOS: true, macOS: true, test: ".border(Color.red)")
+                    Check(".listStyle(SidebarListStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check(".listRowBackground(Color.blue.lighter) totaly random on macOS", .success(os: .iOS), .error(os: .macOS))
+                    Check(".frame(width: 300, height: 500)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".border(Color.red)", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -178,10 +178,10 @@ struct TestList: View {
                 .background(Color.systemGray6)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".listStyle(InsetListStyle())")
-                    Check(iOS: true, macOS: true, test: ".listRowBackground(Color.blue.lighter)")
-                    Check(iOS: true, macOS: true, test: ".frame(width: 300, height: 500)")
-                    Check(iOS: true, macOS: true, test: ".border(Color.red)")
+                    Check(".listStyle(InsetListStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check(".listRowBackground(Color.blue.lighter)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".frame(width: 300, height: 500)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".border(Color.red)", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -213,10 +213,10 @@ struct TestList: View {
                 #endif
 
                 TestResult {
-                    Check(iOS: true, test: ".listStyle(InsetGroupedListStyle())")
-                    Check(iOS: true, test: ".listRowBackground(Color.blue.lighter)")
-                    Check(iOS: true, test: ".frame(width: 300, height: 500)")
-                    Check(iOS: true, test: ".border(Color.red)")
+                    Check(".listStyle(InsetGroupedListStyle())", .success(os: .iOS))
+                    Check(".listRowBackground(Color.blue.lighter)", .success(os: .iOS))
+                    Check(".frame(width: 300, height: 500)", .success(os: .iOS))
+                    Check(".border(Color.red)", .success(os: .iOS))
                 }
             }
             
@@ -247,10 +247,10 @@ struct TestList: View {
                     .background(Color.systemGray6)
                     
                     TestResult {
-                        Check(iOS: true, macOS: true, test: "ForEach .listRowInsets, leading 0")
-                        Check(iOS: true, macOS: true, test: "ForEach .listRowInsets, trailing 0")
-                        Check(iOS: false, macOS: false, test: "ForEach .listRowInsets, top 0")
-                        Check(iOS: false, macOS: false, test: "ForEach .listRowInsets, bottom 0")
+                        Check("ForEach .listRowInsets, leading 0", .success(os: .iOS), .success(os: .macOS))
+                        Check("ForEach .listRowInsets, trailing 0", .success(os: .iOS), .success(os: .macOS))
+                        Check("ForEach .listRowInsets, top 0", .error(os: .iOS), .error(os: .macOS))
+                        Check("ForEach .listRowInsets, bottom 0", .error(os: .iOS), .error(os: .macOS))
                     }
                 }
                 
@@ -280,10 +280,10 @@ struct TestList: View {
                     .background(Color.systemGray6)
                     
                     TestResult {
-                        Check(iOS: true, macOS: true, test: "ForEach .listRowInsets, leading 0")
-                        Check(iOS: true, macOS: true, test: "ForEach .listRowInsets, trailing 0")
-                        Check(iOS: false, macOS: false, test: "ForEach .listRowInsets, top 0")
-                        Check(iOS: false, macOS: false, test: "ForEach .listRowInsets, bottom 0")
+                        Check("ForEach .listRowInsets, leading 0", .success(os: .iOS), .success(os: .macOS))
+                        Check("ForEach .listRowInsets, trailing 0", .success(os: .iOS), .success(os: .macOS))
+                        Check("ForEach .listRowInsets, top 0", .error(os: .iOS), .error(os: .macOS))
+                        Check("ForEach .listRowInsets, bottom 0", .error(os: .iOS), .error(os: .macOS))
                     }
                 }
                 
@@ -313,7 +313,7 @@ struct TestList: View {
                     .background(Color.systemGray6)
                     
                     TestResult {
-                        Check(iOS: false, macOS: false, test: "Cell .frame(height: 10)")
+                        Check("Cell .frame(height: 10)", .error(os: .iOS), .error(os: .macOS))
                     }
                 }
             }

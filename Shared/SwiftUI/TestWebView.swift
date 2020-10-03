@@ -15,7 +15,7 @@ struct TestWebView: View {
                     .foregroundColor(.orange)
                 
                 TestResult {
-                    Check(iOS: false, macOS: false, test: "WebView")
+                    Check("WebView", .error(os: .iOS), .error(os: .macOS))
                 }
             }
         }

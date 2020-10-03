@@ -35,8 +35,8 @@ struct TestPicker: View {
                 Text("Selected flavor: \(selectedFlavor.rawValue)")
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".pickerStyle(DefaultPickerStyle())")
-                    Check(iOS: true, macOS: true, test: ".frame(width: 500)")
+                    Check(".pickerStyle(DefaultPickerStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check(".frame(width: 500)", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             TestCase("Picker .pickerStyle(InlinePickerStyle())") {
@@ -76,10 +76,10 @@ struct TestPicker: View {
                 Text("Selected flavor: \(selectedFlavor.rawValue)")
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".pickerStyle(InlinePickerStyle())")
-                    Check(iOS: false, macOS: true, test: ".frame(width: 500,alignment: .leading)")
-                    Check(iOS: true, macOS: true, test: ".frame(width: 500,alignment: .center)")
-                    Check(iOS: false, macOS: true, test: ".frame(width: 500,alignment: .trailing)")
+                    Check(".pickerStyle(InlinePickerStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check(".frame(width: 500,alignment: .leading)", .error(os: .iOS), .success(os: .macOS))
+                    Check(".frame(width: 500,alignment: .center)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".frame(width: 500,alignment: .trailing)", .error(os: .iOS), .success(os: .macOS))
                 }
             }
             TestCase("Picker .pickerStyle(MenuPickerStyle())") {
@@ -119,10 +119,10 @@ struct TestPicker: View {
                 Text("Selected flavor: \(selectedFlavor.rawValue)")
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".pickerStyle(MenuPickerStyle())")
-                    Check(iOS: true, macOS: true, test: ".frame(width: 500,alignment: .leading)")
-                    Check(iOS: true, macOS: false, test: ".frame(width: 500,alignment: .center)")
-                    Check(iOS: true, macOS: false, test: ".frame(width: 500,alignment: .trailing)")
+                    Check(".pickerStyle(MenuPickerStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check(".frame(width: 500,alignment: .leading)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".frame(width: 500,alignment: .center)", .success(os: .iOS), .error(os: .macOS))
+                    Check(".frame(width: 500,alignment: .trailing)", .success(os: .iOS), .error(os: .macOS))
                 }
             }
             
@@ -147,8 +147,8 @@ struct TestPicker: View {
                 Text("Selected flavor: \(selectedFlavor.rawValue)")
                 
                 TestResult {
-                    Check(macOS: true, test: ".pickerStyle(PopUpButtonPickerStyle())")
-                    Check(macOS: true, test: ".frame(width: 500)")
+                    Check(".pickerStyle(PopUpButtonPickerStyle())", .success(os: .macOS))
+                    Check(".frame(width: 500)", .success(os: .macOS))
                 }
             }
             TestCase("Picker .pickerStyle(RadioGroupPickerStyle())") {
@@ -194,10 +194,10 @@ struct TestPicker: View {
                 Text("Selected flavor: \(selectedFlavor.rawValue)")
                 
                 TestResult {
-                    Check(macOS: true, test: ".pickerStyle(RadioGroupPickerStyle())")
-                    Check(macOS: true, test: ".frame(width: 500,alignment: .leading)")
-                    Check(macOS: true, test: ".frame(width: 500,alignment: .center)")
-                    Check(macOS: true, test: ".frame(width: 500,alignment: .trailing)")
+                    Check(".pickerStyle(RadioGroupPickerStyle())", .success(os: .macOS))
+                    Check(".frame(width: 500,alignment: .leading)", .success(os: .macOS))
+                    Check(".frame(width: 500,alignment: .center)", .success(os: .macOS))
+                    Check(".frame(width: 500,alignment: .trailing)", .success(os: .macOS))
                 }
             }
             TestCase("Picker .pickerStyle(SegmentedPickerStyle())") {
@@ -215,8 +215,8 @@ struct TestPicker: View {
                 Text("Selected flavor: \(selectedFlavor.rawValue)")
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".pickerStyle(SegmentedPickerStyle())")
-                    Check(iOS: true, macOS: true, test: ".frame(width: 500)")
+                    Check(".pickerStyle(SegmentedPickerStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check(".frame(width: 500)", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -241,8 +241,8 @@ struct TestPicker: View {
                 Text("Selected flavor: \(selectedFlavor.rawValue)")
                 
                 TestResult {
-                    Check(iOS: true, test: ".pickerStyle(WheelPickerStyle())")
-                    Check(iOS: true, test: ".frame(width: 500)")
+                    Check(".pickerStyle(WheelPickerStyle())", .success(os: .iOS))
+                    Check(".frame(width: 500)", .success(os: .iOS))
                 }
             }
 

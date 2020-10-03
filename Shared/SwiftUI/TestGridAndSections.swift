@@ -58,7 +58,7 @@ struct TestGridAndSections: View {
                 .background(Color.gray)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "LazyVGrid + Sections")
+                    Check("LazyVGrid + Sections", .success(os: .iOS), .success(os: .macOS))
                 }
             }
         }

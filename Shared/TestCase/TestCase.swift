@@ -21,8 +21,8 @@ struct TestCase<Content:View>: View {
     var body: some View {
         VStack(alignment: alignment) {
             Text(title)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
+                .font(.title2)
+                .foregroundColor(.black)
                 .padding(.bottom, 5)
 
             content
@@ -39,8 +39,8 @@ struct TestItem_Previews: PreviewProvider {
     static var previews: some View {
         TestCase("Test Case") {
             TestResult {
-                Check(iOS: true, macOS: true, test: "Feature 1")
-                Check(iOS: false, macOS: false, test: "Feature 2")
+                Check("Feature 1", .success(os: .iOS), .success(os: .macOS))
+                Check("Feature 2", .error(os: .iOS), .error(os: .macOS))
             }
         }
     }

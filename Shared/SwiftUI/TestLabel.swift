@@ -26,7 +26,7 @@ struct TestLabel: View {
                 }
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Label(_,systemImage)")
+                    Check("Label(_,systemImage)", .success(os: .iOS), .success(os: .macOS))
                 }
             }
         }

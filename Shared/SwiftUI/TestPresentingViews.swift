@@ -97,7 +97,7 @@ struct TestPresentingViews: View {
                 }
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Display Alert")
+                    Check("Display Alert", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -118,7 +118,7 @@ struct TestPresentingViews: View {
                 }
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Display Alert")
+                    Check("Display Alert", .success(os: .iOS), .success(os: .macOS))
                 }
             }
 
@@ -164,11 +164,11 @@ struct TestPresentingViews: View {
                 #endif
 
                 TestResult {
-                    Check(iOS: true, test: "Display ActionSheet")
-                    Check(iOS: true, test: "Display \"Option1\"")
-                    Check(iOS: true, test: "Display \"Option2\"")
-                    Check(iOS: true, test: "Display \"Delete\"")
-                    Check(iOS: false, test: "Display \"Cancel\"")
+                    Check("Display ActionSheet", .success(os: .iOS))
+                    Check("Display \"Option1\"", .success(os: .iOS))
+                    Check("Display \"Option2\"", .success(os: .iOS))
+                    Check("Display \"Delete\"", .success(os: .iOS))
+                    Check("Display \"Cancel\"", .error(os: .iOS))
                 }
             }
             
@@ -216,11 +216,11 @@ struct TestPresentingViews: View {
                 #endif
 
                 TestResult {
-                    Check(iOS: true, test: "Display ActionSheet")
-                    Check(iOS: true, test: "Display \"Option1\"")
-                    Check(iOS: true, test: "Display \"Option2\"")
-                    Check(iOS: true, test: "Display \"Delete\"")
-                    Check(iOS: false, test: "Display \"Cancel\"")
+                    Check("Display ActionSheet", .success(os: .iOS))
+                    Check("Display \"Option1\"", .success(os: .iOS))
+                    Check("Display \"Option2\"", .success(os: .iOS))
+                    Check("Display \"Delete\"", .success(os: .iOS))
+                    Check("Display \"Cancel\"", .error(os: .iOS))
                 }
             }
             
@@ -245,7 +245,7 @@ struct TestPresentingViews: View {
                 #endif
 
                 TestResult {
-                    Check(iOS: true, test: "Display SheetForFullScreen")
+                    Check("Display SheetForFullScreen", .success(os: .iOS))
                 }
             }
 
@@ -271,7 +271,7 @@ struct TestPresentingViews: View {
                 #endif
 
                 TestResult {
-                    Check(iOS: true, test: "Display Sheet ForFullScreen")
+                    Check("Display Sheet ForFullScreen", .success(os: .iOS))
                 }
             }
 
@@ -291,8 +291,8 @@ struct TestPresentingViews: View {
                 }
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Present a Sheet")
-                    Check(iOS: false, macOS: true, test: "Adjuste frame size to the content")
+                    Check("Present a Sheet", .success(os: .iOS), .success(os: .macOS))
+                    Check("Adjuste frame size to the content", .error(os: .iOS), .success(os: .macOS))
                 }
             }
 
@@ -314,8 +314,8 @@ struct TestPresentingViews: View {
                 }
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Present a Sheet")
-                    Check(iOS: false, macOS: true, test: "Sheet.frame(width: 200, height: 500)")
+                    Check("Present a Sheet", .success(os: .iOS), .success(os: .macOS))
+                    Check("Sheet.frame(width: 200, height: 500)", .error(os: .iOS), .success(os: .macOS))
                 }
             }
         }

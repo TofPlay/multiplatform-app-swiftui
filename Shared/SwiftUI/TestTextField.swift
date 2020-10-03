@@ -39,10 +39,10 @@ struct TestTextField: View {
                 }
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".textFieldStyle(DefaultTextFieldStyle())")
-                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.leading)")
-                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.center)")
-                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.trailing)")
+                    Check(".textFieldStyle(DefaultTextFieldStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check(".multilineTextAlignment(.leading)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".multilineTextAlignment(.center)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".multilineTextAlignment(.trailing)", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             TestCase("TextField .textFieldStyle(PlainTextFieldStyle())") {
@@ -54,7 +54,7 @@ struct TestTextField: View {
                     Image(systemName: "arrowtriangle.backward")
                 }
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".textFieldStyle(PlainTextFieldStyle())")
+                    Check(".textFieldStyle(PlainTextFieldStyle())", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             TestCase("TextField .textFieldStyle(RoundedBorderTextFieldStyle())") {
@@ -66,7 +66,7 @@ struct TestTextField: View {
                     Image(systemName: "arrowtriangle.backward")
                 }
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".textFieldStyle(RoundedBorderTextFieldStyle())")
+                    Check(".textFieldStyle(RoundedBorderTextFieldStyle())", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             TestCase("TextField .textFieldStyle(SquareBorderTextFieldStyle())") {
@@ -84,7 +84,7 @@ struct TestTextField: View {
                 #endif
 
                 TestResult {
-                    Check(macOS: true, test: ".textFieldStyle(SquareBorderTextFieldStyle())")
+                    Check(".textFieldStyle(SquareBorderTextFieldStyle())", .success(os: .macOS))
                 }
             }
             Text("You enter: \(name)")

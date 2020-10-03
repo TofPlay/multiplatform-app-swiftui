@@ -59,14 +59,14 @@ struct TestResult<Content:View>: View {
 struct TestResult_Previews: PreviewProvider {
     static var previews: some View {
         TestResult {
-            Check(iOS: true, macOS: true, test: "Feature 1")
-            Check(iOS: false, macOS: false, test: "Feature 2")
-            Check(iOS: true, macOS: false, test: "Feature 1")
-            Check(iOS: false, macOS: true, test: "Feature 1")
-            Check(iOS: true, test: "Feature 1")
-            Check(macOS: true, test: "Feature 1")
-            Check(iOS: false, test: "Feature 1")
-            Check(macOS: false, test: "Feature 1")
+            Check("Feature 1", .success(os: .iOS), .success(os: .macOS))
+            Check("Feature 2", .error(os: .iOS), .error(os: .macOS))
+            Check("Feature 1", .success(os: .iOS), .error(os: .macOS))
+            Check("Feature 1", .error(os: .iOS), .success(os: .macOS))
+            Check("Feature 1", .success(os: .iOS))
+            Check("Feature 1", .success(os: .macOS))
+            Check("Feature 1", .error(os: .iOS))
+            Check("Feature 1", .error(os: .macOS))
         }
     }
 }

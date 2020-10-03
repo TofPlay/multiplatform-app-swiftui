@@ -35,8 +35,8 @@ struct TestButton: View {
                 .buttonStyle(DefaultButtonStyle())
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".buttonStyle(DefaultButtonStyle())")
-                    Check(iOS: true, macOS: false, test: "Alert display one time")
+                    Check(".buttonStyle(DefaultButtonStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check("Alert display one time", .success(os: .iOS), .warning(os: .macOS, "with a dirty trick"))
                 }
             }
             TestCase("Button .buttonStyle(BorderedButtonStyle())") {
@@ -52,8 +52,8 @@ struct TestButton: View {
                 #endif
 
                 TestResult {
-                    Check(macOS: true, test: ".buttonStyle(BorderedButtonStyle())")
-                    Check(macOS: false, test: "Alert display one time")
+                    Check(".buttonStyle(BorderedButtonStyle())", .success(os: .macOS))
+                    Check("Alert display one time", .warning(os: .macOS, "with a dirty trick"))
                 }
             }
             TestCase("Button .buttonStyle(BorderlessButtonStyle())") {
@@ -63,8 +63,8 @@ struct TestButton: View {
                 .buttonStyle(BorderlessButtonStyle())
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".buttonStyle(BorderlessButtonStyle())")
-                    Check(iOS: true, macOS: false, test: "Alert display one time")
+                    Check(".buttonStyle(BorderlessButtonStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check("Alert display one time", .success(os: .iOS), .warning(os: .macOS, "with a dirty trick"))
                 }
             }
             TestCase("Button .buttonStyle(CardButtonStyle())") {
@@ -75,7 +75,7 @@ struct TestButton: View {
                 .buttonStyle(CardButtonStyle())
 
                 //TestItem("Checks", divider: false) {
-                //    Check(tvOS: true, test: ".buttonStyle(CardButtonStyle())")
+                //    Check(".buttonStyle(CardButtonStyle())", .success(os: .tvOS))
                 //}
                 #else
                 Text("Only supported on tvOS")
@@ -93,7 +93,7 @@ struct TestButton: View {
                     .foregroundColor(.orange)
                 #endif
                 TestResult {
-                    Check(macOS: true, test: ".buttonStyle(LinkButtonStyle())")
+                    Check(".buttonStyle(LinkButtonStyle())", .success(os: .macOS))
                 }
             }
             TestCase("Button .buttonStyle(PlainButtonStyle())") {
@@ -103,8 +103,8 @@ struct TestButton: View {
                 .buttonStyle(PlainButtonStyle())
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".buttonStyle(PlainButtonStyle())")
-                    Check(iOS: true, macOS: false, test: "Alert display one time")
+                    Check(".buttonStyle(PlainButtonStyle())", .success(os: .iOS), .success(os: .macOS))
+                    Check("Alert display one time", .success(os: .iOS), .warning(os: .macOS, "with a dirty trick"))
                 }
             }
             TestCase("Button custom label") {
@@ -120,13 +120,21 @@ struct TestButton: View {
                 .buttonStyle(PlainButtonStyle())
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Custom label")
-                    Check(iOS: true, macOS: false, test: "Alert display one time")
+                    Check("Custom label", .success(os: .iOS), .success(os: .macOS))
+                    Check("Alert display one time", .success(os: .iOS), .warning(os: .macOS, "with a dirty trick"))
                 }
             }
         }
         .alert(item: $select) {
             pSelect in
+
+            #if os(macOS)
+            // Dirty trick for macOS to display Alert one time
+            DispatchQueue.main.async {
+                select = nil
+            }
+            #endif
+
             print(pSelect)
             return Alert(title: Text("\(pSelect.id.rawValue)"))
         }

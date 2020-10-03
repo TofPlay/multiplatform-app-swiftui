@@ -79,8 +79,8 @@ struct TestForm: View {
             }
 
             TestResult {
-                Check(iOS: true, macOS: false, test: "Section are well design")
-                Check(iOS: true, macOS: false, test: "TextField are well design")
+                Check("Section are well design", .success(os: .iOS), .error(os: .macOS))
+                Check("TextField are well design", .success(os: .iOS), .error(os: .macOS))
             }
             .padding(.top, 20)
             .padding(.leading, 10)

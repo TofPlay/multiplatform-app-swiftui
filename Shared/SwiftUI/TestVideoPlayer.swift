@@ -34,7 +34,7 @@ struct TestVideoPlayer: View {
                     .foregroundColor(.red)
                 #endif
                 TestResult {
-                    Check(iOS: true, macOS: false, test: "VideoPlayer .play()")
+                    Check("VideoPlayer .play()", .success(os: .iOS), .error(os: .macOS))
                 }
             }
         }

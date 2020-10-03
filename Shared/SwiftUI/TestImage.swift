@@ -17,8 +17,8 @@ struct TestImage: View {
                         .frame(width: 300, height: 150)
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".resizable()")
-                        Check(iOS: true, macOS: true, test: ".frame(width: 300, height: 150)")
+                        Check(".resizable()", .success(os: .iOS), .success(os: .macOS))
+                        Check(".frame(width: 300, height: 150)", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 TestCase("Image .blur(radius: 5)") {
@@ -28,7 +28,7 @@ struct TestImage: View {
                         .blur(radius: 5)
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".blur(radius: 5)")
+                        Check(".blur(radius: 5)", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 TestCase("Image .opacity(0.3)") {
@@ -38,7 +38,7 @@ struct TestImage: View {
                         .opacity(0.3)
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".opacity(0.3)")
+                        Check(".opacity(0.3)", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 TestCase("Image .brightness(0.60)") {
@@ -48,7 +48,7 @@ struct TestImage: View {
                         .brightness(0.60)
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".brightness(0.60)")
+                        Check(".brightness(0.60)", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 TestCase("Image .saturation(3.0)") {
@@ -58,7 +58,7 @@ struct TestImage: View {
                         .saturation(3.0)
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".saturation(3.0)")
+                        Check(".saturation(3.0)", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 TestCase("Image .grayscale(0.50)") {
@@ -68,7 +68,7 @@ struct TestImage: View {
                         .grayscale(0.50)
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".grayscale(0.50)")
+                        Check(".grayscale(0.50)", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 TestCase("Image .hueRotation(Angle(degrees: 90))") {
@@ -78,7 +78,7 @@ struct TestImage: View {
                         .hueRotation(Angle(degrees: 90))
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".hueRotation(Angle(degrees: 90))")
+                        Check(".hueRotation(Angle(degrees: 90))", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 TestCase("Image .luminanceToAlpha()") {
@@ -88,7 +88,7 @@ struct TestImage: View {
                         .luminanceToAlpha()
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".luminanceToAlpha()")
+                        Check(".luminanceToAlpha()", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 TestCase("Image .shadow(color: .black, radius: 5, x: 3.0, y: 3.0)") {
@@ -98,7 +98,7 @@ struct TestImage: View {
                         .shadow(color: .black, radius: 5, x: 3.0, y: 3.0)
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".shadow(color: .black, radius: 5, x: 3.0, y: 3.0)")
+                        Check(".shadow(color: .black, radius: 5, x: 3.0, y: 3.0)", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 TestCase("Image .colorMultiply(.red)") {
@@ -108,7 +108,7 @@ struct TestImage: View {
                         .colorMultiply(.red)
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".colorMultiply(.red)")
+                        Check(".colorMultiply(.red)", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
             }
@@ -122,8 +122,8 @@ struct TestImage: View {
                         .border(Color.red)
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".aspectRatio(contentMode: .fit)")
-                        Check(iOS: true, macOS: true, test: ".clipped()")
+                        Check(".aspectRatio(contentMode: .fit)", .success(os: .iOS), .success(os: .macOS))
+                        Check(".clipped()", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 TestCase("Image .aspectRatio(contentMode: .fill)") {
@@ -135,8 +135,8 @@ struct TestImage: View {
                         .border(Color.red)
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".aspectRatio(contentMode: .fill)")
-                        Check(iOS: true, macOS: true, test: ".clipped()")
+                        Check(".aspectRatio(contentMode: .fill)", .success(os: .iOS), .success(os: .macOS))
+                        Check(".clipped()", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
                 TestCase("Image .clipShape(Circle())") {
@@ -146,7 +146,7 @@ struct TestImage: View {
                         .frame(width: 300, height: 300)
 
                     TestResult {
-                        Check(iOS: true, macOS: true, test: ".clipShape(Circle())")
+                        Check(".clipShape(Circle())", .success(os: .iOS), .success(os: .macOS))
                     }
                 }
             }

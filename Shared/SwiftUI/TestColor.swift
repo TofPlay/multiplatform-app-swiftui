@@ -377,7 +377,7 @@ struct TestColor: View {
                 }
 
                 TestResult {
-                    Check(iOS: false, macOS: false, test: "properties 'red', 'green', 'blue', 'rgb', 'rgba', 'ligther' and 'darker'")
+                    Check("properties 'red', 'green', 'blue', 'rgb', 'rgba', 'ligther' and 'darker'", .error(os: .iOS), .error(os: .macOS))
                 }
             }
             

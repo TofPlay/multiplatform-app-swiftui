@@ -133,10 +133,10 @@ struct TestToolbarItem: View {
                     .padding()
                 
                 TestResult {
-                    Check(iOS: true, macOS: false, test: "Leading Toolbar")
-                    Check(iOS: true, macOS: true, test: "Trailing Toolbar")
-                    Check(iOS: true, macOS: true, test: "Remove toolbar")
-                    Check(iOS: false, macOS: false, test: "Spacer() in toolbar doesn't work")
+                    Check("Leading Toolbar", .success(os: .iOS), .error(os: .macOS))
+                    Check("Trailing Toolbar", .success(os: .iOS), .success(os: .macOS))
+                    Check("Remove toolbar", .success(os: .iOS), .success(os: .macOS))
+                    Check("Spacer() in toolbar doesn't work", .error(os: .iOS), .error(os: .macOS))
                 }
             }
         }

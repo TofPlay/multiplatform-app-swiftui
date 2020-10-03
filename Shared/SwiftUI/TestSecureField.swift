@@ -20,7 +20,7 @@ struct TestSecureField: View {
                         .textFieldStyle(DefaultTextFieldStyle())
                 }
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".textFieldStyle(DefaultTextFieldStyle())")
+                    Check(".textFieldStyle(DefaultTextFieldStyle())", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             TestCase("TextField .textFieldStyle(PlainTextFieldStyle())") {
@@ -31,7 +31,7 @@ struct TestSecureField: View {
                         .textFieldStyle(PlainTextFieldStyle())
                 }
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".textFieldStyle(PlainTextFieldStyle())")
+                    Check(".textFieldStyle(PlainTextFieldStyle())", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             TestCase("TextField .textFieldStyle(RoundedBorderTextFieldStyle())") {
@@ -42,7 +42,7 @@ struct TestSecureField: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".textFieldStyle(RoundedBorderTextFieldStyle())")
+                    Check(".textFieldStyle(RoundedBorderTextFieldStyle())", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             TestCase("TextField .textFieldStyle(SquareBorderTextFieldStyle())") {
@@ -59,7 +59,7 @@ struct TestSecureField: View {
                 #endif
                 
                 TestResult {
-                    Check(macOS: true, test: ".textFieldStyle(SquareBorderTextFieldStyle())")
+                    Check(".textFieldStyle(SquareBorderTextFieldStyle())", .success(os: .macOS))
                 }
             }
             Text("You enter: \(password)")

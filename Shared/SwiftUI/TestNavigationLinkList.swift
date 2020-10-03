@@ -105,8 +105,8 @@ struct TestNavigationLinkList: View {
             .navigationTitle("MainView")
             
             TestResult {
-                Check(iOS: true, macOS: false, test: "NavigationLink with list")
-                Check(iOS: false, macOS: false, test: "List.background(Color.systemGray6)")
+                Check("NavigationLink with list", .success(os: .iOS), .error(os: .macOS))
+                Check("List.background(Color.systemGray6)", .error(os: .iOS), .error(os: .macOS))
             }
             Spacer()
         }

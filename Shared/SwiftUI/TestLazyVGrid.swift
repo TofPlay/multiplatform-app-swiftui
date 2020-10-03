@@ -43,7 +43,7 @@ struct TestLazyVGrid: View {
                 .background(Color.gray)
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "LazyVGrid + 1 GridItem(.fixed())")
+                    Check("LazyVGrid + 1 GridItem(.fixed())", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             TestCase("Fixed, 3 columns")  {
@@ -64,7 +64,7 @@ struct TestLazyVGrid: View {
                 .background(Color.gray)
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "LazyVGrid + 3 GridItem(.fixed())")
+                    Check("LazyVGrid + 3 GridItem(.fixed())", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             TestCase("Flexible, 3 columns")  {
@@ -85,7 +85,7 @@ struct TestLazyVGrid: View {
                 .background(Color.gray)
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "LazyVGrid + 3 GridItem(.flexible())")
+                    Check("LazyVGrid + 3 GridItem(.flexible())", .success(os: .iOS), .success(os: .macOS))
                 }
             }
         }

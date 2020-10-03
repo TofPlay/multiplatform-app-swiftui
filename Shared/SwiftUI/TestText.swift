@@ -51,9 +51,9 @@ struct TestText: View {
                     .underline()
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".bold()")
-                    Check(iOS: true, macOS: true, test: ".italic()")
-                    Check(iOS: true, macOS: true, test: ".underline()")
+                    Check(".bold()", .success(os: .iOS), .success(os: .macOS))
+                    Check(".italic()", .success(os: .iOS), .success(os: .macOS))
+                    Check(".underline()", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -97,16 +97,16 @@ struct TestText: View {
                 }
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".font(.largeTitle)")
-                    Check(iOS: true, macOS: true, test: ".font(.title)")
-                    Check(iOS: true, macOS: true, test: ".font(.title3)")
-                    Check(iOS: true, macOS: true, test: ".font(.headline)")
-                    Check(iOS: true, macOS: true, test: ".font(.subheadline)")
-                    Check(iOS: true, macOS: true, test: ".font(.body)")
-                    Check(iOS: true, macOS: true, test: ".font(.callout)")
-                    Check(iOS: true, macOS: true, test: ".font(.caption)")
-                    Check(iOS: true, macOS: true, test: ".font(.caption2)")
-                    Check(iOS: true, macOS: true, test: ".font(.footnote)")
+                    Check(".font(.largeTitle)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".font(.title)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".font(.title3)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".font(.headline)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".font(.subheadline)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".font(.body)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".font(.callout)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".font(.caption)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".font(.caption2)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".font(.footnote)", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -114,7 +114,7 @@ struct TestText: View {
                 Text("Bold").bold() + Text(", ") + Text("Italic").italic() + Text(", ") + Text("Underline").underline()
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Text(\"\").bold() + Text(\"\").italic() + Text(\"\").underline()")
+                    Check("Text(\"\").bold() + Text(\"\").italic() + Text(\"\").underline()", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -129,9 +129,9 @@ struct TestText: View {
                     .multilineTextAlignment(.trailing)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.leading)")
-                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.center)")
-                    Check(iOS: true, macOS: true, test: ".multilineTextAlignment(.trailing)")
+                    Check(".multilineTextAlignment(.leading)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".multilineTextAlignment(.center)", .success(os: .iOS), .success(os: .macOS))
+                    Check(".multilineTextAlignment(.trailing)", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -139,7 +139,7 @@ struct TestText: View {
                 Text("Now it's: \(Date(), formatter: Self.dateFormatter)")
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "String interpolation")
+                    Check("String interpolation", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -162,7 +162,7 @@ struct TestText: View {
                 .padding([.leading,.trailing], 20)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "Text .redacted(reason: .placeholder)")
+                    Check("Text .redacted(reason: .placeholder)", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             

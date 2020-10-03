@@ -35,9 +35,9 @@ struct TestOutlineGroup: View {
                 #endif
 
                 TestResult {
-                    Check(iOS: false, macOS: false, test: "Display Items")
-                    Check(iOS: false, macOS: false, test: "Display subItems")
-                    Check(iOS: true, macOS: false, test: ".background(Color.systemGray6)")
+                    Check("Display Items", .error(os: .iOS), .error(os: .macOS))
+                    Check("Display subItems", .error(os: .iOS), .error(os: .macOS))
+                    Check(".background(Color.systemGray6)", .success(os: .iOS), .error(os: .macOS))
                 }
             }
 
@@ -61,9 +61,9 @@ struct TestOutlineGroup: View {
                 #endif
 
                 TestResult {
-                    Check(iOS: true, macOS: false, test: "Display Items")
-                    Check(iOS: true, macOS: false, test: "Display subItems")
-                    Check(iOS: false, macOS: false, test: ".background(Color.systemGray6)")
+                    Check("Display Items", .success(os: .iOS), .error(os: .macOS))
+                    Check("Display subItems", .success(os: .iOS), .error(os: .macOS))
+                    Check(".background(Color.systemGray6)", .error(os: .iOS), .error(os: .macOS))
                 }
             }
         }

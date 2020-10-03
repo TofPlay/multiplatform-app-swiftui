@@ -30,7 +30,7 @@ struct TestSplitView: View {
                 #endif
 
                 TestResult {
-                    Check(macOS: true, test: "VSplitView")
+                    Check("VSplitView", .success(os: .macOS))
                 }
             }
 
@@ -54,7 +54,7 @@ struct TestSplitView: View {
                 #endif
 
                 TestResult {
-                    Check(macOS: true, test: "HSplitView")
+                    Check("HSplitView", .success(os: .macOS))
                 }
             }
         }

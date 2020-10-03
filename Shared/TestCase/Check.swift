@@ -9,52 +9,75 @@ import SwiftUI
 
 struct Check: View {
     
-    struct Tag: View {
-        let valid:Bool?
-        let name:String
+    public struct Status: Identifiable {
+        public enum OS: String {
+            case watchOS
+            case tvOS
+            case iOS
+            case iPadOS
+            case macOS
+        }
         
-        var body: some View {
-            if let lValid = valid {
-                HStack {
-                    Image(systemName: lValid ? "checkmark" : "xmark")
-                    Text(name)
-                        .bold()
-                        .fixedSize()
-                }
-                .padding(.horizontal, 10)
-                .padding(.vertical, 3)
-                .background(lValid ? Color.green : Color.red)
-                .foregroundColor(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .padding(.all,3)
-            } else {
-                EmptyView()
-            }
+        let id: UUID = UUID()
+        let os: OS
+        let image: String
+        let forground: Color
+        let background: Color
+        let msg:String?
+        
+        public static func success(os pOS:OS, _ pMsg:String? = nil) -> Status {
+            return Status(os: pOS, image: "checkmark", forground: .white, background: .green, msg: pMsg)
+        }
+
+        public static func warning(os pOS:OS, _ pMsg:String? = nil) -> Status {
+            return Status(os: pOS, image: "checkmark", forground: .white, background: .orange, msg: pMsg)
+        }
+
+        public static func error(os pOS:OS, _ pMsg:String? = nil) -> Status {
+            return Status(os: pOS, image: "xmark", forground: .white, background: .red, msg: pMsg)
         }
     }
     
-    let watchOS: Bool?
-    let tvOS: Bool?
-    let iOS: Bool?
-    let macOS: Bool?
-    let test: String
+    private struct Tag: View {
+        let status: Status
+        
+        var body: some View {
+            HStack {
+                Image(systemName: status.image)
+                Text(status.os.rawValue + (status.msg != nil ? ", " : ""))
+                    .bold()
+                    .fixedSize()
+                
+                if let lMsg = status.msg {
+                    Text(lMsg)
+                        .fixedSize()
+                }
+            }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 3)
+            .background(status.background)
+            .foregroundColor(status.forground)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding(.all,3)
+        }
+    }
     
-    public init(watchOS pWatchOS:Bool? = nil, tvOS pTvOS:Bool? = nil, iOS piOS:Bool? = nil, macOS pMacOS:Bool? = nil, test pTest:String) {
-        self.watchOS = pWatchOS
-        self.tvOS = pTvOS
-        self.iOS = piOS
-        self.macOS = pMacOS
+    let test: String
+    let status: [Status]
+    
+    public init(_ pTest:String, _ pStatus:Status...) {
+        self.status = pStatus
         self.test = pTest
     }
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Tag(valid: watchOS, name: "watchOS")
-                Tag(valid: tvOS, name: "tvOS")
-                Tag(valid: iOS, name: "iOS")
-                Tag(valid: macOS, name: "macOS")
-
+                ForEach(status) {
+                    pStatus in
+                    Tag(status: pStatus)
+                }
+                
                 Text(test)
                     .foregroundColor(.gray)
             }
@@ -69,10 +92,11 @@ struct Check: View {
 struct Check_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            Check(iOS: true, macOS: true, test: "Feature 1")
-            Check(iOS: false, macOS: false, test: "Feature 1")
-            Check(iOS: true, macOS: false, test: "Feature 1")
-            Check(iOS: false, macOS: true, test: "Feature 1")
+            Check("Test 1", .success(os: .iOS), .success(os: .macOS))
+            Check("Test 1", .error(os: .iOS), .error(os: .macOS))
+            Check("Test 1", .success(os: .iOS), .error(os: .macOS))
+            Check("Test 1", .error(os: .iOS), .success(os: .macOS))
+            Check("Test 1", .success(os: .iOS), .warning(os: .macOS, "with patch"))
         }
     }
 }

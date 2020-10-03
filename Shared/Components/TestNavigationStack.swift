@@ -76,7 +76,7 @@ struct TestNavigationStack: View {
                 .navigationTitle("MyHome")
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "NavigationStack")
+                    Check("NavigationStack", .success(os: .iOS), .success(os: .macOS))
                 }
             }
         }

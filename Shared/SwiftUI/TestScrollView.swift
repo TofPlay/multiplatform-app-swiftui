@@ -44,7 +44,7 @@ struct TestScrollView: View {
                 .padding(.leading, 20)
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".vertical")
+                    Check(".vertical", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -76,7 +76,7 @@ struct TestScrollView: View {
                 .padding(.leading, 20)
                 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: ".horizontal")
+                    Check(".horizontal", .success(os: .iOS), .success(os: .macOS))
                 }
             }
             
@@ -171,7 +171,7 @@ struct TestScrollView: View {
                 .padding(.leading, 20)
 
                 TestResult {
-                    Check(iOS: true, macOS: true, test: "ScrollViewReader")
+                    Check("ScrollViewReader", .success(os: .iOS), .success(os: .macOS))
                 }
             }
         }
