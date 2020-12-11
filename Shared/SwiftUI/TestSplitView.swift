@@ -13,48 +13,69 @@ struct TestSplitView: View {
             TestCase("VSplitView") {
                 #if os(macOS)
                 VSplitView {
-                    Rectangle().foregroundColor(.blue).frame(height: 30)
+                    Rectangle()
+                        .foregroundColor(.blue)
+                        .frame(height: 30)
+                        .frame(minHeight: 10)
                         .overlay(Text("Blue"))
                         .foregroundColor(.white)
-                    Rectangle().foregroundColor(.white).frame(minHeight: 30)
+                    Rectangle()
+                        .foregroundColor(.white)
+                        .frame(height: 30)
+                        .frame(minHeight: 10)
                         .overlay(Text("White"))
                         .foregroundColor(.blue)
-                    Rectangle().foregroundColor(.red).frame(minHeight: 30)
+                    Rectangle().foregroundColor(.red)
+                        .frame(height: 30)
+                        .frame(minHeight: 10)
                         .overlay(Text("Red"))
                         .foregroundColor(.white)
                 }
-                .frame(width: 200, height: 90)
+                .frame(width: 200)
                 #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
                 #endif
 
                 TestResult {
-                    Check("VSplitView", .success(os: .macOS))
+                    Check("Can resize blue", .success(os: .macOS))
+                    Check("Can resize white", .success(os: .macOS))
+                    Check("Can resize red", .error(os: .macOS))
                 }
             }
 
             TestCase("HSplitView") {
                 #if os(macOS)
                 HSplitView {
-                    Rectangle().foregroundColor(.blue).frame(minWidth: 60)
+                    Rectangle()
+                        .foregroundColor(.blue)
+                        .frame(width: 60)
+                        .frame(minWidth: 10)
                         .overlay(Text("Blue"))
                         .foregroundColor(.white)
-                    Rectangle().foregroundColor(.white).frame(minWidth: 60)
+                    Rectangle()
+                        .foregroundColor(.white)
+                        .frame(width: 60)
+                        .frame(minWidth: 10)
                         .overlay(Text("White"))
                         .foregroundColor(.blue)
-                    Rectangle().foregroundColor(.red).frame(minWidth: 60)
+                    Rectangle()
+                        .foregroundColor(.red)
+                        .frame(width: 60)
+                        .frame(minWidth: 10)
                         .overlay(Text("Red"))
                         .foregroundColor(.white)
                 }
-                .frame(width: 180, height: 90)
+                .frame(height: 90)
                 #else
                 Text("Only supported on macOS")
                     .foregroundColor(.orange)
                 #endif
 
                 TestResult {
-                    Check("HSplitView", .success(os: .macOS))
+                    Check("Can resize blue", .error(os: .macOS))
+                    Check("Can resize white", .error(os: .macOS))
+                    Check("Can resize red", .error(os: .macOS))
                 }
             }
         }

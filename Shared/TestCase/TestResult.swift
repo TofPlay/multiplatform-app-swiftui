@@ -25,8 +25,8 @@ struct TestResult<Content:View>: View {
                     Text("Environment:")
 
                     VStack(alignment: .leading) {
-                        Text("- macOS Big Sur Beta 8")
-                        Text("- Xcode 12.2 Beta")
+                        Text("- macOS Big Sur 11.0.1")
+                        Text("- Xcode 12.2")
                     }
                     .foregroundColor(.gray)
                     .padding(.leading, 20)

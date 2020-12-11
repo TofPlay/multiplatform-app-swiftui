@@ -148,7 +148,7 @@ struct TestList: View {
                 
                 TestResult {
                     Check(".listStyle(SidebarListStyle())", .success(os: .iOS), .success(os: .macOS))
-                    Check(".listRowBackground(Color.blue.lighter) totaly random on macOS", .success(os: .iOS), .error(os: .macOS))
+                    Check(".listRowBackground(Color.blue.lighter)", .success(os: .iOS), .success(os: .macOS))
                     Check(".frame(width: 300, height: 500)", .success(os: .iOS), .success(os: .macOS))
                     Check(".border(Color.red)", .success(os: .iOS), .success(os: .macOS))
                 }
