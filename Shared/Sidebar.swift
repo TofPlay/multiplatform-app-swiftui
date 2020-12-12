@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct Sidebar: View {
-    @Binding public var swiftUI:[Test]
-    @Binding public var components:[Test]
+    @Binding public var headings:[Heading]
     @Binding public var select: Test?
     
     @State private var over:Test? = nil
@@ -57,20 +56,15 @@ struct Sidebar: View {
         VStack(alignment: .leading) {
             
             List {
-                Section(header: Text("SwiftUI")) {
-                    ForEach(swiftUI, id: \.self) {
-                        feature in
-
-                        Item(select: $select, over: $over, test: feature)
+                ForEach(headings) {
+                    pHeading in
+                    Section(header: Text(pHeading.id)) {
+                        ForEach(pHeading.tests, id: \.self) {
+                            pTest in
+                            Item(select: $select, over: $over, test: pTest)
+                        }
                     }
-                }
 
-                Section(header: Text("Components")) {
-                    ForEach(components, id: \.self) {
-                        feature in
-                        
-                        Item(select: $select, over: $over, test: feature)
-                    }
                 }
             }
             .listStyle(SidebarListStyle())
@@ -79,10 +73,9 @@ struct Sidebar: View {
     
 }
 
-
 struct PrimaryView_Previews: PreviewProvider {
     static var previews: some View {
-        Sidebar(swiftUI: .constant([.progressView, .textEditor, .datePicker, .colorPicker, .map]), components: .constant([.navigationStack]), select: .constant(.datePicker))
+        Sidebar(headings: .constant([Heading(id: "SwiftUI", tests: [.progressView, .textEditor, .datePicker, .colorPicker, .map])]), select: .constant(.datePicker))
     }
 }
 

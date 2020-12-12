@@ -44,50 +44,61 @@ public enum Test: String {
     case transitionView = "TransitionView"
     case animations = "Animations"
     
+    // Wrappers
+    case wrapperWebView = "WrapperWebView"
+    
     // Components
     case navigationStack = "NavigationStack"
 }
 
+public struct Heading: Identifiable {
+    public var id: String
+    public var tests: [Test]
+}
+
 @main
 struct MultiplatformAppSwiftUI: App {
-    @State private var swiftUI:[Test] = [
-        .color,
-        .text,
-        .label,
-        .textField,
-        .secureField,
-        .textEditor,
-        .button,
-        .toggle,
-        .slider,
-        .stepper,
-        .progressView,
-        .shape,
-        .image,
-        .link,
-        .videoPlayer,
-        .animations,
-        .scrollView,
-        .splitView,
-        .webView,
-        .list,
-        .disclosureGroup,
-        .outlineGroup,
-        .picker,
-        .datePicker,
-        .colorPicker,
-        .form,
-        .map,
-        .lazyVGrid,
-        .lazyVGridAndSections,
-        .toolbarItem,
-        .navigationLinkButton,
-        .navigationLinkList,
-        .presentingViews,
-        .transitionView,
+    
+    @State private var headings: [Heading] = [
+        Heading(id: "1. SwiftUI", tests: [
+            .color,
+            .text,
+            .label,
+            .textField,
+            .secureField,
+            .textEditor,
+            .button,
+            .toggle,
+            .slider,
+            .stepper,
+            .progressView,
+            .shape,
+            .image,
+            .link,
+            .videoPlayer,
+            .animations,
+            .scrollView,
+            .splitView,
+            .webView,
+            .list,
+            .disclosureGroup,
+            .outlineGroup,
+            .picker,
+            .datePicker,
+            .colorPicker,
+            .form,
+            .map,
+            .lazyVGrid,
+            .lazyVGridAndSections,
+            .toolbarItem,
+            .navigationLinkButton,
+            .navigationLinkList,
+            .presentingViews,
+            .transitionView
+        ]),
+        Heading(id: "2. Wrappers", tests: [.wrapperWebView]),
+        Heading(id: "3. Components", tests: [.navigationStack])
     ]
-
-    @State private var components:[Test] = [.navigationStack]
 
     @State private var views:[Test:AnyView] = [
         .color : AnyView(TestColor()),
@@ -124,6 +135,7 @@ struct MultiplatformAppSwiftUI: App {
         .navigationLinkList : AnyView(TestNavigationLinkList()),
         .presentingViews : AnyView(TestPresentingViews()),
         .transitionView : AnyView(TestTransitionView()),
+        .wrapperWebView : AnyView(TestWrapperWebView()),
         .navigationStack : AnyView(TestNavigationStack())
     ]
     
@@ -132,7 +144,7 @@ struct MultiplatformAppSwiftUI: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Sidebar(swiftUI: $swiftUI, components: $components, select: $select)
+                Sidebar(headings: $headings, select: $select)
                     .toolbar {
                         #if os(macOS)
                         ToolbarItem(placement: .primaryAction) {

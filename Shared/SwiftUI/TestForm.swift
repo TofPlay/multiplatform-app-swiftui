@@ -77,6 +77,8 @@ struct TestForm: View {
                     Toggle("I agree to the terms & conditions", isOn: $acceptedTerms)
                 }
             }
+            .border(Color.red)
+            .padding()
 
             TestResult {
                 Check("Section are well design", .success(os: .iOS), .error(os: .macOS))
