@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TestWrapperWebView: View {
-    @State private var webView = WrapperWebView(url: "https://www.apple.com")
-    @State private var url = "https://www.apple.com"
+    @State private var webView = WrapperWebView(url: "https://www.google.com")
+    @State private var url = "https://www.google.com"
     @State private var current = ""
     
     var body: some View {
@@ -28,20 +28,27 @@ struct TestWrapperWebView: View {
                             }
                             GeometryReader {
                                 pGeo in
-                                ScrollView {
-                                    webView
-                                        .frame(height: pGeo.size.height)
+                                VStack {
+                                    ScrollView {
+                                        webView
+                                            .frame(height: pGeo.size.height - 20)
+                                    }
+                                    Text(current)
+                                        .foregroundColor(.white)
+                                        .frame(width: pGeo.size.width, alignment: .leading)
+                                        .truncationMode(.tail)
+                                        .lineLimit(1)
+                                        .onReceive(webView.data.$current) {
+                                            pCurrent in
+                                            current = pCurrent ?? ""
+                                        }
                                 }
                             }
                             
-                            VStack(alignment: .leading) {
-                                Text(webView.data.current ?? "")
-                                    .foregroundColor(.white)
-                            }
                         }
                         .padding(5)
                     )
-
+                
                 TestResult {
                     Check("WrapperWebView", .success(os: .iOS), .success(os: .macOS))
                 }

@@ -34,7 +34,7 @@ extension WrapperWebView {
         var loadedUrl: String? = nil
         
         init(data pData: Data) {
-            self.data = pData
+            data = pData
             super.init()
             webView.navigationDelegate = self
         }

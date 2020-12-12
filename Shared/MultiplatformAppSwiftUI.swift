@@ -45,7 +45,7 @@ public enum Test: String {
     case animations = "Animations"
     
     // Wrappers
-    case wrapperWebView = "Wrapper: WebView"
+    case wrapperWebView = "WrapperWebView"
     
     // Components
     case navigationStack = "NavigationStack"
