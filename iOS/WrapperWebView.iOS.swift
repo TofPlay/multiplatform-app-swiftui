@@ -24,19 +24,30 @@ public struct WrapperWebView: UIViewRepresentable {
         return pContext.coordinator.webView
     }
     
-    public func updateUIView(_ pView: WKWebView, context pContext: Context) {
-        guard pContext.coordinator.loadedUrl != data.url else { return }
-        
-        pContext.coordinator.loadedUrl = data.url
-        
-        if let lUrl = data.url {
-            if let lUrl = URL(string: lUrl) {
-                let lRequest = URLRequest(url: lUrl)
-                pView.load(lRequest)
+    public func updateUIView(_ pWebView: WKWebView, context pContext: Context) {
+        if pWebView.canGoBack && data.goBack {
+            data.goBack = false
+            pWebView.goBack()
+        } else if pWebView.canGoForward && data.goForward {
+            data.goForward = false
+            pWebView.goForward()
+        } else if data.reload {
+            data.reload = false
+            pWebView.reload()
+        } else {
+            guard pContext.coordinator.loadedUrl != data.url else { return }
+            
+            pContext.coordinator.loadedUrl = data.url
+            
+            if let lUrl = data.url {
+                if let lUrl = URL(string: lUrl) {
+                    let lRequest = URLRequest(url: lUrl)
+                    pWebView.load(lRequest)
+                }
             }
+            
+            pContext.coordinator.data.url = data.url
         }
-        
-        pContext.coordinator.data.url = data.url
     }
     
     public func makeCoordinator() -> Coordinator {

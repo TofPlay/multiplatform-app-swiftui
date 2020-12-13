@@ -14,10 +14,15 @@ extension WrapperWebView {
     // MARK: WrapperWebView.Context
     // MARK: -
     public class Data: ObservableObject {
-        @Published var loading: Bool = false
-        @Published var url: String? = nil
-        @Published var current: String? = nil
-        @Published var error: Error? = nil
+        @Published public var loading: Bool = false
+        @Published public var url: String? = nil
+        @Published public var current: String? = nil
+        @Published public var error: Error? = nil
+        @Published public var reload: Bool = false
+        @Published public var goBack: Bool = false
+        @Published public var canGoBack: Bool = false
+        @Published public var goForward: Bool = false
+        @Published public var canGoForward: Bool = false
     }
 
 }
@@ -60,7 +65,10 @@ extension WrapperWebView {
 
         // Called when the navigation is complete.
         public func webView(_ pWebView: WKWebView, didFinish pNavigation: WKNavigation!) {
+            print("\(#function), \(#line)")
             data.loading = false
+            data.canGoBack = pWebView.canGoBack
+            data.canGoForward = pWebView.canGoForward
         }
         
         // Called when an error occurs during navigation.
