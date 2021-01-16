@@ -8,15 +8,6 @@
 import SwiftUI
 
 struct TestResult<Content:View>: View {
-    struct Rounded: Shape {
-        let radius: CGFloat
-        
-        func path(in pRect: CGRect) -> Path {
-            let lRet = Path(roundedRect: pRect, cornerRadius: radius)
-            return lRet
-        }
-    }
-
     let alignment: HorizontalAlignment
     let content:Content
     
@@ -56,6 +47,8 @@ struct TestResult<Content:View>: View {
             .padding()
             Spacer()
         }
+        .background(Color.white)
+        .cornerRadius(8.0, antialiased: true)
         .overlay(
             RoundedRectangle(cornerRadius: 8.0)
                 .stroke(lineWidth: 1)
