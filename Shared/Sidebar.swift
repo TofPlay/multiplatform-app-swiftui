@@ -69,6 +69,9 @@ struct Sidebar: View {
             }
             .listStyle(SidebarListStyle())
         }
+        .if(.macOS) {
+            $0.frame(width: 200, alignment: .leading)
+        }
     }
     
 }

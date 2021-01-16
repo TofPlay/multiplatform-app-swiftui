@@ -11,7 +11,7 @@ import Combine
 
 extension WrapperWebView {
     // MARK: -
-    // MARK: WrapperWebView.Context
+    // MARK: WrapperWebView.Data
     // MARK: -
     public class Data: ObservableObject {
         @Published public var loading: Bool = false
@@ -73,11 +73,13 @@ extension WrapperWebView {
         
         // Called when an error occurs during navigation.
         public func webView(_ pWebView: WKWebView, didFail navigation: WKNavigation!, withError pError: Error) {
+            print("\(#function), \(#line), Error: \(pError)")
             data.error = pError
         }
         
         // Called when an error occurs while the web view is loading content.
         public func webView(_ pWebView: WKWebView, didFailProvisionalNavigation pNavigation: WKNavigation!, withError pError: Error) {
+            print("\(#function), \(#line), Error: \(pError)")
             data.error = pError
         }
         

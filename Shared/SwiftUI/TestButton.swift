@@ -36,7 +36,7 @@ struct TestButton: View {
 
                 TestResult {
                     Check(".buttonStyle(DefaultButtonStyle())", .success(os: .iOS), .success(os: .macOS))
-                    Check("Alert display one time", .success(os: .iOS), .warning(os: .macOS, "with a dirty trick"))
+                    Check("Alert display one time", .success(os: .iOS), .error(os: .macOS))
                 }
             }
             TestCase("Button .buttonStyle(BorderedButtonStyle())") {
@@ -53,7 +53,7 @@ struct TestButton: View {
 
                 TestResult {
                     Check(".buttonStyle(BorderedButtonStyle())", .success(os: .macOS))
-                    Check("Alert display one time", .warning(os: .macOS, "with a dirty trick"))
+                    Check("Alert display one time", .error(os: .macOS))
                 }
             }
             TestCase("Button .buttonStyle(BorderlessButtonStyle())") {
@@ -64,7 +64,7 @@ struct TestButton: View {
 
                 TestResult {
                     Check(".buttonStyle(BorderlessButtonStyle())", .success(os: .iOS), .success(os: .macOS))
-                    Check("Alert display one time", .success(os: .iOS), .warning(os: .macOS, "with a dirty trick"))
+                    Check("Alert display one time", .success(os: .iOS), .error(os: .macOS))
                 }
             }
             TestCase("Button .buttonStyle(CardButtonStyle())") {
@@ -104,7 +104,7 @@ struct TestButton: View {
 
                 TestResult {
                     Check(".buttonStyle(PlainButtonStyle())", .success(os: .iOS), .success(os: .macOS))
-                    Check("Alert display one time", .success(os: .iOS), .warning(os: .macOS, "with a dirty trick"))
+                    Check("Alert display one time", .success(os: .iOS), .error(os: .macOS))
                 }
             }
             TestCase("Button custom label") {
@@ -121,20 +121,12 @@ struct TestButton: View {
 
                 TestResult {
                     Check("Custom label", .success(os: .iOS), .success(os: .macOS))
-                    Check("Alert display one time", .success(os: .iOS), .warning(os: .macOS, "with a dirty trick"))
+                    Check("Alert display one time", .success(os: .iOS), .error(os: .macOS))
                 }
             }
         }
         .alert(item: $select) {
             pSelect in
-
-            #if os(macOS)
-            // Dirty trick for macOS to display Alert one time
-            DispatchQueue.main.async {
-                select = nil
-            }
-            #endif
-
             print(pSelect)
             return Alert(title: Text("\(pSelect.id.rawValue)"))
         }

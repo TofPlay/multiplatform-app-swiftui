@@ -73,8 +73,6 @@ struct TestWrapperWebView: View {
                                     ScrollView {
                                         webView
                                             .frame(height: pGeo.size.height - 20)
-                                            
-                                            
                                     }
                                     Text(current)
                                         .foregroundColor(.white)

@@ -99,7 +99,7 @@ struct MultiplatformAppSwiftUI: App {
         Heading(id: "2. Wrappers", tests: [.wrapperWebView]),
         Heading(id: "3. Components", tests: [.navigationStack])
     ]
-
+    
     @State private var views:[Test:AnyView] = [
         .color : AnyView(TestColor()),
         .text : AnyView(TestText()),
@@ -157,23 +157,23 @@ struct MultiplatformAppSwiftUI: App {
                         }
                         #endif
                     }
-
-                #if os(iOS)
+                
+                #if os(macOS)
+                DetailView(select: $select, views: $views)
+                    .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity)
+                #else
                 DetailView(select: $select, views: $views)
                     .navigationTitle("Multiplatform App SwiftUI")
                     .navigationBarTitleDisplayMode(.inline)
-                #else
-                DetailView(select: $select, views: $views)
-                    .frame(minWidth: 900, maxWidth: .infinity, minHeight: 200, maxHeight: .infinity)
                 #endif
             }
             .navigationTitle("Multiplatform App SwiftUI")
         }
     }
-
+    
     #if os(macOS)
     func toggleSidebar() {
-            NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
     }
     #endif
 }

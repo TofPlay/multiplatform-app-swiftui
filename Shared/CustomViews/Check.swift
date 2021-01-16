@@ -10,14 +10,6 @@ import SwiftUI
 struct Check: View {
     
     public struct Status: Identifiable {
-        public enum OS: String {
-            case watchOS
-            case tvOS
-            case iOS
-            case iPadOS
-            case macOS
-        }
-        
         let id: UUID = UUID()
         let os: OS
         let image: String
