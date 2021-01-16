@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TestWrapperWebView: View {
-    @State private var webView = WrapperWebView(url: "https://www.google.com")
-    @State private var url = "https://www.google.com"
+    @State private var webView = WrapperWebView(url: "https://www.qwant.com/?q=SwiftUI&t=web")
+    @State private var url = "https://www.qwant.com/?q=SwiftUI&t=web"
     @State private var current = ""
     @State private var canGoBack: Bool = false
     @State private var canGoForward: Bool = false
@@ -91,7 +91,9 @@ struct TestWrapperWebView: View {
                 }
             }
         }
-        .frame(width: 800.0, height: 800.0)
+        .if(.macOS) {
+            $0.frame(width: 800.0, height: 800.0)
+        }
         .onReceive(webView.data.$current) {
             pCurrent in
             current = pCurrent ?? ""
